@@ -3,6 +3,7 @@
 <head>
     <link rel="icon" type="image/png" href="figure/favicon.png">
     <meta charset="UTF-8">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gu Kongxin (顾孔新，顧孔新) | Ohtsuki Lab</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -335,7 +336,7 @@
                     <li><a onclick="switchView('publications')" id="nav-publications" data-t="nav_pub">PUBLICATIONS</a></li>
                     <li><a onclick="switchView('others')" id="nav-others" data-t="nav_others">OTHERS</a></li>
                     <li><a onclick="switchView('contact')" id="nav-contact" data-t="nav_contact">CONTACT</a></li>
-                    <li><a onclick="switchView('personal')" id="nav-personal" data-t="nav_personal">PERSONAL</a></li>
+                    <li><a onclick="checkPersonalAccess()" id="nav-personal" data-t="nav_personal">PERSONAL</a></li>
                 </ul>
             </nav>
             <div class="lang-switcher">
@@ -653,6 +654,7 @@ conf_list: `
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution: Terminomics</h4>
+                    
                     <p>Terminomics also called positional proteomics is a specialized branch of proteomics dedicated to the systematic study of the N-termini and C-termini of all proteins within a biological system (the "terminome").</p>
                     <p>While traditional proteomics looks at the whole protein, terminomics focuses specifically on the "ends." These ends are crucial because they carry the history of a protein’s life:</p>
                     <ul>
@@ -666,6 +668,13 @@ conf_list: `
                     <p>Discovering "Neo-termini": When a protease cuts a protein, it creates a new N-terminus (neo-N-terminus). Identifying these helps researchers find the specific substrates of enzymes, which is vital for drug development.</p>
                     <p>Disease Biomarkers: Many diseases, such as cancer and Alzheimer’s, involve abnormal protein cutting. Terminomics can identify specific "protein fragments" in blood or tissue that serve as early warning signs.</p>
 
+                    <div style="text-align: center; margin: 2rem 0;">
+    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+    
+    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
+        // General workflow of terminomics
+    </p>
+</div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Ongoing Research</h4>
@@ -732,36 +741,55 @@ conf_list: `
                
                 
                 master_desc: `
-                    <div style="margin-bottom: 3rem;">
-                        <h3 style="color:var(--highlight); border-left:4px solid var(--highlight); padding-left:10px; margin-bottom:1rem;">01. Amisulpride Orally Disintegrating Tablets</h3>
-                        <p><strong>The Clinical Dilemma:</strong> Amisulpride is a frontline treatment for schizophrenia, but patients often resist medication due to extreme bitterness and swallowing difficulties.</p>
-                        <p><strong>Outcome:</strong> Utilized Solid Dispersion technology to mask bitterness. Achieved rapid disintegration within 30s.</p>
-                        <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
-                    </div>
-
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
-
-                    <div style="margin-bottom: 3rem;">
-                        <h3 style="color:var(--highlight); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">02. Nanocarrier Tumor-Targeted DDS</h3>
-                        <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy suffers from "poor specificity," causing severe systemic toxicity while failing to penetrate deep into tumor tissues.</p>
-                        <p><strong>Outcome:</strong> Developed a functionalized nanocarrier with active targeting. It remains stable in circulation and disintegrates in the tumor microenvironment, significantly enhancing drug accumulation in tumor tissues.</p>
-                        <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
-                    </div>
+                    // 这是 master_desc 内部的第一部分 (01. Amisulpride ODT)
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--highlight); border-left:4px solid var(--highlight); padding-left:10px; margin-bottom:1rem;">01. Development of Amisulpride Orally Disintegrating Tablets</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <p><strong>The Clinical Dilemma:</strong> Amisulpride is a first-line treatment for schizophrenia, but it faces two major challenges: 1) It belongs to BCS Class II drugs (poorly water-soluble), resulting in low bioavailability; 2) Patients often resist medication ("cheek-it" or spit it out) due to extreme bitterness or swallowing difficulties, which seriously affects the therapeutic outcome.</p>
+                    
+                    <p><strong>The Goal:</strong> To develop an "Orally Disintegrating Tablet (ODT)" that melts in the mouth without the need for water, addressing the root causes of poor patient compliance through dosage form design.</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
+                    <p>I utilized <strong>Solid Dispersion Technology</strong> to overcome the solubility bottleneck and successfully masked the bitter taste. The final formulation achieved extremely rapid disintegration within <strong>30 seconds</strong> and offered a pleasant mouthfeel. This effectively prevents patients from hiding the medication and fills a gap in the market for this drug in an ODT dosage form.</p>
+                    
+                    <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
                     <div style="margin-bottom: 2rem;">
-                        <h3 style="color:var(--highlight); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. Nanoemulsion Transdermal Delivery System</h3>
-                        
-                        <h4>Research Background & Challenge</h4>
-                        <p><strong>The Clinical Dilemma:</strong> Carbamazepine (CBZ) is a BCS Class II drug with poor solubility. Oral administration suffers from unstable absorption, significant first-pass metabolism, and GI side effects, leading to poor compliance in long-term therapy.</p>
-                        <p><strong>The Goal:</strong> To construct a non-invasive "Nanoemulsion Transdermal System" that enhances solubility and bypasses the liver to improve bioavailability.</p>
-                        
-                        <h4>Solution & Outcome</h4>
-                        <p>I formulated a CBZ-loaded Nanoemulsion with ultra-small droplet size (<200nm). Its unique lipid affinity effectively overcomes the stratum corneum barrier. In vivo studies confirmed that the system successfully bypassed first-pass metabolism, providing a smoother plasma concentration profile compared to oral dosing.</p>
-                        
-                        <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
-                    </div>
+                    <h3 style="color:var(--highlight); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. Development of a Nanoemulsion Transdermal Delivery System</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <p><strong>The Clinical Dilemma:</strong> Carbamazepine (CBZ) is a first-line drug for treating epilepsy and trigeminal neuralgia, but its oral preparations face three major problems: 1) It is a BCS Class II drug with extremely poor water solubility, leading to unstable absorption; 2) There is a significant hepatic first-pass effect, which seriously reduces bioavailability; 3) Gastrointestinal reactions and swallowing difficulties during long-term oral administration lead to poor compliance in specific patient groups.</p>
+                    
+                    <p><strong>The Goal:</strong> To construct a non-invasive "Nanoemulsion Transdermal Delivery System," aiming to solve the solubility bottleneck through nanocarrier technology, bypass hepatic first-pass metabolism via the skin route, and achieve steady drug delivery while improving patient compliance.</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
+                    <p>I prepared a <strong>Nanoemulsion</strong> formulation loaded with Carbamazepine. Utilizing the ultra-small droplet size and unique lipid affinity of the nanoemulsion, it not only significantly increased the loading capacity of the poorly soluble drug Carbamazepine but also effectively overcame the stratum corneum barrier of the skin. In vitro and in vivo experiments confirmed that the system successfully achieved transdermal penetration of the drug into the systemic circulation, effectively circumvented the hepatic first-pass effect, and provided a smoother plasma concentration profile compared to oral administration, offering a better alternative for patients requiring long-term treatment.</p>
+                    
+                    <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                </div>
+                    
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--highlight); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy drugs usually face the challenge of "wide distribution but poor specificity." After entering the body, they cannot distinguish between "friend and foe," severely damaging normal tissues (leading to severe systemic toxicity) while killing cancer cells. Moreover, they often struggle to penetrate the dense stroma of tumors, resulting in insufficient effective drug concentration at the lesion site.</p>
+                    
+                    <p><strong>The Goal:</strong> To construct an intelligent "nanocarrier" as a drug transport tool, utilizing the characteristics of the tumor microenvironment to achieve precise "navigation" delivery, ensuring that drugs are released only after arriving at the tumor site, thereby achieving "enhanced efficacy and reduced toxicity."</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
+                    <p>I utilized functionalized nanomaterials to construct a drug delivery system and achieved active targeting of tumors through surface modification technology. The carrier successfully overcame physiological barriers, remained stable in the blood circulation, and triggered disintegration upon receiving specific stimuli after reaching the tumor microenvironment. Final experiments confirmed that the drug was successfully released at targeted locations within the tumor tissue, significantly increasing the accumulation of the drug at the tumor site. While maintaining potent anti-tumor activity, it greatly reduced toxic side effects on major organs.</p>
+                    
+                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                    
                 `
             },
             zh: {
@@ -870,6 +898,18 @@ conf_list: `
             const content = header.nextElementSibling;
             content.classList.toggle('active');
         }
+  
+
+        // ✅ 新增：Personal 页面访问密码检查
+function checkPersonalAccess() {
+    const code = prompt("Please enter the access code to view Personal Dashboard:");
+    // 密码预设为 1994，您可以自行修改
+    if (code === "1994") {
+        switchView('personal');
+    } else if (code !== null) {
+        alert("Access Denied: Incorrect Code.");
+    }
+}
 
         function switchView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
