@@ -88,7 +88,7 @@
         .hud-view { display: flex; align-items: center; padding: 0 10%; height: 100%; }
         .hero-left { flex: 1.2; z-index: 2; padding-right: 2rem; }
         .hero-left h1 { font-size: 3.8rem; font-weight: 700; color: var(--highlight); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-        .hero-left p { max-width: 500px; font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; border-left: 2px solid var(--text-muted); padding-left: 1.5rem; }
+        .hero-left p { max-width: 500px; font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; border-left: 2px solid var(--text-muted); padding-left: 1.5rem; }
         
         .hero-right { flex: 1; display: flex; justify-content: center; align-items: center; z-index: 5; }
         .hud-wrapper { position: relative; width: 550px; height: 550px; display: flex; justify-content: center; align-items: center; }
@@ -276,6 +276,32 @@
             padding: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
+
+        /* --- 技能列表内部样式 --- */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skills-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--accent-gray);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .skills-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-family: var(--tech-font);
+            font-weight: bold;
+        }
+
+
+
         /* --- 1. 关于页面新布局 (顶部：左文右图) --- */
         .about-intro-container {
             display: flex;
@@ -351,7 +377,7 @@
         <section id="home-view" class="view active hud-view">
             <div class="hero-left">
                 <h1 data-t="hero_title">Proteomics</h1>
-                <p data-t="hero_desc">Advancing plasma proteomics with DIA and terminomics for biomarkers and drug discovery.</p>
+                <p data-t="hero_desc">Advancing proteomics for precision medicine and drug discovery.</p>
                 <a onclick="switchView('research')" class="btn-tech" data-t="hero_btn">RESEARCH CONSOLE</a>
             </div>
             <div class="hero-right">
@@ -462,6 +488,16 @@
                         <p style="text-align:center; font-family:var(--tech-font); color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem;">// Research Intrests Overview</p>
                     </div>
 
+                </div>
+
+                <div class="accordion-container" style="margin-bottom: 1.5rem;">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3 class="accordion-title">// SKILLS</h3>
+                        <span class="accordion-icon">▶</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div data-t="skills_content"></div>
+                    </div>
                 </div>
 
                 <div class="accordion-container">
@@ -581,9 +617,45 @@
                 
                 // 还原 16.html Hero
                 hero_title: "Proteomics", 
-                hero_desc: "Advancing plasma proteomics with DIA and terminomics for biomarkers and drug discovery", 
+                hero_desc: "Advancing proteomics for precision medicine and drug discovery.", 
                 hero_btn: "RESEARCH CONSOLE",
-                
+
+
+skills_content: `
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div>
+            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 01. Instruments </h4>
+            <ul class="skills-list">
+                <li>Hands-on operation, routine troubleshooting, and parameter optimization of <span style="color:var(--highlight); font-weight:bold;">Sciex ZenoTOF 7600</span> to ensure optimal data quality.</li>
+                <li>Extensive experience in <span style="color:var(--highlight); font-weight:bold;">UHPLC and HPLC-UV</span> during Master's studies, encompassing method development, comprehensive system maintenance, and hardware repair.</li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 02. Data analysis </h4>
+            <ul class="skills-list">
+                <li>Data Processing: Advanced proficiency in both <span style="color:var(--highlight); font-weight:bold;">DDA and DIA</span> data processing pipelines, including <span style="color:var(--highlight); font-weight:bold;">DIA-NN, FragPipe, MaxQuant, and PEAKS</span>.</li>
+                <li>Proficiency in <span style="color:var(--highlight); font-weight:bold;">R</span> for data analysis and visualization. Basic knowledge of <span style="color:var(--highlight); font-weight:bold;">Python</span>, currently expanding skills for machine learning applications in proteomics.</li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 03. Specialized proteomics workflows </h4>
+            <ul class="skills-list">
+                <li>Hands-on experience with <span style="color:var(--highlight); font-weight:bold;">plasma proteomics</span> workflows, including <span style="color:var(--highlight); font-weight:bold;">acid-based depletion</span> of high-abundance proteins and <span style="color:var(--highlight); font-weight:bold;">protein corona</span> strategies.</li>
+                <li>Specializing in <span style="color:var(--highlight); font-weight:bold;">terminomics/positional proteomics</span>.</li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 04. Pharmaceutical & Biological Sciences </h4>
+            <ul class="skills-list">
+                <li>Biological Techniques: Cell culture and <span style="color:var(--highlight); font-weight:bold;">in vivo pharmacodynamics</span> (experienced with <span style="color:var(--highlight); font-weight:bold;">beagle dog and rat models</span>).</li>
+                <li>Pharmaceutics: Solid dosage forms and <span style="color:var(--highlight); font-weight:bold;">nanoparticle</span> formulation development.</li>
+                <li>Theoretical Expertise: <span style="color:var(--highlight); font-weight:bold;">Cancer biology</span> and <span style="color:var(--highlight); font-weight:bold;">Pharmacokinetics</span>.</li>
+            </ul>
+        </div>
+    </div>
+`,
+
+
 conf_list: `
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--highlight); padding-left: 1rem;">
