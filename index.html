@@ -387,11 +387,11 @@
                     <div class="research-node node-dia" onclick="switchView('dia')">
                         <div class="node-content"><span class="node-title">DIA</span><span class="node-desc" data-t="dia_sub">MS Acquisition</span></div>
                     </div>
-                    <div class="research-node node-ter" onclick="switchView('termiomics')">
-                        <div class="node-content"><span class="node-title">Termiomics</span><span class="node-desc" data-t="ter_sub">Proteolytic Data</span></div>
+                    <div class="research-node node-ter" onclick="switchView('terminomics')">
+                        <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="ter_sub">Proteolytic Data</span></div>
                     </div>
                     <div class="research-node node-bio" onclick="switchView('biomarker')">
-                        <div class="node-content"><span class="node-title">Cancer</span><span class="node-desc" data-t="Application">Application</span></div>
+                        <div class="node-content"><span class="node-title">Cancer</span><span class="node-desc" data-t="bio_sub">Application</span></div>
                     </div>
                     <div class="research-node node-pharm" onclick="switchView('pharmaceutics')">
                         <div class="node-content"><span class="node-title" data-t="node_pharm_title">Pharmaceutics</span></div>
@@ -413,8 +413,8 @@
                     <div class="research-node node-dia" onclick="switchView('dia')">
                         <div class="node-content"><span class="node-title">DIA</span><span class="node-desc" data-t="MS Acquisition">MS Acquisition</span></div>
                     </div>
-                    <div class="research-node node-ter" onclick="switchView('termiomics')">
-                        <div class="node-content"><span class="node-title">Termiomics</span><span class="node-desc" data-t="Proteolytic Data">Proteolytic Data</span></div>
+                    <div class="research-node node-ter" onclick="switchView('terminomics')">
+                        <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="Proteolytic Data">Proteolytic Data</span></div>
                     </div>
                     <div class="research-node node-bio" onclick="switchView('biomarker')">
                         <div class="node-content"><span class="node-title">Cancer</span><span class="node-desc" data-t="bio_sub"></span></div>
@@ -432,7 +432,7 @@
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
-        <section id="termiomics-view" class="view">
+        <section id="terminomics-view" class="view">
             <h2 class="section-title">RESEARCH: Terminomics</h2>
             <div class="pub-item rich-text"><div data-t="ter_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
@@ -484,8 +484,8 @@
                     </div>
 
                     <div>
-                        <img src="figure/Intrest.jpg" style="width:100%; height:auto; display:block; border-radius:8px; border:1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" alt="Research Intrests">
-                        <p style="text-align:center; font-family:var(--tech-font); color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem;">// Research Intrests Overview</p>
+                        <img src="figure/Intrest.jpg" style="width:100%; height:auto; display:block; border-radius:8px; border:1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" alt="Research Interests">
+                        <p style="text-align:center; font-family:var(--tech-font); color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem;">// Research Interests Overview</p>
                     </div>
 
                 </div>
@@ -561,8 +561,9 @@
             <h2 class="section-title" data-t="nav_contact">CONTACT</h2>
             <div class="contact-content">
                 <p style="color:var(--text-muted); margin-bottom:1rem;" data-t="contact_desc">Feel free to reach out for collaboration.</p>
-                <a href="mailto:gukongxin@outlook.com" class="email-link">gukongxin@outlook.com</a>
-                <a href="mailto:231y2011@st.kumamoto-u.ac.jp" class="email-link">231y2011@st.kumamoto-u.ac.jp</a>
+               <span style="color: var(--highlight); font-family: var(--tech-font);">gukongxin [at] kumamoto-u.ac.jp</span>
+               <br>
+               <span style="color: var(--highlight); font-family: var(--tech-font);">231y2011 [at] st.kumamoto-u.ac.jp</span>
                 <div class="academic-socials">
                     <a href="https://orcid.org/0009-0009-9685-2104" target="_blank" class="academic-icon">ORCID</a>
                     <a href="https://www.researchgate.net/profile/Kongxin-Gu" target="_blank" class="academic-icon">ResearchGate</a>
@@ -598,7 +599,7 @@
                 about_bio_content: `
                     <p>I am currently a PhD student at Kumamoto University (2022–2026), supervised by <strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>Prof. Sumio Ohtsuki</a></strong>. My research foundation began in Pharmaceutics during my Master’s degree at Hebei Medical University. Since starting my PhD, I have transitioned my research focus to Proteomics.</p>
                     
-                    <p>Currently, I am highly passionate about exploring the potential of proteomics. My research intrests and expertise include:</p>
+                    <p>Currently, I am highly passionate about exploring the potential of proteomics. My research interests and expertise include:</p>
                     <ul style="margin-bottom:1.5rem;">
                         <li>Proteomics Sample Preparation</li>
                         <li>Plasma Proteomics</li>
@@ -797,7 +798,7 @@ conf_list: `
                     my work focused on tumor-targeted drug delivery. I concentrated on designing and optimizing nanocarrier systems, with the goal of increasing the concentration of chemotherapy drugs within tumors while reducing systemic toxicity.</p>
                     
                     <p>Currently, I am dedicated to utilizing frontier technologies to solve problems related to early cancer detection and diagnosis. The core of my research involves applying advanced proteomic strategies (such as ongoing 
-                    <span class="text-link" onclick="switchView('termiomics')">Terminomics</span> 
+                    <span class="text-link" onclick="switchView('terminomics')">Terminomics</span> 
                     studies) to systematically screen and identify novel cancer biomarkers in complex biological samples.</p>
                     
                     <p>In the future, I aspire to continue working in cancer research, with a particular intrest in fields like translational proteomics for oncology.</p>
@@ -995,7 +996,7 @@ function checkPersonalAccess() {
             if (target) { target.classList.add('active'); target.scrollTop = 0; }
             
             let navBase = viewId;
-            if (['dia','termiomics','biomarker','pharmaceutics'].includes(viewId)) {
+            if (['dia','terminomics','biomarker','pharmaceutics'].includes(viewId)) {
                 navBase = 'research';
             }
             
@@ -1020,7 +1021,7 @@ function checkPersonalAccess() {
             const lang = localStorage.getItem('pref_lang') || 'en';
             changeLang(lang);
             const hash = window.location.hash.replace('#', '');
-            const views = ['home', 'about', 'research', 'publications', 'others', 'contact', 'dia', 'termiomics', 'biomarker', 'pharmaceutics', 'personal'];
+            const views = ['home', 'about', 'research', 'publications', 'others', 'contact', 'dia', 'terminomics', 'biomarker', 'pharmaceutics', 'personal'];
             switchView(views.includes(hash) ? hash : 'home');
         });
 
