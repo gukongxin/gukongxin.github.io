@@ -9,17 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* --- 核心变量 --- */
-        :root {
-            --bg-color: #142227; 
-            --card-bg: #1e2e34;
-            --accent-gray: #d0dce6; 
-            --text-muted: #888f92;
-            --highlight: #ffffff;
-            --border-thin: 1px solid rgba(208, 220, 230, 0.15);
-            --tech-font: 'JetBrains Mono', monospace;
-            --body-font: 'Inter', sans-serif;
-            --transition-speed: 0.4s;
-        }
+        /* --- 替换原有的 :root 部分 --- */
+:root {
+    --bg-color: #F0F0F0;          /* 背景：改为护眼浅灰 */
+    --card-bg: #FFFFFF;           /* 卡片：改为纯白 */
+    --accent-gray: #1E293B;       /* 主要文字：改为深蓝灰色 (以便在白底上显示) */
+    --text-muted: #4A5568;        /* 次要文字：中灰色 */
+    --highlight: #2563EB;         /* 高亮色：改为鲜艳的学术蓝 */
+    --border-thin: 1px solid rgba(0, 0, 0, 0.1); /* 边框：改为极淡的灰色 */
+    --tech-font: 'Inter', monospace;
+    --body-font: 'Inter', sans-serif;
+    --transition-speed: 0.4s;     /* 保持动画速度不变 */
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -30,22 +31,7 @@
             overflow: hidden; 
         }
 
-        /* --- 背景纹理 --- */
-        .grid-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background-image: 
-                linear-gradient(rgba(208, 220, 230, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(208, 220, 230, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -2; pointer-events: none;
-        }
-        .scanline {
-            position: fixed; top: 0; left: 0; width: 100%; height: 5px;
-            background: rgba(255, 255, 255, 0.05);
-            animation: scan 6s linear infinite;
-            z-index: 999; pointer-events: none;
-        }
-        @keyframes scan { 0% { top: -10%; } 100% { top: 110%; } }
+        
 
         #plexus-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -57,17 +43,17 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 1rem 5%;
             border-bottom: var(--border-thin);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             position: fixed; top: 0; width: 100%;
-            background: rgba(20, 34, 39, 0.9);
+            background: rgba(240, 240, 240, 0.8);
             z-index: 100;
         }
-        .logo { font-family: var(--tech-font); font-weight: 700; font-size: 1.1rem; color: var(--highlight); cursor: pointer; }
-        .logo span { color: var(--text-muted); font-weight: 400; }
+        .logo { font-family: var(--tech-font); font-weight: 700; font-size: 1.1rem; color: var(--accent-gray); cursor: pointer; }
+        .logo span { color: var(--highlight); font-weight: 800; }
         
         .nav-container { display: flex; align-items: center; gap: 2rem; }
         nav ul { display: flex; gap: 1.2rem; list-style: none; }
-        nav a { text-decoration: none; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.75rem; transition: color 0.3s; cursor: pointer; }
+        nav a { text-decoration: none; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.75rem; transition: color 0.3s; cursor: pointer;font-weight: 700; }
         nav a.active, nav a:hover { color: var(--highlight); }
 
         .lang-switcher { display: flex; gap: 0.5rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; }
@@ -91,27 +77,82 @@
         .hero-left p { max-width: 500px; font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; border-left: 2px solid var(--text-muted); padding-left: 1.5rem; }
         
         .hero-right { flex: 1; display: flex; justify-content: center; align-items: center; z-index: 5; }
-        .hud-wrapper { position: relative; width: 550px; height: 550px; display: flex; justify-content: center; align-items: center; }
-        .hud-ring { position: absolute; border-radius: 50%; border: 1px dashed rgba(208, 220, 230, 0.15); animation: rotateHUD 25s linear infinite; pointer-events: none; }
-        .ring-outer { width: 470px; height: 470px; }
-        .ring-inner { width: 240px; height: 240px; animation-direction: reverse; border-style: double; }
-        @keyframes rotateHUD { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        /* --- 替换原有的圆环样式 --- */
+.hud-wrapper { 
+    position: relative; width: 550px; height: 550px; 
+    display: flex; justify-content: center; align-items: center; 
+}
+
+.hud-ring { 
+    position: absolute; border-radius: 50%; 
+    border: 1px dashed rgba(0, 0, 0, 0.08); /* 线条改为极淡的黑色 */
+    animation: rotateHUD 40s linear infinite; /* 速度放慢到 40s */
+    pointer-events: none; 
+}
+
+.ring-outer { width: 500px; height: 500px; } /* 尺寸微调变大 */
+.ring-inner { 
+    width: 240px; height: 240px; 
+    animation-direction: reverse; 
+    border-style: double; 
+    border-width: 1px; /* 内圈线条加粗 */
+}
+
+@keyframes rotateHUD { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         /* 节点样式 (统一风格，取消金色) */
-        .research-node { position: absolute; width: 180px; height: 180px; z-index: 100; cursor: pointer; }
-        .node-content { 
-            width: 100%; height: 100%; 
-            background: rgba(30, 46, 52, 0.8); 
-            border: 2px solid rgba(208, 220, 230, 0.5); /* 统一边框色 */
-            border-radius: 50%; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            transition: 0.4s; backdrop-filter: blur(5px); 
-            box-shadow: 0 0 15px rgba(208, 220, 230, 0.2); 
-        }
-        .research-node:hover .node-content { transform: scale(1.1); border-color: var(--highlight); box-shadow: 0 0 30px rgba(208, 220, 230, 0.6); }
-        .node-title { font-family: var(--tech-font); font-size: 1.2rem; color: var(--highlight); font-weight: 700; margin-bottom: 4px; }
-        .node-desc { font-size: 0.9rem; color: var(--text-muted); text-align: center; padding: 0 10px; line-height: 1.2; }
-        /* 让文字链接显眼且可点击 */
+        /* --- 替换原有的节点样式 --- */
+/* 交互效果：1.18倍缩放 + 蓝色阴影 + 弹性过渡 */
+/* --- 修正版：节点样式 --- */
+
+/* 1. 父容器：只负责占位和定位，鼠标放上去绝对不动 */
+.research-node { 
+    position: absolute; 
+    width: 170px; height: 170px; 
+    z-index: 100; 
+    cursor: pointer; 
+    /* 这里不要加 transition 和 transform，以免覆盖原本的定位 */
+}
+
+/* 2. 子容器：负责画圆圈、背景色、阴影 */
+.node-content { 
+    width: 100%; height: 100%; 
+    background: rgba(255, 255, 255, 0.95); /* 白底 */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 极细边框 */
+    border-radius: 50%; 
+    display: flex; flex-direction: column; justify-content: center; align-items: center; 
+    
+    /* 动画交给子容器 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    backdrop-filter: blur(5px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+    
+    /* 初始缩放比例为 1 */
+    transform: scale(1);
+}
+
+/* 3. 交互：鼠标悬停在父容器时，让子容器变大 */
+.research-node:hover .node-content { 
+    transform: scale(1.18); /* 只放大子容器，不影响父容器位置 */
+    border-color: var(--highlight); 
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15); 
+}
+
+/* 提升层级：鼠标悬停时确保盖住别人 */
+.research-node:hover {
+    z-index: 110;
+}
+
+/* 保持文字样式不变 */
+.node-title { 
+    font-family: var(--tech-font); font-size: 1.1rem; 
+    color: var(--accent-gray); 
+    font-weight: 700; margin-bottom: 4px; 
+}
+.node-desc { 
+    font-size: 0.85rem; color: var(--text-muted); 
+    text-align: center; padding: 0 10px; line-height: 1.2; 
+}
 .text-link {
     color: var(--highlight);
     text-decoration: underline;
@@ -167,7 +208,7 @@
         
         /* Publications 还原 */
         .pub-item { padding: 1.5rem; background: var(--card-bg); border: var(--border-thin); margin-bottom: 1rem; }
-        .pub-info h4 { color: var(--highlight); font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .pub-info h4 { color: var(--accent-gray); font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
         .author-highlight { color: var(--accent-gray); font-weight: bold; text-decoration: underline; text-underline-offset: 3px; }
         .impact-text { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; font-style: italic; }
 
@@ -185,7 +226,7 @@
         .academic-socials { display: flex; gap: 1.5rem; margin: 1.5rem 0; }
         .academic-icon { color: var(--text-muted); font-size: 0.85rem; text-decoration: none; font-family: var(--tech-font); }
         .academic-icon:hover { color: var(--highlight); border-bottom: 1px solid var(--highlight); }
-        .lab-link { display: inline-block; font-size: 1rem; color: var(--highlight); text-decoration: none; margin-top: 1rem; font-family: var(--tech-font); border-bottom: 1px solid transparent; }
+        .lab-link { display: inline-block; font-size: 1rem; color: var(--accent-gray); text-decoration: none; margin-top: 1rem; font-family: var(--tech-font); border-bottom: 1px solid transparent; }
         .lab-link:hover { text-decoration: underline; }
         .cv-wrapper { margin-top: 2.5rem; }
         .btn-cv { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid var(--highlight); color: var(--highlight); text-decoration: none; font-family: var(--tech-font); font-size: 0.9rem; transition: 0.3s; }
@@ -199,11 +240,11 @@
         .dashboard-label { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
 
         /* Rich Text */
-        .rich-text h3 { color: var(--highlight); font-family: var(--tech-font); margin: 1.5rem 0 0.8rem; border-left: 3px solid var(--accent-gray); padding-left: 0.8rem; }
+        .rich-text h3 { color: var(--accent-gray); font-family: var(--tech-font); margin: 1.5rem 0 0.8rem; border-left: 3px solid var(--highlight); padding-left: 0.8rem; }
         .rich-text p { margin-bottom: 1rem; color: var(--accent-gray); }
         .rich-text ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
         .rich-text li { margin-bottom: 0.8rem; padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,0.1); }
-        .rich-text strong { color: var(--highlight); }
+        .rich-text strong { color: var(--accent-gray); font-weight: 800;}
 
         @media (max-width: 1024px) {
             .hud-view { flex-direction: column; text-align: center; padding-top: 2rem; }
@@ -347,8 +388,7 @@
 </head>
 <body>
 
-    <div class="grid-bg"></div>
-    <div class="scanline"></div>
+
     <canvas id="plexus-canvas"></canvas>
 
     <header>
@@ -385,7 +425,7 @@
                     <div class="hud-ring ring-outer"></div>
                     <div class="hud-ring ring-inner"></div>
                     <div class="research-node node-dia" onclick="switchView('dia')">
-                        <div class="node-content"><span class="node-title">DIA</span><span class="node-desc" data-t="dia_sub">MS Acquisition</span></div>
+                        <div class="node-content"><span class="node-title">DIA-MS</span><span class="node-desc" data-t="dia_sub">MS Acquisition</span></div>
                     </div>
                     <div class="research-node node-ter" onclick="switchView('terminomics')">
                         <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="ter_sub">Proteolytic Data</span></div>
@@ -411,7 +451,7 @@
                     <div class="hud-ring ring-outer"></div>
                     <div class="hud-ring ring-inner"></div>
                     <div class="research-node node-dia" onclick="switchView('dia')">
-                        <div class="node-content"><span class="node-title">DIA</span><span class="node-desc" data-t="MS Acquisition">MS Acquisition</span></div>
+                        <div class="node-content"><span class="node-title">DIA-MS</span><span class="node-desc" data-t="MS Acquisition">MS Acquisition</span></div>
                     </div>
                     <div class="research-node node-ter" onclick="switchView('terminomics')">
                         <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="Proteolytic Data">Proteolytic Data</span></div>
@@ -445,9 +485,9 @@
         </section>
 
         <section id="pharmaceutics-view" class="view">
-            <h2 class="section-title" data-t="pharm_page_title">MASTER'S PROJECT: Pharmaceutics</h2>
+            <h2 class="section-title" data-t="pharm_page_title">Pharmaceutics</h2>
             <div class="pub-item rich-text">
-                <h4 data-t="master_title" style="color:var(--highlight); margin-bottom:1.5rem; font-size: 1.5rem;">Development of Amisulpride Orally Disintegrating Tablets</h4>
+                
                 <div data-t="master_desc"></div>
             </div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
@@ -472,8 +512,8 @@
                     <div>
                         <h3 style="color:var(--highlight); font-family:var(--tech-font); margin-bottom:2rem;" data-t="edu_title">// EDUCATION</h3>
                         
-                        <div style="margin-bottom: 2rem; padding-left: 1rem; border-left: 3px solid var(--highlight);">
-                            <span style="color:var(--highlight); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2022 – 2026</span>
+                        <div style="margin-bottom: 2rem; padding-left: 1rem; border-left: 3px solid var(--text-muted);">
+                            <span style="color:var(--accent-gray); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2022 – 2026</span>
                             <div style="color:var(--accent-gray); margin-top:0.5rem; line-height: 1.6;" data-t="edu_phd"></div>
                         </div>
                         
@@ -483,10 +523,10 @@
                         </div>
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <img src="figure/Intrest.jpg" style="width:100%; height:auto; display:block; border-radius:8px; border:1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" alt="Research Interests">
                         <p style="text-align:center; font-family:var(--tech-font); color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem;">// Research Interests Overview</p>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -539,7 +579,7 @@
             <h2 class="section-title" data-t="nav_others">OTHERS</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
                 <div>
-                    <h3 style="color:white; margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_tools">// TOOLS NAVIGATION</h3>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_tools">// TOOLS NAVIGATION</h3>
                     <div class="journal-list">
                         <a href="https://github.com/vdemichev/DiaNN" target="_blank" class="journal-link">DIA-NN (Neural network based DIA processing)</a>
                         <a href="https://github.com/MannLabs/alphapeptdeep" target="_blank" class="journal-link">AlphaPeptDeep (Deep Learning Library Generation)</a>
@@ -547,7 +587,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 style="color:white; margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_journals">// KEY JOURNALS</h3>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_journals">// KEY JOURNALS</h3>
                     <div class="journal-list">
                         <a href="https://jcr.clarivate.com/" target="_blank" class="journal-link">Journal Citation Reports (JCR)</a>
                         <a href="https://pubs.acs.org/journal/jprobs" target="_blank" class="journal-link">J. Proteome Research (JPR)</a>
@@ -561,9 +601,9 @@
             <h2 class="section-title" data-t="nav_contact">CONTACT</h2>
             <div class="contact-content">
                 <p style="color:var(--text-muted); margin-bottom:1rem;" data-t="contact_desc">Feel free to reach out for collaboration.</p>
-               <span style="color: var(--highlight); font-family: var(--tech-font);">gukongxin [at] outlook.com</span>
+               <span style="color: var(--accent-gray); font-family: var(--tech-font);">gukongxin [at] kumamoto-u.ac.jp</span>
                <br>
-               <span style="color: var(--highlight); font-family: var(--tech-font);">231y2011 [at] st.kumamoto-u.ac.jp</span>
+               <span style="color: var(--accent-gray); font-family: var(--tech-font);">231y2011 [at] st.kumamoto-u.ac.jp</span>
                 <div class="academic-socials">
                     <a href="https://orcid.org/0009-0009-9685-2104" target="_blank" class="academic-icon">ORCID</a>
                     <a href="https://www.researchgate.net/profile/Kongxin-Gu" target="_blank" class="academic-icon">ResearchGate</a>
@@ -603,7 +643,7 @@
                     <ul style="margin-bottom:1.5rem;">
                         <li>Proteomics Sample Preparation</li>
                         <li>Plasma Proteomics</li>
-                        <li>Thermal Proteome Profiling (TPP)</li>
+                        <li>MS-CETSA/TPP/PISA</li>
                         <li>Protein Corona</li>
                         <li>Top-down Proteomics </li>
                         <li>Post-Translational Modifications (PTMs)<li>
@@ -629,30 +669,30 @@ skills_content: `
         <div>
             <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 01. Instruments </h4>
             <ul class="skills-list">
-                <li>Hands-on operation, routine troubleshooting, and parameter optimization of <span style="color:var(--highlight); font-weight:bold;">Sciex ZenoTOF 7600</span> to ensure optimal data quality.</li>
-                <li>Extensive experience in <span style="color:var(--highlight); font-weight:bold;">UHPLC and HPLC-UV</span> during Master's studies, encompassing method development, comprehensive system maintenance, and hardware repair.</li>
+                <li>Hands-on operation, routine troubleshooting, and parameter optimization of <span style="color:var(--accent-gray); font-weight:bold;">Sciex ZenoTOF 7600</span> to ensure optimal data quality.</li>
+                <li>Extensive experience in <span style="color:var(--accent-gray); font-weight:bold;">UHPLC and HPLC-UV</span> during Master's studies, encompassing method development, comprehensive system maintenance, and hardware repair.</li>
             </ul>
         </div>
         <div>
             <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 02. Data analysis </h4>
             <ul class="skills-list">
-                <li>Data Processing: Advanced proficiency in both <span style="color:var(--highlight); font-weight:bold;">DDA and DIA</span> data processing pipelines, including <span style="color:var(--highlight); font-weight:bold;">DIA-NN, FragPipe, MaxQuant, and PEAKS</span>.</li>
-                <li>Proficiency in <span style="color:var(--highlight); font-weight:bold;">R</span> for data analysis and visualization. Basic knowledge of <span style="color:var(--highlight); font-weight:bold;">Python</span>, currently expanding skills for machine learning applications in proteomics.</li>
+                <li>Data Processing: Advanced proficiency in both <span style="color:var(--accent-gray); font-weight:bold;">DDA and DIA</span> data processing pipelines, including <span style="color:var(--accent-gray); font-weight:bold;">DIA-NN, FragPipe, MaxQuant, and PEAKS</span>.</li>
+                <li>Proficiency in <span style="color:var(--accent-gray); font-weight:bold;">R</span> for data analysis and visualization. Basic knowledge of <span style="color:var(--accent-gray); font-weight:bold;">Python</span>, currently expanding skills for machine learning applications in proteomics.</li>
             </ul>
         </div>
         <div>
             <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 03. Specialized proteomics workflows </h4>
             <ul class="skills-list">
-                <li>Hands-on experience with <span style="color:var(--highlight); font-weight:bold;">plasma proteomics</span> workflows, including <span style="color:var(--highlight); font-weight:bold;">acid-based depletion</span> of high-abundance proteins and <span style="color:var(--highlight); font-weight:bold;">protein corona</span> strategies.</li>
-                <li>Specializing in <span style="color:var(--highlight); font-weight:bold;">terminomics/positional proteomics</span>.</li>
+                <li>Hands-on experience with <span style="color:var(--accent-gray); font-weight:bold;">plasma proteomics</span> workflows, including <span style="color:var(--accent-gray); font-weight:bold;">acid-based depletion</span> of high-abundance proteins and <span style="color:var(--accent-gray); font-weight:bold;">protein corona</span> strategies.</li>
+                <li>Specializing in <span style="color:var(--accent-gray); font-weight:bold;">terminomics/positional proteomics</span>.</li>
             </ul>
         </div>
         <div>
             <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 04. Pharmaceutical & Biological Sciences </h4>
             <ul class="skills-list">
-                <li>Biological Techniques: Cell culture and <span style="color:var(--highlight); font-weight:bold;">in vivo pharmacodynamics</span> (experienced with <span style="color:var(--highlight); font-weight:bold;">beagle dog and rat models</span>).</li>
-                <li>Pharmaceutics: Solid dosage forms and <span style="color:var(--highlight); font-weight:bold;">nanoparticle</span> formulation development.</li>
-                <li>Theoretical Expertise: <span style="color:var(--highlight); font-weight:bold;">Cancer biology</span> and <span style="color:var(--highlight); font-weight:bold;">Pharmacokinetics</span>.</li>
+                <li>Biological Techniques: Cell culture and <span style="color:var(--accent-gray); font-weight:bold;">in vivo pharmacodynamics</span> (experienced with beagle dog and rat models</span>).</li>
+                <li>Pharmaceutics: Solid dosage forms and <span style="color:var(--accent-gray); font-weight:bold;">nanoparticle</span> formulation development.</li>
+                <li>Theoretical Expertise: <span style="color:var(--accent-gray); font-weight:bold;">Cancer biology</span> and <span style="color:var(--accent-gray); font-weight:bold;">Pharmacokinetics</span>.</li>
             </ul>
         </div>
     </div>
@@ -661,29 +701,29 @@ skills_content: `
 
 conf_list: `
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--highlight); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--highlight); font-size: 0.9rem;">Mar. 2024 | Oral Presentation</div>
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Mar. 2024 | Oral Presentation</div>
                             <div style="font-weight: bold; margin: 0.3rem 0;">144th Annual Meeting of the Pharmaceutical Society of Japan (PSJ 2024)</div>
                             <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Improved Protein Identifications in SWATH-DIA Using Narrow Isolation Windows"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Yokohama, Japan</div>
                         </li>
                         
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--highlight); font-size: 0.9rem;">Aug. 2025 | Poster Presentation</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Aug. 2025 | Poster Presentation</div>
                             <div style="font-weight: bold; margin: 0.3rem 0;">JPrOS 2025 (Japanese Proteomics Society)</div>
                             <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Comprehensive Benchmarking of Recent DIA Tools for Library-Free Proteomics Analysis"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Kisarazu, Chiba, Japan</div>
                         </li>
 
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--highlight); font-size: 0.9rem;">Jun. 2024 | Poster Presentation</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Jun. 2024 | Poster Presentation</div>
                             <div style="font-weight: bold; margin: 0.3rem 0;">JPrOS 2024 (Japanese Proteomics Society)</div>
                             <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Aomori, Japan</div>
                         </li>
 
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--highlight); font-size: 0.9rem;">Aug. 2023 | Poster Presentation</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Aug. 2023 | Poster Presentation</div>
                             <div style="font-weight: bold; margin: 0.3rem 0;">Kumamoto University Summer Retreat Seminar</div>
                             <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Identification and Quantification of Biomarkers Using High-Throughput plexDIA"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Aso, Kumamoto, Japan</div>
@@ -712,15 +752,15 @@ conf_list: `
                     <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Core Challenges</h4>
                     <ul style="list-style:none; padding-left:0;">
-                        <li style="margin-bottom:1.5rem;">
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
                             1. The "Trypsin" Problem:<br>
                             Conventional proteomics must use trypsin to digest proteins into peptides for detection. However, trypsin digestion is artificial; it generates millions of "internal peptides" that do not originally exist in the body. These artificially generated peptides form huge background noise, causing the natural N-terminal/C-terminal signals originally generated by tumor-specific enzymatic cleavage to be diluted or even lost.
                         </li>
-                        <li style="margin-bottom:1.5rem;">
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
                             2. Sub-stoichiometric Nature:
                             Pathological proteolytic cleavage is often a "sub-stoichiometric" event. Even for high-abundance proteins, the molecules undergoing specific cleavage may only account for a small proportion of the total. These trace truncated forms are completely submerged in the background of uncleaved intact proteins, causing signals to be easily masked.
                         </li>
-                        <li style="margin-bottom:1.5rem;">
+                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
                             3. Bioinformatic Limitation:
                             Standard database search strategies usually assume peptides are "Fully Tryptic" and are optimized for such peptides. However, tumor-generated cleavage fragments are often "Semi-tryptic" or non-tryptic. Current mainstream Data-Independent Acquisition (DIA) analysis pipelines typically employ a "Peptide-centric" scoring strategy. Directly performing a semi-specific search in DIA mode would exponentially expand the search space, creating immense difficulties in data interpretation.
                         </li>
@@ -812,8 +852,7 @@ conf_list: `
                 
                 others_tools: "// TOOLS NAVIGATION", others_journals: "// KEY JOURNALS", contact_desc: "Feel free to reach out for collaboration.", cv_btn: "DOWNLOAD CV (PDF)",
                 // 修改总标题为复数 Projects
-                pharm_page_title: "MASTER'S PROJECTS: PHARMACEUTICS", 
-                master_title: "Pharmaceutical Formulation & Delivery Systems", // 改为通用副标题
+                pharm_page_title: "Pharmaceutics", 
                 
                 conf_title: "// CONFERENCE PRESENTATIONS",
                
@@ -821,7 +860,7 @@ conf_list: `
                 master_desc: `
             
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--highlight); border-left:4px solid var(--highlight); padding-left:10px; margin-bottom:1rem;">01. Development of Amisulpride Orally Disintegrating Tablets</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. Development of Amisulpride Orally Disintegrating Tablets</h3>
                     
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
                     <p><strong>The Clinical Dilemma:</strong> Amisulpride is a first-line treatment for schizophrenia, but it faces two major challenges: 1) It belongs to BCS Class II drugs (poorly water-soluble), resulting in low bioavailability; 2) Patients often resist medication ("cheek-it" or spit it out) due to extreme bitterness or swallowing difficulties, which seriously affects the therapeutic outcome.</p>
@@ -837,7 +876,7 @@ conf_list: `
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
                     <div style="margin-bottom: 2rem;">
-                    <h3 style="color:var(--highlight); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. Development of a Nanoemulsion Transdermal Delivery System</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. Development of a Nanoemulsion Transdermal Delivery System</h3>
                     
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
                     <p><strong>The Clinical Dilemma:</strong> Carbamazepine (CBZ) is a first-line drug for treating epilepsy and trigeminal neuralgia, but its oral preparations face three major problems: 1) It is a BCS Class II drug with extremely poor water solubility, leading to unstable absorption; 2) There is a significant hepatic first-pass effect, which seriously reduces bioavailability; 3) Gastrointestinal reactions and swallowing difficulties during long-term oral administration lead to poor compliance in specific patient groups.</p>
@@ -852,7 +891,7 @@ conf_list: `
                     
 
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--highlight); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
                     
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
                     <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy drugs usually face the challenge of "wide distribution but poor specificity." After entering the body, they cannot distinguish between "friend and foe," severely damaging normal tissues (leading to severe systemic toxicity) while killing cancer cells. Moreover, they often struggle to penetrate the dense stroma of tumors, resulting in insufficient effective drug concentration at the lesion site.</p>
@@ -1040,7 +1079,7 @@ function checkPersonalAccess() {
         }
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#d0dce6'; ctx.strokeStyle = 'rgba(208, 220, 230, 0.1)';
+            ctx.fillStyle = '#4A5568'; ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i]; p.x += p.vx; p.y += p.vy;
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
@@ -1048,7 +1087,7 @@ function checkPersonalAccess() {
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
                 for (let j = i + 1; j < particles.length; j++) {
                     let p2 = particles[j]; let dist = Math.sqrt((p.x - p2.x)**2 + (p.y - p2.y)**2);
-                    if (dist < 180) { ctx.lineWidth = 1 - dist / 180; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+                    if (dist < 180) { ctx.lineWidth = 1.35 - dist / 180; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
                 }
             }
             requestAnimationFrame(draw);
@@ -1059,7 +1098,6 @@ function checkPersonalAccess() {
 </body>
 
 </html>
-
 
 
 
