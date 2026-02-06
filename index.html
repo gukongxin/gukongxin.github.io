@@ -409,7 +409,6 @@
             <div class="lang-switcher">
                 <button onclick="changeLang('en')" class="lang-btn active" id="btn-en">EN</button>
                 <button onclick="changeLang('zh')" class="lang-btn" id="btn-zh">中</button>
-                <button onclick="changeLang('jp')" class="lang-btn" id="btn-jp">日</button>
             </div>
         </div>
     </header>
@@ -577,26 +576,83 @@
         </section>
 
         <section id="others-view" class="view">
-            <h2 class="section-title" data-t="nav_others">OTHERS</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-                <div>
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_tools">// TOOLS NAVIGATION</h3>
-                    <div class="journal-list">
-                        <a href="https://github.com/vdemichev/DiaNN" target="_blank" class="journal-link">DIA-NN (Neural network based DIA processing)</a>
-                        <a href="https://github.com/MannLabs/alphapeptdeep" target="_blank" class="journal-link">AlphaPeptDeep (Deep Learning Library Generation)</a>
-                        <a href="https://fragpipe.nesvilab.org/" target="_blank" class="journal-link">FragPipe (Comprehensive analysis pipeline)</a>
-                    </div>
-                </div>
-                <div>
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem; font-family:var(--tech-font)" data-t="others_journals">// KEY JOURNALS</h3>
-                    <div class="journal-list">
-                        <a href="https://jcr.clarivate.com/" target="_blank" class="journal-link">Journal Citation Reports (JCR)</a>
-                        <a href="https://pubs.acs.org/journal/jprobs" target="_blank" class="journal-link">J. Proteome Research (JPR)</a>
-                        <a href="https://www.mcponline.org/" target="_blank" class="journal-link">Molecular & Cellular Proteomics (MCP)</a>
-                    </div>
-                </div>
+    <h2 class="section-title" data-t="nav_others">OTHERS</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_analysis">// JOURNALS</h3>
+            <div class="journal-list">
+                <a href="https://jcr.clarivate.com/" target="_blank" class="journal-link">Journal Citation Reports (JCR)</a>
+                <a href="https://pubs.acs.org/journal/jprobs" target="_blank" class="journal-link">J. Proteome Research (JPR)</a>
+                <a href="https://www.mcponline.org/" target="_blank" class="journal-link">Molecular & Cellular Proteomics (MCP)</a>
+                <a href="https://pubs.acs.org/journal/ancham" target="_blank" class="journal-link">Analytical chemsitry</a>
+                <a href="https://link.springer.com/journal/44320" target="_blank" class="journal-link">Molecular Systems Biology</a>
+                <a href="https://www.cell.com/cell-reports-medicine/home" target="_blank" class="journal-link">Cell Reports Medicine</a>
             </div>
-        </section>
+        </div>
+
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_analysis">// ANALYSIS & TOOLS</h3>
+            <div class="journal-list">
+                <a href="https://github.com/vdemichev/DiaNN" target="_blank" class="journal-link">DIA-NN</a>
+                <a href="https://fragpipe.nesvilab.org/" target="_blank" class="journal-link">FragPipe</a>
+                <a href="http://fragpipe-analyst.nesvilab.org/" target="_blank" class="journal-link">FragPipe-Analyst</a>
+                <a href="https://github.com/MannLabs/alphapeptdeep" target="_blank" class="journal-link">AlphaPeptDeep</a>
+                <a href="https://github.com/MannLabs/alphadia" target="_blank" class="journal-link">alphaDIA</a>
+                <a href="https://bioinfogp.cnb.csic.es/tools/venny/" target="_blank" class="journal-link">Venny 2.1 (Venn Diagrams)</a>
+                <a href="https://github.com/MannLabs" target="_blank" class="journal-link">Mann Labs (GitHub)</a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_resources">// RESEARCH RESOURCES</h3>
+            <div class="journal-list">
+                <a href="https://www.proteinatlas.org/humanproteome/blood/proteins+detected+in+ms" target="_blank" class="journal-link">Human Protein Atlas (Blood)</a>
+                <a href="https://peptideatlas.org/hupo/hppp/" target="_blank" class="journal-link">HUPO Plasma Proteome Project</a>
+                <a href="https://nrid.nii.ac.jp/ja/index/" target="_blank" class="journal-link">KAKEN (Japan Researcher DB)</a>
+                <a href="https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/product/documents/578/044/hupoaqua.pdf" target="_blank" class="journal-link">Plasma Depletion Guide (PDF)</a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_learning">// LEARNING</h3>
+            <div class="journal-list">
+                <a href="https://pnnl-comp-mass-spec.github.io/proteomics-data-analysis-tutorial/" target="_blank" class="journal-link">PNNL Data Analysis Tutorial</a>
+                <a href="https://vanhungtran.github.io/RforMS/" target="_blank" class="journal-link">R for Mass Spectrometry</a>
+                <a href="https://bioinformaticsdotca.github.io/PROT_2024/" target="_blank" class="journal-link">Bioinformatics.ca PROT 2024</a>
+                <a href="https://proteomicsml.org/publication.html" target="_blank" class="journal-link">Proteomics Machine Learning</a>
+                <a href="https://github.com/SlavovLab" target="_blank" class="journal-link">Slavov Lab (GitHub)</a>
+                <a href="https://mp.weixin.qq.com/s/ZpRUVLwcecO0YCk-scNx6Q" target="_blank" class="journal-link">WeChat: 质谱技术干货</a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_community">// COMMUNITIES & MEDIA</h3>
+            <div class="journal-list">
+                <a href="https://proteomicsnews.blogspot.com/" target="_blank" class="journal-link">Proteomics News Blog</a>
+                <a href="https://www.reddit.com/r/proteomics/" target="_blank" class="journal-link">Reddit: /r/proteomics</a>
+                <a href="https://www.reddit.com/r/postdoc/" target="_blank" class="journal-link">Reddit: /r/postdoc</a>
+                <a href="https://www.ablesci.com/" target="_blank" class="journal-link">AbleSci (科研交流社区)</a>
+                <a href="https://www.home-for-researchers.com/#/" target="_blank" class="journal-link">Home for Researchers</a>
+                <a href="https://www.nautilus.bio/translating-proteomics/" target="_blank" class="journal-link">Translating Proteomics Podcast</a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color:var(--highlight); margin-bottom:1.2rem; font-family:var(--tech-font)" data-t="ot_prod_journals">// Productivity</h3>
+            <div class="journal-list">
+                <a href="https://jcr.clarivate.com/" target="_blank" class="journal-link">Journal Citation Reports (JCR)</a>
+                <a href="https://www.ilovepdf.com/" target="_blank" class="journal-link">iLovePDF (PDF editor)</a>
+                <a href="https://docsmall.com/pdf-merge" target="_blank" class="journal-link">Docsmall (PDF Merge)</a>
+                <a href="https://www.selleck.cn/molaritycalculator.jsp" target="_blank" class="journal-link">Molarity Calculator</a>
+                <a href="https://banana.ovo.re/" target="_blank" class="journal-link">Banana Remove Watermark</a>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <section id="contact-view" class="view">
             <h2 class="section-title" data-t="nav_contact">CONTACT</h2>
@@ -959,55 +1015,7 @@ conf_list: `
                     <p>我采用<strong>固体分散体技术</strong>攻克了溶解度瓶颈，并且掩藏口味。最终制剂实现了<strong>30秒内极速崩解</strong>，且口感良好无苦味，有效防止了患者藏药，填补了该药物在口崩剂型上的空白。</p>
                 `
             },
-            jp: {
-                nav_home: "ホーム", nav_about: "概要", nav_research: "研究内容", nav_pub: "発表論文", nav_others: "その他", nav_contact: "連絡先", nav_personal: "個人",
-                
-                hero_title: "プロテオミクス", 
-                hero_desc: "高分解能質量分析、データ非依存型捕捉 (DIA)、計算プロテオミクスを専門としています。", 
-                hero_btn: "研究コンソール",
-                
-                dia_sub: "質量分析データ取得",
-                ter_sub: "タンパク質分解データ",
-                bio_sub: "臨床バリデーション",
-                node_pharm_title: "Pharmaceutics",
-
-                node_details: "詳細を見る", details_arrow: "詳細 ↗", back_home: "← ホームに戻る", back_console: "← コンソールに戻る",
-                res_console_desc: "ノードを選択して、技術詳細やプロジェクトを表示します。",
-                
-                ter_content: `
-                    <h3>ターミオミクス (Terminomics) とは？</h3>
-                    <p>ターミオミクスは、タンパク質のN末端およびC末端を体系的に研究し、タンパク質のプロセシングを解明する分野です。</p>
-                    <p>私の研究は、<strong>精密なサンプル調製戦略</strong>と質量分析を組み合わせ、検出が困難な末端ペプチドを捕捉します：</p>
-                    <ul>
-                        <li><strong>タンパク質の成熟：</strong> 生体試料中の翻訳後修飾プロセスをモニタリングします。</li>
-                        <li><strong>タンパク質分解：</strong> プロテアーゼによる正確な切断部位を同定します。</li>
-                        <li><strong>手法の最適化：</strong> 濃縮プロトコルを改良し、複雑な組織からの末端ペプチドのカバー率を最大化します。</li>
-                    </ul>
-                    <h3>生物学的意義</h3>
-                    <p>ウェットラボのプロトコルを最適化することで、がんや神経変性疾患の重要なバイオマーカーとなる低発現の「ネオ末端」を検出することが可能です。</p>
-                `,
-
-                dia_content: "<p>高感度タンパク質定量の為のDIA取得法の最適化。</p>",
-                bio_content: "<p>臨床検体のスクリーニングと新規疾患バイオマーカーの検証。</p>",
-
-                about_p1: "こんにちは。計算プロテオミクスを専門とする研究者です。", 
-                about_p2: "現在、熊本大学で研究を行っています。",
-                stat_cand: "博士課程", stat_papers: "論文数", view_paper: "論文を表示 ↗",
-                
-                pub1_impact: "// 意義: ライブラリフリー DIA 解析の信頼性に関する指標を確立しました。",
-                pub2_impact: "// 意義: Zeno SWATH システムにおける同定深度の向上を実証しました。",
-                
-                others_tools: "// ツールナビ", others_journals: "// 主要ジャーナル", contact_desc: "共同研究やお問い合わせはこちらまで。", cv_btn: "履歴書ダウンロード (PDF)",
-                pharm_page_title: "修士研究プロジェクト：薬剤学",
-                master_title: "アミスルプリド口腔内崩壊錠の開発",
-                master_desc: `
-                    <h3>研究背景と課題</h3>
-                    <p><strong>臨床的ジレンマ：</strong> 統合失調症治療薬アミスルプリドは、難溶性（BCS Class II）であることに加え、薬物の極度の苦味や嚥下困難により患者が服薬を拒否（隠し飲み・吐き出し）することが頻発し、服薬アドヒアランスの低下が深刻な問題となっていました。</p>
-                    <p><strong>研究目的：</strong> 水なしで服用でき、口腔内で速やかに崩壊する「口腔内崩壊錠（OD錠）」を開発し、患者の負担軽減と治療効果の確保を目指しました。</p>
-                    <h3>解決策と成果</h3>
-                    <p><strong>固体分散体技術</strong>を用いることで、溶解性の課題を克服し、同時に苦味のマスキングに成功しました。最終製剤は<strong>30秒以内の急速崩壊</strong>を実現し、良好な服用感で患者の隠し飲みを防ぎ、本薬剤におけるOD錠の空白を埋めました。</p>
-                `
-            }
+            
         };
 
 // --- ✅ 折叠栏控制函数 (必须放在 i18n 大括号外面！) ---
