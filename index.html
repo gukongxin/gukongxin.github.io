@@ -73,7 +73,7 @@
 
         /* --- HUD 控制台 --- */
         .hud-view { display: flex; align-items: center; padding: 0 10%; height: 100%; }
-        .hero-left { flex: 1.2; z-index: 2; padding-right: 2rem; }
+        .hero-left { flex: 1.2; z-index: 2; padding-right: 2rem; margin-top: -120px;}
         .hero-left h1 { font-size: 3.8rem; font-weight: 700; color: var(--highlight); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
         .hero-left p { max-width: 500px; font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; border-left: 2px solid var(--text-muted); padding-left: 1.5rem; }
         
@@ -311,12 +311,12 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease;
-            background: rgba(0,0,0,0.2);
+            background: var(--bg-color);
         }
         .accordion-content.active {
             max-height: 800px; /* 展开后的最大高度 */
             padding: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         /* --- 技能列表内部样式 --- */
@@ -385,6 +385,135 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* =========================================
+   新增样式：Education带Logo布局 (放在 style 标签最后)
+   ========================================= */
+
+/* 1. 外层容器：让 Logo 和 文字 横向排列 */
+.edu-row {
+    display: flex;             
+    align-items: flex-start;   /* 顶部对齐 */
+    gap: 1.5rem;               /* Logo和文字之间的距离 */
+    margin-bottom: 2.5rem;     /* 每个学校之间的垂直间距 */
+}
+
+/* 2. Logo 图片样式 */
+.edu-logo-img {
+    width: 70px;               /* Logo 宽度 */
+    height: 70px;              /* Logo 高度 */
+    object-fit: contain;       /* 保持图片比例，不拉伸 */
+    flex-shrink: 0;            /* 防止图片被挤扁 */
+    
+    /* 🔥 核心魔法：让图片的白色背景变透明，融入网页灰底 🔥 */
+    mix-blend-mode: multiply;  
+    opacity: 0.9;              /* 稍微降低一点透明度，看起来更自然 */
+}
+
+/* 3. 文字区域样式 (继承原来的竖线设计) */
+.edu-text-box {
+    flex: 1;                   /* 占满剩余空间 */
+    padding-left: 1.2rem;      /* 文字离左边竖线的距离 */
+    border-left: 3px solid var(--text-muted); /*原本的灰色竖线*/
+}
+
+/* 手机适配：屏幕变窄时 Logo 变小 */
+@media (max-width: 768px) {
+    .edu-logo-img { width: 50px; height: 50px; }
+    .edu-row { gap: 1rem; margin-bottom: 2rem; }
+}
+
+
+
+
+.news-box {
+    /* 1. 距离拉大：从 3rem 改为 6rem，让 Research Console 和 Latest 分得更开 */
+    margin-top: 6rem;             
+    
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1); 
+    
+    /* 2. 宽度变宽：从 500px 改为 700px，确保那句话能显示在一行 */
+    max-width: 700px;             
+}
+
+.news-title {
+    font-family: var(--tech-font); 
+    /* 3. LATEST 标题字体加大：从 0.75rem 改为 0.95rem */
+    font-size: 0.95rem;           
+    color: #000000;
+    letter-spacing: 2px;          
+    text-transform: uppercase;    
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 700; /* 加粗一点，更清晰 */
+}
+
+/* 呼吸灯效果 (保持不变) */
+.news-indicator {
+    display: inline-block;
+    width: 8px; height: 8px; /*稍微大一点点*/
+    background-color: #059669;    
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10B981;  
+    animation: blink 2s infinite ease-in-out;
+}
+@keyframes blink { 0% {opacity: 1;} 50% {opacity: 0.3;} 100% {opacity: 1;} }
+
+.news-list {
+    list-style: none !important; 
+    padding: 0 !important;       
+    margin: 0;
+}
+
+.news-item {
+    display: flex;                
+    align-items: baseline;        
+    gap: 2rem; /* 日期和文字的间距也稍微拉大一点，不那么挤 */                  
+    margin-bottom: 1.2rem;          
+    
+    /* 4. 内容字体加大：从 0.9rem 改为 1.05rem */
+    font-size: 1.05rem; 
+    
+    color: var(--accent-gray);
+    padding-left: 5px;            
+    border-left: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    border-left: 2px solid var(--highlight);
+    padding-left: 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.news-date {
+    font-family: var(--tech-font); 
+    color: var(--highlight);      
+    font-weight: 700;
+    
+    /* 日期字体也同步加大，保持平衡 */
+    font-size: 1rem; 
+    
+    min-width: 100px; /* 稍微加宽日期栏，防止拥挤 */
+}
+
+.news-content {
+    font-family: var(--body-font);
+    line-height: 1.5;
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .hero-left { margin-top: 0 !important; }
+    .news-box { margin-top: 3rem; max-width: 100%; }
+    /* 手机上字体稍微小一点，不然太大了 */
+    .news-item { font-size: 0.95rem; gap: 1rem; flex-direction: column; } 
+    .news-date { margin-bottom: 0.2rem; }
+}
+
     </style>
 </head>
 <body>
@@ -415,11 +544,28 @@
 
     <main>
         <section id="home-view" class="view active hud-view">
+            
+
             <div class="hero-left">
-                <h1 data-t="hero_title">Proteomics</h1>
-                <p data-t="hero_desc">Advancing proteomics for precision medicine and drug discovery.</p>
-                <a onclick="switchView('research')" class="btn-tech" data-t="hero_btn">RESEARCH CONSOLE</a>
-            </div>
+    <h1 data-t="hero_title">Proteomics</h1>
+    <p data-t="hero_desc">Advancing proteomics for precision medicine and drug discovery.</p>
+    <a onclick="switchView('research')" class="btn-tech" data-t="hero_btn">RESEARCH CONSOLE</a>
+
+    <div class="news-box">
+        <div class="news-title">
+            <span class="news-indicator"></span> 
+            NEWS
+        </div>
+        <ul class="news-list">
+            <li class="news-item">
+                <span class="news-date">2026.02.05</span>
+                <span class="news-content">Successfully defended Ph.D. dissertation at Kumamoto University.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
             <div class="hero-right">
                 <div class="hud-wrapper">
                     <div class="hud-ring ring-outer"></div>
@@ -510,18 +656,26 @@
                 <div class="about-bottom-grid">
                     
                     <div>
-                        <h3 style="color:var(--highlight); font-family:var(--tech-font); margin-bottom:2rem;" data-t="edu_title">// EDUCATION</h3>
-                        
-                        <div style="margin-bottom: 2rem; padding-left: 1rem; border-left: 3px solid var(--text-muted);">
-                            <span style="color:var(--accent-gray); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2022 – 2026</span>
-                            <div style="color:var(--accent-gray); margin-top:0.5rem; line-height: 1.6;" data-t="edu_phd"></div>
-                        </div>
-                        
-                        <div style="padding-left: 1rem; border-left: 3px solid var(--text-muted);">
-                            <span style="color:var(--text-muted); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2018 – 2021</span>
-                            <div style="color:var(--accent-gray); margin-top:0.5rem; line-height: 1.6;" data-t="edu_master"></div>
-                        </div>
-                    </div>
+    <h3 style="color:var(--highlight); font-family:var(--tech-font); margin-bottom:2rem;" data-t="edu_title">// EDUCATION</h3>
+    
+    <div class="edu-row">
+        <img src="figure/kumamoto.jpg" class="edu-logo-img" alt="Kumamoto Univ">
+        
+        <div class="edu-text-box">
+            <span style="color:var(--accent-gray); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2022 – 2026</span>
+            <div style="color:var(--accent-gray); margin-top:0.5rem; line-height: 1.6;" data-t="edu_phd"></div>
+        </div>
+    </div>
+    
+    <div class="edu-row">
+        <img src="figure/hebei.jpg" class="edu-logo-img" alt="Hebei Med Univ">
+        
+        <div class="edu-text-box">
+            <span style="color:var(--text-muted); font-weight:bold; font-family:var(--tech-font); font-size: 1.1rem;">2018 – 2021</span>
+            <div style="color:var(--accent-gray); margin-top:0.5rem; line-height: 1.6;" data-t="edu_master"></div>
+        </div>
+    </div>
+</div>
 
                     <!-- <div>
                         <img src="figure/Intrest.jpg" style="width:100%; height:auto; display:block; border-radius:8px; border:1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" alt="Research Interests">
@@ -759,30 +913,37 @@ skills_content: `
 conf_list: `
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Mar. 2024 | Oral Presentation</div>
-                            <div style="font-weight: bold; margin: 0.3rem 0;">144th Annual Meeting of the Pharmaceutical Society of Japan (PSJ 2024)</div>
-                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Improved Protein Identifications in SWATH-DIA Using Narrow Isolation Windows"</div>
-                            <div style="color: var(--text-muted); font-size: 0.85rem;">Yokohama, Japan</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">6–8 August 2025 | Poster Presentation</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">The 2025 Annual Conference of the Japanese Proteomics Society(JPrOS2025)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Comprehensive Benchmarking of Recent Data-independent Acquisition Tools for Library-Free Proteomics Analysis"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Kisarazu, Chiba, Japan</div>
                         </li>
                         
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Aug. 2025 | Poster Presentation</div>
-                            <div style="font-weight: bold; margin: 0.3rem 0;">JPrOS 2025 (Japanese Proteomics Society)</div>
-                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Comprehensive Benchmarking of Recent DIA Tools for Library-Free Proteomics Analysis"</div>
-                            <div style="color: var(--text-muted); font-size: 0.85rem;">Kisarazu, Chiba, Japan</div>
-                        </li>
-
-                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Jun. 2024 | Poster Presentation</div>
-                            <div style="font-weight: bold; margin: 0.3rem 0;">JPrOS 2024 (Japanese Proteomics Society)</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">26–28 June 2024 | Poster Presentation</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">The 2024 Annual Conference of the Japanese Proteomics Society (JPrOS2024)</div>
                             <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Aomori, Japan</div>
                         </li>
 
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
-                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">Aug. 2023 | Poster Presentation</div>
-                            <div style="font-weight: bold; margin: 0.3rem 0;">Kumamoto University Summer Retreat Seminar</div>
-                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Identification and Quantification of Biomarkers Using High-Throughput plexDIA"</div>
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">29–31 March 2024 | Oral Presentation</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">144th Annual Meeting of the Pharmaceutical Society of Japan (PSJ 2024)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Improved Protein Identifications in SWATH-DIA Using Narrow Isolation Windows"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Yokohama, Japan</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">8-9 January 2024 | Poster Presentation</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">Grant-in-Aid for Transformative Research Areas (A) "Multimodal ECM" Area Meeting </div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Deep Proteomic Profiling of Extracellular Matrix Remodeling for Novel Biomarker Discovery"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Chiba, Japan</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">22–23 August 2023 | Oral Presentation</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">Kumamoto University Summer Retreat Seminar 2023 </div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Identification and Quantification of Biomarkers Using High-Throughput plexDIA Proteomics with Dimethyl Labeling"</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">Aso, Kumamoto, Japan</div>
                         </li>
                     </ul>
@@ -964,55 +1125,6 @@ conf_list: `
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
                     
-                `
-            },
-            zh: {
-                nav_home: "主页", nav_about: "关于", nav_research: "研究", nav_pub: "出版物", nav_others: "其他", nav_contact: "联系", nav_personal: "个人",
-                
-                hero_title: "蛋白质组学", 
-                hero_desc: "专注于高分辨率质谱、数据独立采集 (DIA) 和计算蛋白质组学研究。", 
-                hero_btn: "研究控制台",
-                
-                dia_sub: "质谱采集",
-                ter_sub: "蛋白酶解数据",
-                bio_sub: "临床验证",
-                node_pharm_title: "Pharmaceutics",
-
-                node_details: "查看详情", details_arrow: "详情 ↗", back_home: "← 返回主页", back_console: "← 返回控制台",
-                res_console_desc: "选择节点以查看技术细节和正在进行的项目。",
-                
-                ter_content: `
-                    <h3>什么是末端组学 (Terminomics)?</h3>
-                    <p>Terminomics（末端组学）是通过系统研究蛋白质 N-末端和 C-末端，来解码蛋白质加工过程的学科。</p>
-                    <p>我的研究结合了<strong>精准的样品制备策略</strong>与质谱分析，以捕获这些难以检测的末端肽段：</p>
-                    <ul>
-                        <li><strong>蛋白质成熟：</strong> 监测生物样本中的翻译后加工事件。</li>
-                        <li><strong>蛋白水解：</strong> 鉴定由蛋白酶产生的精确切割位点。</li>
-                        <li><strong>方法优化：</strong> 改进富集方案，以最大化复杂组织中末端肽段的覆盖率。</li>
-                    </ul>
-                    <h3>生物学意义</h3>
-                    <p>通过优化湿实验流程，我们能够检测到低丰度的“新末端”，这些末端是癌症和神经退行性疾病的关键生物标志物。</p>
-                `,
-
-                dia_content: "<p>优化 DIA 采集方法以实现高灵敏度的蛋白质定量。</p>",
-                bio_content: "<p>临床样本筛选与新型疾病生物标志物的验证。</p>",
-
-                about_p1: "你好。我是一名专注于计算蛋白质组学的研究员。", 
-                about_p2: "目前在熊本大学开展研究工作。",
-                stat_cand: "博士候选人", stat_papers: "发表论文", view_paper: "查看论文 ↗",
-                
-                pub1_impact: "// 意义: 为无库 DIA 分析在人类蛋白质组研究中的可靠性建立了基准。",
-                pub2_impact: "// 意义: 证明了优化的隔离窗口能显著提升 Zeno SWATH 系统的鉴定深度。",
-                
-                others_tools: "// 工具导航", others_journals: "// 核心期刊", contact_desc: "欢迎学术交流与合作。", cv_btn: "下载简历 (PDF)",
-                pharm_page_title: "硕士研究项目：药剂学",
-                master_title: "氨磺必利口崩片的研制",
-                master_desc: `
-                    <h3>研究背景与挑战</h3>
-                    <p><strong>临床痛点：</strong> 氨磺必利是治疗精神分裂症的常用药，但存在两大难题：一是属于 BCS II 类药物（难溶于水），生物利用度低；二是患者常因药物极苦或吞咽困难而产生“藏药、吐药”行为，严重影响治疗效果。</p>
-                    <p><strong>研究目标：</strong> 开发一种无需用水、入口即化的“口崩片 (ODT)”，从剂型设计源头解决患者的依从性问题。</p>
-                    <h3>解决方案与成果</h3>
-                    <p>我采用<strong>固体分散体技术</strong>攻克了溶解度瓶颈，并且掩藏口味。最终制剂实现了<strong>30秒内极速崩解</strong>，且口感良好无苦味，有效防止了患者藏药，填补了该药物在口崩剂型上的空白。</p>
                 `
             },
             
