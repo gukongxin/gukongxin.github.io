@@ -538,6 +538,7 @@
             <div class="lang-switcher">
                 <button onclick="changeLang('en')" class="lang-btn active" id="btn-en">EN</button>
                 <button onclick="changeLang('zh')" class="lang-btn" id="btn-zh">中</button>
+                <button onclick="changeLang('ja')" class="lang-btn" id="btn-ja">日</button>
             </div>
         </div>
     </header>
@@ -1123,10 +1124,600 @@ conf_list: `
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+                `,
 
-                    
-                `
+                // --- Publications (英文版缺失的数据) ---
+                pub1_impact: "// Impact: This study establishes a rigorous DIA FDR evaluation method by synthesizing recombinant proteins, providing a benchmark dataset for software optimization.",
+                pub2_impact: "// Impact: The study developed an optimized narrow windows DIA that substantially boosts proteomic coverage and sensitivity (with a 40% improvement at low loading amounts) without compromising quantitative robustness.",
+                view_paper: "View Paper ↗",
+
+                // --- Others (英文版缺失的数据) ---
+                ot_analysis: "// ANALYSIS & TOOLS",
+                ot_resources: "// RESEARCH RESOURCES",
+                ot_learning: "// LEARNING",
+                ot_community: "// COMMUNITIES & MEDIA",
+                ot_prod_journals: "// PRODUCTIVITY",
+                others_tools: "// TOOLS NAVIGATION", 
+                others_journals: "// KEY JOURNALS",
+
+                // --- Contact & Personal (英文版缺失的数据) ---
+                contact_desc: "Feel free to reach out for collaboration.",
+                cv_btn: "DOWNLOAD CV (PDF)",
+                stat_cand: "Candidate",
+                stat_papers: "Papers"
             },
+
+            ja: {
+                // 1. 导航栏
+                nav_home: "ホーム", 
+                nav_about: "略歴", 
+                nav_research: "研究内容", 
+                nav_pub: "業績", 
+                nav_others: "その他", 
+                nav_contact: "連絡先", 
+                nav_personal: "個人用",
+                
+                // 2. 首页主视觉区
+                hero_title: "プロテオミクス", 
+                hero_desc: "プレシジョン・メディシン（精密医療）および創薬を指向したプロテオミクス研究。", 
+                hero_btn: "研究コンソールへ",
+
+                // (后续其他翻译我们一步步往这里面加)
+
+
+                // --- 以下为新添加的 About Me 与 学历部分 ---
+                
+                about_bio_content: `
+                    <p>現在、熊本大学大学院の博士後期課程（2022–2026年）に在籍し、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>大槻 純男 教授</a></strong>の指導の下で研究を行っております。修士課程（河北医科大学）では薬剤学（Pharmaceutics）を専攻し、博士課程への進学を機にプロテオミクス分野へ研究の軸足を移しました。</p>
+                    
+                    <p>現在はプロテオミクスが持つ可能性の探究に強い熱意を持って取り組んでいます。主な研究の関心・専門領域は以下の通りです：</p>
+                    <ul style="margin-bottom:1.5rem;">
+                        <li>プロテオミクス前処理技術 (Sample Preparation)</li>
+                        <li>血漿プロテオミクス (Plasma Proteomics)</li>
+                        <li>MS-CETSA/TPP/PISA</li>
+                        <li>プロテインコロナ (Protein Corona)</li>
+                        <li>トップダウン・プロテオミクス (Top-down Proteomics)</li>
+                        <li>翻訳後修飾 (Post-Translational Modifications: PTMs)</li>
+                        <li>データ非依存的取得法 (Data-Independent Acquisition: DIA)</li>
+                        <li><strong>ターミノミクス / N・C末端プロテオミクス (現在進行中のプロジェクト)</strong></li>
+                    </ul>
+                    
+                    <p><strong>目標:</strong> プロテオミクスを強力なツールとして活用し、プレシジョン・メディシン（精密医療）および創薬研究を牽引することが、私の最終的な目標です。</p>
+                `,
+
+                edu_title: "// 学歴 (EDUCATION)",
+                edu_phd: "<strong>熊本大学大学院</strong><br>薬学教育部 創薬・生命薬学専攻 博士後期課程<br>指導教員：大槻 純男 教授",
+                edu_master: "<strong>河北医科大学 (中国)</strong><br>薬学院 薬剤学専攻 修士課程",
+
+                // --- 以下为 SKILLS 与 会议发表部分 ---
+                
+                skills_content: `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 01. 分析機器の操作・管理 (Instruments) </h4>
+                            <ul class="skills-list">
+                                <li><span style="color:var(--accent-gray); font-weight:bold;">Sciex ZenoTOF 7600</span> の実機操作、日常的なトラブルシューティング、および最適なデータ品質を確保するためのパラメータ最適化。</li>
+                                <li>修士課程における<span style="color:var(--accent-gray); font-weight:bold;">UHPLC および HPLC-UV</span> の豊富な使用経験（メソッド開発、システムの総合的なメンテナンス、ハードウェア修理を含む）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 02. データ解析 (Data analysis) </h4>
+                            <ul class="skills-list">
+                                <li>データ処理: <span style="color:var(--accent-gray); font-weight:bold;">DIA-NN, FragPipe, MaxQuant, PEAKS</span> を用いた、<span style="color:var(--accent-gray); font-weight:bold;">DDA および DIA</span> 両方のデータ処理パイプラインに関する高度な習熟。</li>
+                                <li>データ解析および可視化のための<span style="color:var(--accent-gray); font-weight:bold;">R言語</span>の習熟。プロテオミクスにおける機械学習の応用に向けて、<span style="color:var(--accent-gray); font-weight:bold;">Python</span>の基礎知識を有し、現在スキルを拡張中。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 03. 専門的なプロテオミクス・ワークフロー </h4>
+                            <ul class="skills-list">
+                                <li>高発現タンパク質の<span style="color:var(--accent-gray); font-weight:bold;">酸沈殿法（Acid-based depletion）</span>や<span style="color:var(--accent-gray); font-weight:bold;">プロテインコロナ（Protein corona）</span>戦略を含む、<span style="color:var(--accent-gray); font-weight:bold;">血漿プロテオミクス</span>のワークフローに関する実践的経験。</li>
+                                <li><span style="color:var(--accent-gray); font-weight:bold;">ターミノミクス / N・C末端プロテオミクス（Terminomics/Positional proteomics）</span>への特化。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 04. 薬学・生物学領域のスキル </h4>
+                            <ul class="skills-list">
+                                <li>生物学的手法: 細胞培養および<span style="color:var(--accent-gray); font-weight:bold;">in vivo 薬効評価</span>（ビーグル犬およびラットモデルの経験あり）。</li>
+                                <li>薬剤学: 固形製剤および<span style="color:var(--accent-gray); font-weight:bold;">ナノ粒子（Nanoparticle）</span>製剤の開発。</li>
+                                <li>理論的専門知識: <span style="color:var(--accent-gray); font-weight:bold;">がん生物学（Cancer biology）</span>および<span style="color:var(--accent-gray); font-weight:bold;">薬物動態学（Pharmacokinetics）</span>。</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+
+                conf_title: "// 学会発表 (CONFERENCE PRESENTATIONS)",
+                conf_list: `
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2025年8月6–8日 | ポスター発表</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">2025年 日本プロテオーム学会大会 (JPrOS2025)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Comprehensive Benchmarking of Recent Data-independent Acquisition Tools for Library-Free Proteomics Analysis"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">千葉県 木更津市</div>
+                        </li>
+                        
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年6月26–28日 | ポスター発表</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">2024年 日本プロテオーム学会大会 (JPrOS2024)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">青森県 青森市</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年3月29–31日 | 口頭発表</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">日本薬学会 第144年会 (PSJ 2024)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Improved Protein Identifications in SWATH-DIA Using Narrow Isolation Windows"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">神奈川県 横浜市</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年1月8-9日 | ポスター発表</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">学術変革領域研究(A) 「マルチモーダル細胞外環境の統合的理解と制御」領域会議</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Deep Proteomic Profiling of Extracellular Matrix Remodeling for Novel Biomarker Discovery"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">千葉県</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2023年8月22–23日 | 口頭発表</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">Kumamoto University Summer Retreat Seminar 2023 </div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Identification and Quantification of Biomarkers Using High-Throughput plexDIA Proteomics with Dimethyl Labeling"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">熊本県 阿蘇市</div>
+                        </li>
+                    </ul>
+                `,
+
+
+                // --- 研究コンソール UI (Research Console UI) ---
+                dia_sub: "MSデータ取得",
+                ter_sub: "タンパク質分解データ",
+                bio_sub: "臨床応用",
+                node_pharm_title: "薬剤学",
+                node_details: "詳細を見る", 
+                details_arrow: "詳細 ↗", 
+                back_home: "← ホームに戻る", 
+                back_console: "← コンソールに戻る",
+                res_console_desc: "ノードを選択して、技術的な詳細と現在進行中のプロジェクトを確認してください。",
+                pharm_page_title: "薬剤学 (Pharmaceutics)",
+
+                // --- 研究ノード: DIA ---
+                dia_content: `
+                    <p>私のDIA研究への探究は、プロテオミクスの体系的なトレーニングの中で、ハイスループットなマルチプレックスDIAプロジェクトを通じてデータ取得と解析の確かな経験を積んだことから始まりました。この基盤の上に立ち、DIAメソッドの最適化に取り組んできました。データ取得の面では<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows（分離ウィンドウ）の最適化</a>を行い、データ解析の面では<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIAデータに対するFDR（False Discovery Rate）制御手法</a>の確立と評価を行いました。</p>
+
+                    <p>さらに、プロテオミクスの検索ソフトウェアに対して強い情熱を持っています。新しいツールを試すことが好きで、これらは私にとっての「武器」です。アルゴリズムのアップデートによってもたらされるDIAの性能の飛躍的な向上を目の当たりにすることは非常に魅力的であり、この分野を深く掘り下げる楽しさを常に感じています。</p>
+
+                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">現在進行中のプロジェクト (Ongoing Research)</h3>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
+                            ライブラリフリー・プロテオミクス解析に向けた最新DIAツールの包括的ベンチマーキング (Comprehensive Benchmarking of Recent DIA Tools)
+                        </li>
+                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
+                            翻訳後修飾 (PTMs) に向けたDIAの最適化
+                        </li>
+                    </ul>
+                `,
+
+                // --- 研究ノード: がん研究 (Cancer) ---
+                bio_content: `
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">がん研究におけるバックグラウンド</h3>
+                    
+                    <p>私のがん研究への関わりは、学部時代にがん専門病院での臨床実習に参加したことから始まりました。この経験を通じて臨床現場に直接触れ、患者の実際の状況、化学療法などの標準的な治療プロセス、そしてこれらの治療に伴う副作用について深く理解することができました。</p>
+                    
+                    <p>
+                    <span class="text-link" onclick="switchView('pharmaceutics')">治療分野においては</span>、腫瘍標的型ドラッグデリバリー（DDS）に焦点を当ててきました。ナノキャリアシステムの設計と最適化に注力し、腫瘍内の抗がん剤濃度を高めつつ、全身の毒性を軽減することを目指しました。</p>
+                    
+                    <p>現在は、最先端の技術を活用してがんの早期発見・診断に関する課題解決に専念しています。私の研究の中核は、高度なプロテオミクス戦略（現在進行中の<span class="text-link" onclick="switchView('terminomics')">ターミノミクス研究</span>など）を応用し、複雑な生体試料から新規がんバイオマーカーを網羅的にスクリーニングし同定することです。</p>
+                    
+                    <p>将来的には、がん研究、特に腫瘍学分野のトランスレーショナル・プロテオミクス（Translational Proteomics）に引き続き貢献したいと強く願っています。</p>
+                `,
+
+                // --- 研究ノード: Terminomics ---
+                ter_content: `
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">ターミノミクスに基づく腫瘍バイオマーカーの探索</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p>腫瘍の浸潤および転移は、腫瘍微小環境（TME）内におけるプロテアーゼ制御ネットワークの大規模な再構築を伴います。この病態において、異常活性化したプロテアーゼ（MMPやカテプシンなど）は、組織バリアを突破するために細胞外マトリックスを分解するだけでなく、プロテオーム全体に対して広範かつ異常な<strong>「Aberrant Proteolysis（異常なタンパク質分解）」</strong>を引き起こします。これらの特異的な切断イベントにより、正常な生理的条件下では存在しない新たなN末端またはC末端配列（<strong>Neo-termini</strong>）が露出します。</p>
+                    <p>全長タンパク質の存在量を反映するだけの従来のバイオマーカーとは異なり、特異的な<strong>「分解の指紋（Proteolytic fingerprints）」</strong>を持つこれらのペプチドは、腫瘍の機能的状態に関する情報を直接的に保持しています。さらに、低分子量であるため、これらの切断産物は組織間隙を容易に透過し、血中へと「漏出」します。したがって、腫瘍特異的な切断に由来するこれらNeo-terminiペプチドを捕捉し同定することは、がんのスクリーニングおよびモニタリングのための高特異的かつ高感度なリキッドバイオプシーの新たな戦略となります。</p>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+                    <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決すべき核心的課題 (Core Challenges)</h4>
+                    <ul style="list-style:none; padding-left:0;">
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            1. 「トリプシン」問題:<br>
+                            従来のプロテオミクスでは、検出のためにトリプシンを用いてタンパク質をペプチドに消化する必要があります。しかし、トリプシン消化は人工的なものであり、生体内には本来存在しない数百万もの「内部ペプチド（Internal peptides）」を生成します。これらの人工的に生成されたペプチドが巨大なバックグラウンドノイズとなり、腫瘍特異的な酵素切断によって本来生成された自然なN末端/C末端シグナルが希釈され、あるいは完全に失われてしまいます。
+                        </li>
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            2. サブストイキオメトリー（Sub-stoichiometric）な性質:
+                            病理学的なタンパク質分解は、しばしば「サブストイキオメトリー」なイベントです。高発現タンパク質であっても、特異的切断を受ける分子は全体のごく一部に過ぎない場合があります。これらの微量な切断断片は、未切断の完全長タンパク質のバックグラウンドに完全に埋もれてしまい、シグナルが容易にマスキングされます。
+                        </li>
+                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            3. バイオインフォマティクスの限界:
+                            標準的なデータベース検索戦略は通常、ペプチドが「Fully Tryptic」であることを前提とし最適化されています。しかし、腫瘍由来の切断断片はしばしば「Semi-tryptic」またはノン・トリプティックです。現在の主流であるDIA解析パイプラインは通常「Peptide-centric」なスコアリング戦略を採用しており、DIAモードで直接Semi-specific検索を実行すると検索スペースが指数関数的に拡大し、データ解釈に計り知れない困難をもたらします。
+                        </li>
+                    </ul>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策: ターミノミクス (Terminomics)</h4>
+                    
+                    <p>ターミノミクス（ポジショナル・プロテオミクスとも呼ばれる）は、生体系内の全タンパク質のN末端およびC末端（ターミノーム）の体系的な研究に特化したプロテオミクスの一分野です。</p>
+                    <p>従来のプロテオミクスがタンパク質全体を見るのに対し、ターミノミクスは「末端」に特化しています。末端はタンパク質のライフサイクルの履歴を保持しているため非常に重要です：</p>
+                    <ul>
+                        <li>タンパク質の成熟 (Protein Maturation): 翻訳後にタンパク質がどのように処理されるか。</li>
+                        <li>タンパク質分解 (Proteolysis): プロテアーゼがどのようにタンパク質を切断し、活性化、不活性化、または分解するか。</li>
+                        <li>翻訳後修飾 (PTMs): アセチル化やミリストイル化などの修飾が末端で特異的に起こり、タンパク質の安定性や局在を制御する仕組み。</li>
+                    </ul>
+                    <p>プロテオミクスが「工場の全従業員のマップ」だとすれば、ターミノミクスは「彼らがいつ働き始め、いつ解雇され、役割がどう変わるか」を正確に示すマニュアルです。</p>
+                    
+                    <p>「スイッチ」メカニズム: タンパク質分解は不可逆的な生物学的スイッチであり、血液凝固、細胞死（アポトーシス）、免疫応答などのプロセスを制御します。ターミノミクスにより、これらの「切断」がどこで起こるかを正確に把握できます。</p>
+                    <p>「Neo-termini」の発見: プロテアーゼがタンパク質を切断すると、新しいN末端（neo-N-terminus）が生成されます。これを同定することで、特定の酵素の基質を見つけることができ、創薬において極めて重要です。</p>
+                    <p>疾患バイオマーカー: がんやアルツハイマー病などの多くの疾患は、異常なタンパク質切断を伴います。ターミノミクスは、早期警戒のサインとして機能する血液や組織中の特定の「タンパク質断片」を特定できます。</p>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                        <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
+                            // ターミノミクスの一般的なワークフロー (General workflow of terminomics)
+                        </p>
+                    </div>
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">現在進行中の研究 (Ongoing Research)</h4>
+                    <ol style="padding-left:1.5rem; margin-bottom:2rem;">
+                        <li style="margin-bottom:0.5rem;">高感度なターミノミクス・サンプル前処理法の確立と最適化。</li>
+                        <li style="margin-bottom:0.5rem;">Semi-trypticペプチド同定のためのデータ検索戦略の最適化。</li>
+                        <li style="margin-bottom:0.5rem;">臨床サンプルコホートを活用した予備的なバイオマーカー探索。</li>
+                        <li style="margin-bottom:0.5rem;">スクリーニングされた主要な候補Neo-terminiバイオマーカーの検証研究。</li>
+                    </ol>
+                `,
+
+                // --- 研究ノード: 薬剤学 (Pharmaceutics - 修士課程の業績) ---
+                master_desc: `
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. アミスルプリド口腔内崩壊錠 (ODT) の開発</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
+                    <p><strong>臨床におけるジレンマ:</strong> アミスルプリドは統合失調症の第一選択薬ですが、2つの大きな課題があります。1) BCSクラスII（難水溶性）薬物であるため、バイオアベイラビリティが低いこと。2) 極度の苦味や嚥下困難により、患者が服薬を拒否する（頬に隠す、吐き出す等）ことが多く、治療効果に深刻な影響を及ぼすこと。</p>
+                    
+                    <p><strong>目標:</strong> 水なしで口の中で溶ける「口腔内崩壊錠 (ODT)」を開発し、製剤設計を通じてアドヒアランス低下の根本原因を解決すること。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
+                    <p>固体分散体技術（Solid Dispersion Technology）を用いて溶解性のボトルネックを克服し、苦味のマスキングに成功しました。最終的な製剤は、30秒以内という極めて迅速な崩壊と良好な服用感を実現しました。これにより、患者の服薬回避を効果的に防ぐとともに、同薬のODT製剤という市場の空白を埋めることができました。</p>
+                    
+                    <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                </div>
+
+                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. ナノエマルション経皮送達システムの開発</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
+                    <p><strong>臨床におけるジレンマ:</strong> カルバマゼピン（CBZ）はてんかんや三叉神経痛の第一選択薬ですが、経口製剤には3つの問題があります。1) BCSクラスIIの難水溶性薬物であり、吸収が不安定。2) 初回通過効果が大きく、バイオアベイラビリティが著しく低下する。3) 長期経口投与に伴う胃腸障害や嚥下困難が、特定の患者群においてアドヒアランスの低下を招く。</p>
+                    
+                    <p><strong>目標:</strong> 非侵襲的な「ナノエマルション経皮送達システム」を構築し、ナノキャリア技術による溶解性の改善、皮膚経路を通じた肝初回通過効果の回避、そして安定した薬物送達と患者のアドヒアランス向上を実現すること。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
+                    <p>カルバマゼピンを封入した<strong>ナノエマルション</strong>製剤を調製しました。超微小な液滴サイズとナノエマルション特有の脂質親和性を活かし、難水溶性薬物カルバマゼピンの担持量を大幅に増加させただけでなく、皮膚の角質層バリアを効果的に突破しました。In vitroおよびin vivo実験において、本システムが薬物を全身循環へ経皮的に浸透させることに成功し、肝初回通過効果を効果的に回避し、経口投与と比較してより安定した血中濃度プロファイルを提供できることを確認しました。これは長期治療を必要とする患者にとってより良い選択肢となります。</p>
+                    
+                    <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                </div>
+                    
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. ナノキャリアベースの腫瘍標的型ドラッグデリバリーシステム (DDS) の開発</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
+                    <p><strong>臨床におけるジレンマ:</strong> 従来の化学療法薬は通常、「広く分布するが特異性に乏しい」という課題を抱えています。体内に入った後、「敵と味方」を区別できず、がん細胞を殺傷すると同時に正常組織に深刻なダメージを与えます（重篤な全身毒性）。さらに、腫瘍の緻密な間質に浸透することが難しく、病変部での有効薬物濃度が不足しがちです。</p>
+                    
+                    <p><strong>目標:</strong> 薬物輸送のツールとしてインテリジェントな「ナノキャリア」を構築し、腫瘍微小環境の特性を利用して精密な「ナビゲーション」送達を実現すること。腫瘍部位に到達した後にのみ薬物を放出させることで、「薬効の増強と毒性の軽減（Enhanced efficacy and reduced toxicity）」を達成すること。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
+                    <p>機能化ナノ材料を用いて薬物送達システムを構築し、表面修飾技術を通じて腫瘍へのアクティブターゲティング（能動的標的化）を実現しました。このキャリアは生理学的バリアを克服して血中循環において安定性を保ち、腫瘍微小環境に到達した後に特定の刺激を受けて崩壊を引き起こします。最終的な実験により、腫瘍組織内の標的部位で薬物が無事に放出され、腫瘍部位への薬物蓄積量が著しく増加したことが確認されました。強力な抗腫瘍活性を維持しつつ、主要臓器に対する毒性・副作用を大幅に軽減しました。</p>
+                    
+                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+                `,
+
+                // --- 業績 (Publications) ---
+                pub1_impact: "// Impact（学術的意義）: 本研究は、組換えタンパク質を合成することにより厳密なDIA FDR評価手法を確立し、ソフトウェア最適化のためのベンチマークデータセットを提供しました。",
+                pub2_impact: "// Impact（学術的意義）: 本研究は、定量的な堅牢性を損なうことなく、プロテオミクスのカバレッジと感度を大幅に向上させる（微量サンプルにおいて40%の向上）最適化されたNarrow windows DIA法を開発しました。",
+                view_paper: "論文を見る ↗",
+
+                // --- その他 (Others) ---
+                ot_analysis: "// 分析・ツール (ANALYSIS & TOOLS)",
+                ot_resources: "// 研究リソース (RESEARCH RESOURCES)",
+                ot_learning: "// 学習資料 (LEARNING)",
+                ot_community: "// コミュニティ・メディア (COMMUNITIES & MEDIA)",
+                ot_prod_journals: "// 生産性向上 (PRODUCTIVITY)",
+                others_tools: "// ツールナビゲーション (TOOLS NAVIGATION)", 
+                others_journals: "// 主要論文誌 (KEY JOURNALS)",
+
+                // --- 連絡先 (Contact) ---
+                contact_desc: "共同研究やご質問など、お気軽にお問い合わせください。",
+                cv_btn: "履歴書 (CV) をダウンロード (PDF)",
+
+                // --- 個人用 (Personal Dashboard) ---
+                stat_cand: "候補者",
+                stat_papers: "論文数"
+            },
+            // --- 以下为中文数据包 (Chinese Version) ---
+            zh: {
+                // 1. 导航栏
+                nav_home: "首页", 
+                nav_about: "关于我", 
+                nav_research: "研究领域", 
+                nav_pub: "学术成果", 
+                nav_others: "其他", 
+                nav_contact: "联系方式", 
+                nav_personal: "个人数据",
+                
+                // 2. 首页主视觉区
+                hero_title: "蛋白质组学", 
+                hero_desc: "致力于推动蛋白质组学在精准医疗与创新药物研发中的应用。", 
+                hero_btn: "进入研究控制台",
+
+                // 3. About Me 与 学历部分
+                about_bio_content: `
+                    <p>我目前是熊本大学的博士研究生（2022–2026年），师从<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>大槻纯男（Sumio Ohtsuki）教授</a></strong>。我的科研基础始于在河北医科大学攻读药剂学（Pharmaceutics）硕士学位期间。进入博士阶段后，我将研究重心全面转向了蛋白质组学领域。</p>
+                    
+                    <p>目前，我对探索蛋白质组学的巨大潜力充满热情。我的主要研究兴趣与专业领域包括：</p>
+                    <ul style="margin-bottom:1.5rem;">
+                        <li>蛋白质组学样品前处理 (Sample Preparation)</li>
+                        <li>血浆蛋白质组学 (Plasma Proteomics)</li>
+                        <li>MS-CETSA/TPP/PISA</li>
+                        <li>蛋白晕 (Protein Corona)</li>
+                        <li>自上而下蛋白质组学 (Top-down Proteomics)</li>
+                        <li>蛋白质翻译后修饰 (PTMs)</li>
+                        <li>数据非依赖性采集 (Data-Independent Acquisition, DIA)</li>
+                        <li><strong>末端蛋白质组学 / Terminomics (目前主攻项目)</strong></li>
+                    </ul>
+                    
+                    <p><strong>最终目标:</strong> 将蛋白质组学作为强大的驱动工具，推动精准医学与创新药物研发的进步。</p>
+                `,
+
+                edu_title: "// 教育背景",
+                edu_phd: "<strong>熊本大学 (日本)</strong><br>药学教育部 创药·生命药学专攻 博士<br>导师：大槻纯男 (Sumio Ohtsuki) 教授",
+                edu_master: "<strong>河北医科大学 (中国)</strong><br>药学院 药剂学 硕士",
+
+                // 4. SKILLS 与 会议发表
+                skills_content: `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 01. 仪器操作与维护 </h4>
+                            <ul class="skills-list">
+                                <li>熟练掌握 <span style="color:var(--accent-gray); font-weight:bold;">Sciex ZenoTOF 7600</span> 质谱仪的实机操作、日常故障排查及参数优化，以确保最佳的数据采集质量。</li>
+                                <li>硕士期间积累了丰富的 <span style="color:var(--accent-gray); font-weight:bold;">UHPLC 及 HPLC-UV</span> 使用经验，涵盖分析方法开发、系统综合维护及硬件维修。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 02. 数据分析技能 </h4>
+                            <ul class="skills-list">
+                                <li>数据处理：精通 <span style="color:var(--accent-gray); font-weight:bold;">DDA 及 DIA</span> 数据处理流程，熟练使用 <span style="color:var(--accent-gray); font-weight:bold;">DIA-NN, FragPipe, MaxQuant, PEAKS</span> 等主流软件。</li>
+                                <li>编程能力：熟练使用 <span style="color:var(--accent-gray); font-weight:bold;">R 语言</span>进行数据分析与可视化。具备 <span style="color:var(--accent-gray); font-weight:bold;">Python</span> 基础，目前正在拓展机器学习在蛋白质组学中的应用能力。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 03. 蛋白质组学特色工作流 </h4>
+                            <ul class="skills-list">
+                                <li>具备丰富的<span style="color:var(--accent-gray); font-weight:bold;">血浆蛋白质组学</span>实操经验，包括高丰度蛋白的<span style="color:var(--accent-gray); font-weight:bold;">酸沉淀法（Acid-based depletion）</span>及<span style="color:var(--accent-gray); font-weight:bold;">蛋白晕（Protein corona）</span>策略。</li>
+                                <li>专注于<span style="color:var(--accent-gray); font-weight:bold;">末端蛋白质组学 / 位置蛋白质组学（Terminomics/Positional proteomics）</span>的前沿技术开发。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--highlight); font-family:var(--tech-font); font-size:0.9rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;"> 04. 药学与生物学交叉技能 </h4>
+                            <ul class="skills-list">
+                                <li>生物学技术：熟练掌握细胞培养及<span style="color:var(--accent-gray); font-weight:bold;">体内药效学评价（In vivo pharmacodynamics）</span>，具备比格犬及大鼠模型实验经验。</li>
+                                <li>药剂学：熟悉固体制剂及<span style="color:var(--accent-gray); font-weight:bold;">纳米递药系统（Nanoparticle DDS）</span>的处方设计与工艺开发。</li>
+                                <li>理论背景：扎实的<span style="color:var(--accent-gray); font-weight:bold;">肿瘤生物学</span>与<span style="color:var(--accent-gray); font-weight:bold;">药物动力学（PK）</span>理论知识。</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+
+                conf_title: "// 学术会议发表",
+                conf_list: `
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2025年8月6–8日 | 海报展示</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">2025年日本蛋白质组学会年会 (JPrOS2025)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Comprehensive Benchmarking of Recent Data-independent Acquisition Tools for Library-Free Proteomics Analysis"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">日本 千叶县</div>
+                        </li>
+                        
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年6月26–28日 | 海报展示</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">2024年日本蛋白质组学会年会 (JPrOS2024)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">日本 青森县</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年3月29–31日 | 口头报告</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">日本药学会第144届年会 (PSJ 2024)</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Improved Protein Identifications in SWATH-DIA Using Narrow Isolation Windows"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">日本 横滨</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2024年1月8-9日 | 海报展示</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">学术变革领域研究(A) “多模态细胞外环境” 领域会议</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Deep Proteomic Profiling of Extracellular Matrix Remodeling for Novel Biomarker Discovery"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">日本 千叶县</div>
+                        </li>
+
+                        <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--text-muted); padding-left: 1rem;">
+                            <div style="font-family: var(--tech-font); color: var(--accent-gray); font-size: 0.9rem;">2023年8月22–23日 | 口头报告</div>
+                            <div style="font-weight: bold; margin: 0.3rem 0;">熊本大学 2023 夏季学术研讨会</div>
+                            <div style="color: var(--accent-gray); font-size: 0.9rem; margin-bottom: 0.3rem; font-style: italic;">"Identification and Quantification of Biomarkers Using High-Throughput plexDIA Proteomics with Dimethyl Labeling"</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">日本 熊本阿苏</div>
+                        </li>
+                    </ul>
+                `,
+
+                // 5. 研究控制台 UI
+                dia_sub: "质谱数据采集",
+                ter_sub: "蛋白酶解数据",
+                bio_sub: "临床转化应用",
+                node_pharm_title: "药剂学",
+                node_details: "查看详情", 
+                details_arrow: "详情 ↗", 
+                back_home: "← 返回首页", 
+                back_console: "← 返回控制台",
+                res_console_desc: "点击相应节点，查看技术细节与目前正在开展的研究项目。",
+                pharm_page_title: "药剂学 (Pharmaceutics)",
+
+                // 6. 研究节点内容
+                dia_content: `
+                    <p>我对 DIA 研究的探索始于我接受的系统性蛋白质组学训练。在参与高通量 Multiplexed DIA 项目的过程中，我积累了扎实的数据采集与处理经验。在此基础之上，我致力于对 DIA 方法学进行深度优化：在数据采集端，我深入探讨了<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA 隔离窗口（Isolation Windows）</a>的优化策略；在数据分析端，我建立并系统评估了<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">针对 DIA 无库搜索的 FDR 控制方法</a>。</p>
+
+                    <p>此外，我对蛋白质组学搜索引擎及软件工具抱有极大的热情。我热衷于探索各类新工具——它们是我解决科研难题的“武器”。见证算法迭代如何一步步推动 DIA 性能的飞跃是一件非常迷人的事情，我也非常享受深挖这一领域底层的乐趣。</p>
+
+                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">目前开展的研究项目</h3>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
+                            面向无库搜索（Library-Free）蛋白质组学分析的最新 DIA 工具综合基准测试
+                        </li>
+                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
+                            针对蛋白质翻译后修饰 (PTMs) 的 DIA 方法学优化
+                        </li>
+                    </ul>
+                `,
+
+                bio_content: `
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">我在肿瘤研究领域的背景</h3>
+                    
+                    <p>我与肿瘤研究的渊源始于本科期间在肿瘤专科医院的临床实习。这段经历让我得以直击临床一线，深刻理解了患者的真实处境、化疗等标准治疗流程，以及伴随这些治疗而来的严重副作用。</p>
+                    
+                    <p>
+                    在<span class="text-link" onclick="switchView('pharmaceutics')">治疗学领域</span>，我的早期工作聚焦于肿瘤靶向递药系统（Targeted DDS）。我致力于设计并优化纳米载体，旨在提高抗癌药物在肿瘤局部的富集浓度，同时最大限度地降低其对全身的毒副作用。</p>
+                    
+                    <p>如今，我专注于利用前沿分析技术解决癌症早期发现与诊断的难题。我目前研究的核心是应用高级蛋白质组学策略（如目前主攻的<span class="text-link" onclick="switchView('terminomics')">末端蛋白质组学</span>），从复杂的临床生物样本中系统性地筛选并鉴定新型的癌症生物标志物。</p>
+                    
+                    <p>未来，我希望能够继续深耕肿瘤学研究，特别是在肿瘤转化蛋白质组学（Translational Proteomics）等交叉领域贡献自己的力量。</p>
+                `,
+
+                ter_content: `
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">基于末端蛋白质组学的肿瘤生物标志物发现</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p>肿瘤的浸润与转移往往伴随着肿瘤微环境（TME）内蛋白酶调控网络的深刻重塑。在这种病理状态下，异常激活的蛋白酶（如基质金属蛋白酶 MMPs、组织蛋白酶 Cathepsins）不仅通过降解细胞外基质来突破组织屏障，还会对整个蛋白质组进行广泛且异常的<strong>“异常蛋白酶解（Aberrant Proteolysis）”</strong>。这些特异性的剪切事件暴露出在正常生理条件下不存在的全新 N 端或 C 端序列（即 <strong>新末端 / Neo-termini</strong>）。</p>
+                    <p>有别于仅仅反映全长蛋白丰度变化的传统标志物，这些带有特定<strong>“酶解指纹（Proteolytic fingerprints）”</strong>的肽段直接承载了肿瘤的功能状态信息。此外，由于分子量较小，这些剪切产物更容易穿透组织间隙并“渗漏”进入血液循环。因此，精准捕获并鉴定这些源自肿瘤特异性剪切的新末端肽段，为癌症筛查与动态监测提供了一种高特异性、高灵敏度的液体活检（Liquid Biopsy）新策略。</p>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+                    <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">核心技术挑战</h4>
+                    <ul style="list-style:none; padding-left:0;">
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            1. “胰蛋白酶”带来的噪音干扰：<br>
+                            常规的自下而上蛋白质组学必须使用胰蛋白酶（Trypsin）将蛋白质消化成肽段才能进行质谱检测。然而，这种体外消化是人为干预的过程，会产生数以百万计体内原本不存在的“内部肽段（Internal peptides）”。这些人为产生的肽段构成了巨大的背景噪音，使得原本由肿瘤特异性酶解产生的微量自然 N/C 端信号被严重稀释甚至完全掩盖。
+                        </li>
+                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            2. 极低的化学计量比（Sub-stoichiometric）：<br>
+                            病理状态下的蛋白酶解通常是一个“亚化学计量（Sub-stoichiometric）”事件。即使是高丰度蛋白，发生特异性剪切的分子可能也只占总量的极小一部分。这些痕量的截短型蛋白片段完全淹没在未被剪切的完整蛋白背景中，导致信号极易丢失。
+                        </li>
+                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
+                            3. 生物信息学的算法限制：<br>
+                            标准的数据库搜索策略通常假设所有肽段都是“完全胰酶切（Fully Tryptic）”的，并针对此类肽段进行了算法优化。然而，肿瘤微环境中产生的剪切片段往往是“半胰酶切（Semi-tryptic）”甚至非胰酶切的。目前主流的 DIA 分析流程大多采用“以肽段为中心（Peptide-centric）”的打分策略，如果在 DIA 模式下直接进行半特异性搜索，搜索空间将呈指数级爆炸式增长，给数据解析带来难以估量的难度。
+                        </li>
+                    </ul>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案：末端蛋白质组学 (Terminomics)</h4>
+                    
+                    <p>末端蛋白质组学（也称为位置蛋白质组学 / Positional Proteomics）是蛋白质组学的一个高度专业化分支，致力于系统性研究生物系统内所有蛋白质的 N 端和 C 端（即末端组 / Terminome）。</p>
+                    <p>如果说传统的蛋白质组学关注的是蛋白质的“全貌”，那么末端蛋白质组学则死死盯住蛋白质的“两端”。这两端之所以至关重要，是因为它们记录了蛋白质生命周期中的核心历史：</p>
+                    <ul>
+                        <li>蛋白质的成熟：蛋白质翻译后是如何被加工剪切的。</li>
+                        <li>蛋白酶解过程：蛋白酶是如何通过切断蛋白质来激活、失活或降解它们的。</li>
+                        <li>翻译后修饰 (PTMs)：如乙酰化、肉豆蔻酰化等特异性发生在末端的修饰，控制着蛋白质的稳定性与亚细胞定位。</li>
+                    </ul>
+                    
+                    <p>“开关”机制：蛋白酶解（切割蛋白质）是一个不可逆的生物学开关，它精确控制着血液凝固、细胞凋亡、免疫应答等关键过程。末端蛋白质组学让我们能够精确地看到这些“切割”究竟发生在哪里。</p>
+                    <p>发现“新末端 (Neo-termini)”：当蛋白酶切断蛋白质时，会暴露出一个全新的 N 端。精准鉴定这些新末端，有助于研究人员发现酶的特异性底物，这对于靶向药物的研发至关重要。</p>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                        <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
+                            // 末端蛋白质组学常规分析工作流
+                        </p>
+                    </div>
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">目前开展的研究工作</h4>
+                    <ol style="padding-left:1.5rem; margin-bottom:2rem;">
+                        <li style="margin-bottom:0.5rem;">建立并优化高灵敏度的末端组学样品前处理方法体系。</li>
+                        <li style="margin-bottom:0.5rem;">优化针对半特异性（Semi-tryptic）肽段鉴定的质谱数据检索与打分策略。</li>
+                        <li style="margin-bottom:0.5rem;">利用临床样本队列，开展新末端生物标志物的早期发现与筛选。</li>
+                        <li style="margin-bottom:0.5rem;">对筛选出的关键候选新末端标志物进行大规模的后续验证研究。</li>
+                    </ol>
+                `,
+
+                master_desc: `
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. 氨磺必利口腔崩解片 (ODT) 的处方设计与开发</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
+                    <p><strong>临床用药困境：</strong> 氨磺必利是治疗精神分裂症的一线药物，但其面临两大难题：1）属于 BCS II 类药物（水溶性极差），导致生物利用度低；2）精神类疾病患者常因药物极度苦涩或吞咽困难而产生抗拒心理（如将药片藏于舌下后吐出），严重影响最终治疗效果。</p>
+                    
+                    <p><strong>研究目标：</strong> 开发一种无需用水、入口即化的“口腔崩解片 (ODT)”，从剂型设计的源头解决患者服药依从性差的根本问题。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
+                    <p>我巧妙运用固体分散体技术（Solid Dispersion）突破了药物的溶解性瓶颈，并成功实现了对苦味的掩盖。最终制备的处方在 30 秒内即可完成极速崩解，且口感良好。这一成果不仅有效防止了患者“藏药”的行为，也填补了该药物在 ODT 剂型领域的市场空白。</p>
+                    
+                    <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                </div>
+
+                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. 纳米乳经皮递药系统 (TDS) 的构建与评价</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
+                    <p><strong>临床用药困境：</strong> 卡马西平（CBZ）是治疗癫痫及三叉神经痛的首选药物，但其常规口服制剂面临三大缺陷：1）BCS II 类难溶性药物，胃肠道吸收极不稳定；2）存在显著的肝脏首过效应，大幅削弱了绝对生物利用度；3）长期口服带来的胃肠道刺激及频繁给药导致特定患者群体的依从性急剧下降。</p>
+                    
+                    <p><strong>研究目标：</strong> 构建一种无创的“纳米乳经皮递药系统”，旨在借助纳米载体技术打破溶解性壁垒，通过皮肤给药途径绕过肝脏首过代谢，最终实现平稳释药并改善患者依从性。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
+                    <p>我成功制备了负载卡马西平的<strong>纳米乳（Nanoemulsion）</strong>处方。凭借纳米乳超小的液滴粒径与独特的亲脂性，不仅大幅提升了难溶药卡马西平的载药量，更有效克服了皮肤角质层这一天然屏障。体外及体内动物实验均证实，该系统成功实现了药物的透皮吸收并进入体循环，彻底规避了肝脏首过效应。与口服给药相比，该系统提供了更为平稳持久的血药浓度曲线，为需要长期用药的患者提供了一种更优的替代治疗方案。</p>
+                    
+                    <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                </div>
+                    
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. 基于纳米载体的肿瘤靶向给药系统 (Targeted DDS)</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
+                    <p><strong>临床用药困境：</strong> 传统的化疗药物通常面临“分布广而特异性差”的致命弱点。药物进入体内后无法明辨“敌友”，在杀伤癌细胞的同时也会对正常组织造成严重破坏（即剧烈的全身毒副作用）。此外，化疗药物往往难以穿透肿瘤内部致密的间质组织，导致病灶深处的有效药物浓度严重不足。</p>
+                    
+                    <p><strong>研究目标：</strong> 打造一款智能化的“纳米载体”作为药物运输装甲，利用肿瘤微环境的独特性质实现精准的“导航”递送。确保药物在血液中不泄漏，只有在抵达肿瘤深处后才触发释放，从而实现抗肿瘤的“增效减毒”。</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
+                    <p>我利用功能化纳米材料构建了智能递药系统，并通过表面修饰技术赋予了载体主动靶向肿瘤的能力。该载体成功克服了多重生理屏障，在血液循环中保持高度稳定；而在抵达肿瘤微环境后，能够响应特定刺激触发载体解体。最终的动物活体实验证实，药物被精准无误地释放在了肿瘤组织的靶向区域，使得病灶局部的药物蓄积量呈倍数级增长。在保持强效抗肿瘤活性的同时，极大程度地减轻了对心肝肾等主要脏器的毒副作用。</p>
+                    
+                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+                `,
+
+                // 7. 学术成果与杂项
+                pub1_impact: "// 研究影响：本研究通过合成重组蛋白建立了一套极其严谨的 DIA FDR 评估方法体系，为后续软件算法的优化提供了宝贵的基准数据集。",
+                pub2_impact: "// 研究影响：本研究开发了一种优化的窄窗口（Narrow windows）DIA 采集方法。该方法在不牺牲定量稳健性的前提下，显著提升了蛋白质组学的覆盖深度与灵敏度（在极微量样本下鉴定数量提升达 40%）。",
+                view_paper: "查看论文 ↗",
+
+                ot_analysis: "// 分析与工具 (ANALYSIS & TOOLS)",
+                ot_resources: "// 研究资源 (RESEARCH RESOURCES)",
+                ot_learning: "// 学习资料 (LEARNING)",
+                ot_community: "// 社区与媒体 (COMMUNITIES & MEDIA)",
+                ot_prod_journals: "// 效率工具 (PRODUCTIVITY)",
+                others_tools: "// 常用工具导航 (TOOLS NAVIGATION)", 
+                others_journals: "// 核心期刊 (KEY JOURNALS)",
+
+                contact_desc: "欢迎随时联系我探讨学术问题或寻求合作机会。",
+                cv_btn: "下载个人简历 (PDF格式)",
+
+                stat_cand: "候选人",
+                stat_papers: "已发表论文"
+            }
             
         };
 
