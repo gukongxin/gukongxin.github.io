@@ -209,6 +209,53 @@
         
         /* Publications 还原 */
         .pub-item { padding: 1.5rem; background: var(--card-bg); border: var(--border-thin); margin-bottom: 1rem; }
+        /* --- 新增：出版物指标栏和 DOI 样式 --- */
+       /* --- 纯文字指标栏和 DOI 样式 --- */
+        .metrics-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem; /* DOI和指标之间的间距 */
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .doi-link {
+            font-family: var(--tech-font);
+            font-size: 0.85rem;
+            color: var(--highlight);
+            text-decoration: none;
+            background: rgba(37, 99, 235, 0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .doi-link:hover {
+            background: var(--highlight);
+            color: #ffffff;
+        }
+        .metric-text {
+            font-family: var(--tech-font);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .metric-text strong {
+            color: var(--accent-gray);
+            font-weight: 700;
+            margin-left: 4px;
+        }
+      
+        /* --- 新增：折叠栏点击提示样式 --- */
+        .click-hint {
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: var(--text-muted);
+            margin-left: 10px;
+            font-family: var(--body-font);
+            letter-spacing: normal;
+        }
         .pub-info h4 { color: var(--accent-gray); font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
         .author-highlight { color: var(--accent-gray); font-weight: bold; text-decoration: underline; text-underline-offset: 3px; }
         .impact-text { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; font-style: italic; }
@@ -687,7 +734,7 @@
 
                 <div class="accordion-container" style="margin-bottom: 1.5rem;">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3 class="accordion-title">// SKILLS</h3>
+                        <h3 class="accordion-title">// SKILLS <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
                         <span class="accordion-icon">▶</span>
                     </button>
                     <div class="accordion-content">
@@ -697,7 +744,7 @@
 
                 <div class="accordion-container">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3 class="accordion-title" data-t="conf_title">// CONFERENCE PRESENTATIONS</h3>
+                        <h3 class="accordion-title"><span data-t="conf_title">// CONFERENCE PRESENTATIONS</span> <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
                         <span class="accordion-icon">▶</span>
                     </button>
                     <div class="accordion-content">
@@ -710,23 +757,33 @@
 
         <section id="publications-view" class="view">
             <h2 class="section-title" data-t="nav_pub">PUBLICATIONS</h2>
+            
             <div class="pub-item">
                 <div class="pub-info">
                     <h4>Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN Using In Vitro Human Proteome</h4>
                     <p>Journal of Proteome Research (2025)<br><span class="author-highlight">Kongxin Gu</span>, Masanaga Kenko, Koji Ogawa, Naoki Goshima, Takeshi Masuda, Shingo Ito, Sumio Ohtsuki*.</p>
                     <p class="impact-text" data-t="pub1_impact">// Impact: This study establishes a rigorous DIA FDR evaluation method by synthesizing recombinant proteins, providing a benchmark dataset for software optimization.</p>
+                    
+                    <div class="metrics-bar">
+                        <a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" class="doi-link">DOI: 10.1021/acs.jproteome.5c00036 ↗</a>
+                        <span class="metric-text">Citations: <strong id="cite-1">-</strong></span>
+                        <span class="metric-text">Altmetric: <strong id="alt-1">-</strong></span>
+                    </div>
                 </div>
-                <a href="https://pubs.acs.org/doi/10.1021/acs.jproteome.5c00036?ref=pdf" target="_blank" class="btn-link" data-t="view_paper">View Paper ↗</a>
             </div>
+
             <div class="pub-item">
                 <div class="pub-info">
                     <h4>Improving Proteomic Identification Using Narrow Isolation Windows with Zeno SWATH Data-Independent Acquisition</h4>
                     <p>Journal of Proteome Research (2024)<br><span class="author-highlight">Kongxin Gu</span>, Haruka Kumabe, Takumi Yamamoto, Naoto Tashiro, Takeshi Masuda, Shingo Ito, Sumio Ohtsuki*.</p>
                     <p class="impact-text" data-t="pub2_impact">// Impact: The study developed an optimized narrow windows DIA that substantially boosts proteomic coverage and sensitivity (with a 40% improvement at low loading amounts) without compromising quantitative robustness.</p>
+                    
+                    <div class="metrics-bar">
+                        <a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" class="doi-link">DOI: 10.1021/acs.jproteome.4c00149 ↗</a>
+                        <span class="metric-text">Citations: <strong id="cite-2">-</strong></span>
+                        <span class="metric-text">Altmetric: <strong id="alt-2">-</strong></span>
+                    </div>
                 </div>
-                <a href="https://pubs.acs.org/doi/10.1021/acs.jproteome.4c00149
-        
-        " target="_blank" class="btn-link" data-t="view_paper">View Paper ↗</a>
             </div>
         </section>
 
@@ -1810,6 +1867,36 @@ function checkPersonalAccess() {
         }
         window.addEventListener('resize', init);
         init(); draw();
+
+
+        // --- 实时拉取纯文本学术指标 ---
+        function loadPaperMetrics() {
+            const papers = [
+                { doi: '10.1021/acs.jproteome.5c00036', citeId: 'cite-1', altId: 'alt-1' },
+                { doi: '10.1021/acs.jproteome.4c00149', citeId: 'cite-2', altId: 'alt-2' }
+            ];
+
+            papers.forEach(p => {
+                // 1. 从 Crossref 抓取引用数
+                fetch(`https://api.crossref.org/works/${p.doi}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const citations = data.message['is-referenced-by-count'] || 0;
+                        document.getElementById(p.citeId).innerText = citations;
+                    }).catch(() => document.getElementById(p.citeId).innerText = '0');
+
+                // 2. 从 Altmetric 抓取社媒指数
+                fetch(`https://api.altmetric.com/v1/doi/${p.doi}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const score = Math.round(data.score) || 0;
+                        document.getElementById(p.altId).innerText = score;
+                    }).catch(() => document.getElementById(p.altId).innerText = '0');
+            });
+        }
+        
+        // 页面加载完毕后自动执行抓取
+        document.addEventListener('DOMContentLoaded', loadPaperMetrics);
     </script>
 </body>
 
