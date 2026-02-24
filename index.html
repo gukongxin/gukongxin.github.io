@@ -1094,7 +1094,7 @@ conf_list: `
                         </li>
                     </ul>
                 `,
-                
+
                 bio_content: `
                     <h3 style="color:var(--highlight); margin-bottom:1.5rem;">My Background in Cancer Research</h3>
                     
@@ -1860,7 +1860,7 @@ function checkPersonalAccess() {
         init(); draw();
 
 
-        // --- 实时拉取纯文本学术指标 (跨域修复版) ---
+   // --- 实时拉取纯文本学术指标 (官方直连终极版) ---
         function loadPaperMetrics() {
             const papers = [
                 { doi: '10.1021/acs.jproteome.5c00036', citeId: 'cite-1', altId: 'alt-1' },
@@ -1868,25 +1868,33 @@ function checkPersonalAccess() {
             ];
 
             papers.forEach(p => {
-                // 1. 从 Crossref 抓取引用数 (它没有跨域限制，照旧)
-                fetch(`https://api.crossref.org/works/${p.doi}`)
+                // 1. 直连 Crossref 抓取引用数 (一直都很稳)
+                fetch('https://api.crossref.org/works/' + p.doi)
                     .then(res => res.json())
                     .then(data => {
                         const citations = data.message['is-referenced-by-count'] || 0;
-                        document.getElementById(p.citeId).innerText = citations;
-                    }).catch(() => document.getElementById(p.citeId).innerText = '0');
+                        const el = document.getElementById(p.citeId);
+                        if (el) el.innerText = citations;
+                    }).catch(() => {
+                        const el = document.getElementById(p.citeId);
+                        if (el) el.innerText = '0';
+                    });
 
-                // 2. 从 Altmetric 抓取 (使用 AllOrigins 免费跨域代理绕过拦截)
-                const altmetricUrl = `https://api.altmetric.com/v1/doi/${p.doi}`;
-                fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(altmetricUrl)}`)
+                // 2. 直连 Altmetric 官方接口（抛弃任何代理，直接向官方要数据）
+                fetch('https://api.altmetric.com/v1/doi/' + p.doi)
                     .then(res => {
-                        if (!res.ok) throw new Error('Not found');
+                        if (!res.ok) throw new Error('No Data');
                         return res.json();
                     })
                     .then(data => {
                         const score = Math.round(data.score) || 0;
-                        document.getElementById(p.altId).innerText = score;
-                    }).catch(() => document.getElementById(p.altId).innerText = '0');
+                        const el = document.getElementById(p.altId);
+                        if (el) el.innerText = score;
+                    }).catch(() => {
+                        // 如果文章太新还没收录，默认显示 0
+                        const el = document.getElementById(p.altId);
+                        if (el) el.innerText = '0';
+                    });
             });
         }
         
