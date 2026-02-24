@@ -1079,16 +1079,8 @@ conf_list: `
                     
                 `,
 
-                dia_content: `
-                    <p>My exploration of DIA research began during my systematic training in proteomics, where I gained solid experience in data acquisition and processing through high-throughput Multiplexed DIA projects. Building on this foundation, I optimized DIA methodologies: on the acquisition side, I worked on <a href="https://doi.org/10.1021/acs.jproteome.4c00149
-        
-        "
-        
-        IF: 3.6 Q2 B2" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>; on the analysis side, I established and evaluated <a href="https://doi.org/10.1021/acs.jproteome.5c00036
-        
-        "
-        
-        IF: 3.6 Q2 B2" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR control methods for DIA data</a>.</p>
+               dia_content: `
+                    <p>My exploration of DIA research began during my systematic training in proteomics, where I gained solid experience in data acquisition and processing through high-throughput Multiplexed DIA projects. Building on this foundation, I optimized DIA methodologies: on the acquisition side, I worked on <a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>; on the analysis side, I established and evaluated <a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR control methods for DIA data</a>.</p>
 
                     <p>Beyond that, I have a huge passion for proteomics search software. I love playing with new tools—these are my weapons. Witnessing the step-by-step leaps in DIA performance driven by algorithm updates is fascinating to me, and I always enjoy the fun of digging deeper into this field.</p>
 
@@ -1098,12 +1090,11 @@ conf_list: `
                             Comprehensive Benchmarking of Recent Data-independent Acquisition Tools for Library-Free Proteomics Analysis
                         </li>
                         <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                    
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
                             Optimizing DIA for Post-Translational Modifications (PTMs)
                         </li>
                     </ul>
                 `,
+                
                 bio_content: `
                     <h3 style="color:var(--highlight); margin-bottom:1.5rem;">My Background in Cancer Research</h3>
                     
@@ -1869,7 +1860,7 @@ function checkPersonalAccess() {
         init(); draw();
 
 
-        // --- 实时拉取纯文本学术指标 ---
+        // --- 实时拉取纯文本学术指标 (跨域修复版) ---
         function loadPaperMetrics() {
             const papers = [
                 { doi: '10.1021/acs.jproteome.5c00036', citeId: 'cite-1', altId: 'alt-1' },
@@ -1877,7 +1868,7 @@ function checkPersonalAccess() {
             ];
 
             papers.forEach(p => {
-                // 1. 从 Crossref 抓取引用数
+                // 1. 从 Crossref 抓取引用数 (它没有跨域限制，照旧)
                 fetch(`https://api.crossref.org/works/${p.doi}`)
                     .then(res => res.json())
                     .then(data => {
@@ -1885,9 +1876,13 @@ function checkPersonalAccess() {
                         document.getElementById(p.citeId).innerText = citations;
                     }).catch(() => document.getElementById(p.citeId).innerText = '0');
 
-                // 2. 从 Altmetric 抓取社媒指数
-                fetch(`https://api.altmetric.com/v1/doi/${p.doi}`)
-                    .then(res => res.json())
+                // 2. 从 Altmetric 抓取 (使用 AllOrigins 免费跨域代理绕过拦截)
+                const altmetricUrl = `https://api.altmetric.com/v1/doi/${p.doi}`;
+                fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(altmetricUrl)}`)
+                    .then(res => {
+                        if (!res.ok) throw new Error('Not found');
+                        return res.json();
+                    })
                     .then(data => {
                         const score = Math.round(data.score) || 0;
                         document.getElementById(p.altId).innerText = score;
@@ -1895,7 +1890,6 @@ function checkPersonalAccess() {
             });
         }
         
-        // 页面加载完毕后自动执行抓取
         document.addEventListener('DOMContentLoaded', loadPaperMetrics);
     </script>
 </body>
