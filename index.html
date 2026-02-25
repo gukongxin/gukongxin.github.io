@@ -208,11 +208,44 @@
         
         .section-title { font-family: var(--tech-font); font-size: 1.5rem; color: var(--highlight); margin-bottom: 2rem; padding-left: 1rem; border-left: 4px solid var(--highlight); }
         
-        /* Publications 还原 */
-        .pub-item { padding: 1.5rem; background: var(--card-bg); border: var(--border-thin); margin-bottom: 1rem; }
-        /* --- 新增：出版物指标栏和 DOI 样式 --- */
-       /* --- 纯文字指标栏和 DOI 样式 --- */
-        /* --- 纯文字指标栏 --- */
+        /* --- 出版物列表：左图右文布局 --- */
+        .pub-item { 
+            display: flex;       /* 开启弹性布局，让图片和文字并排 */
+            gap: 1.5rem;         /* 图片和右侧文字的间距 */
+            padding: 1.5rem; 
+            background: var(--card-bg); 
+            border: var(--border-thin); 
+            margin-bottom: 1.5rem;
+            align-items: flex-start; /* 顶部对齐 */
+            transition: 0.3s;
+            border-radius: 8px;  /* 整体加一点圆角，更柔和高级 */
+        }
+        .pub-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 鼠标悬浮时的阴影 */
+        }
+
+        /* 封面图容器样式 */
+        .pub-cover {
+            width: 120px;        /* 控制封面图的宽度 */
+            flex-shrink: 0;      /* 防止屏幕变窄时图片被挤压变形 */
+        }
+        .pub-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* 给书本/期刊加点立体阴影 */
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* 手机端适配：屏幕变窄时自动改为上下排列 */
+        @media (max-width: 768px) {
+            .pub-item { flex-direction: column; gap: 1rem; }
+            .pub-cover { width: 90px; }
+        }
+
+
+
+
         .metrics-bar {
             display: flex;
             align-items: center;
@@ -773,10 +806,14 @@
             </div>
         </section>
 
-        <section id="publications-view" class="view">
+       <section id="publications-view" class="view">
             <h2 class="section-title" data-t="nav_pub">PUBLICATIONS</h2>
             
             <div class="pub-item">
+                <div class="pub-cover">
+                    <img src="figure/pubcover_1.jpg" alt="Journal Cover">
+                </div>
+                
                 <div class="pub-info">
                     <h4>Evaluation of the False Discovery Rate in Library-Free Search by DIA-NN Using In Vitro Human Proteome</h4>
                     <p>Journal of Proteome Research (2025)<br><span class="author-highlight">Kongxin Gu</span>, Masanaga Kenko, Koji Ogawa, Naoki Goshima, Takeshi Masuda, Shingo Ito, Sumio Ohtsuki*.</p>
@@ -791,6 +828,10 @@
             </div>
 
             <div class="pub-item">
+                <div class="pub-cover">
+                    <img src="figure/pubcover_2.jpg" alt="Journal Cover">
+                </div>
+                
                 <div class="pub-info">
                     <h4>Improving Proteomic Identification Using Narrow Isolation Windows with Zeno SWATH Data-Independent Acquisition</h4>
                     <p>Journal of Proteome Research (2024)<br><span class="author-highlight">Kongxin Gu</span>, Haruka Kumabe, Takumi Yamamoto, Naoto Tashiro, Takeshi Masuda, Shingo Ito, Sumio Ohtsuki*.</p>
