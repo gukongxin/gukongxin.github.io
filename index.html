@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gu Kongxin (顾孔新，顧孔新) | Ohtsuki Lab</title>
+    <title>Kongxin Gu (顾孔新)</title>
     <script type="text/javascript" src="https://embed.altmetric.com/assets/embed.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* --- 核心变量 --- */
         /* --- 替换原有的 :root 部分 --- */
 :root {
-    --bg-color: #F0F0F0;          /* 背景：改为护眼浅灰 */
+    --bg-color: #F6F7F9;          /* 背景：改为护眼浅灰 */
     --card-bg: #FFFFFF;           /* 卡片：改为纯白 */
     --accent-gray: #1E293B;       /* 主要文字：改为深蓝灰色 (以便在白底上显示) */
     --text-muted: #4A5568;        /* 次要文字：中灰色 */
@@ -43,11 +43,11 @@
         /* --- 导航栏 --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 5%;
+            height: 70px; padding: 0 5%;
             border-bottom: var(--border-thin);
             backdrop-filter: blur(15px);
             position: fixed; top: 0; width: 100%;
-            background: rgba(240, 240, 240, 0.8);
+            background: rgba(246, 247, 249, 0.8);
             z-index: 100;
         }
         .logo { font-family: var(--tech-font); font-weight: 700; font-size: 1.1rem; color: var(--accent-gray); cursor: pointer; }
@@ -55,15 +55,15 @@
         
         .nav-container { display: flex; align-items: center; gap: 2rem; }
         nav ul { display: flex; gap: 1.2rem; list-style: none; }
-        nav a { text-decoration: none; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.75rem; transition: color 0.3s; cursor: pointer;font-weight: 700; }
+        nav a { text-decoration: none; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.82rem; transition: color 0.3s; cursor: pointer;font-weight: 700; }
         nav a.active, nav a:hover { color: var(--highlight); }
 
         .lang-switcher { display: flex; gap: 0.5rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; }
-        .lang-btn { background: none; border: 1px solid transparent; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.7rem; cursor: pointer; padding: 2px 6px; transition: 0.3s; }
+        .lang-btn { background: none; border: 1px solid transparent; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.8rem; cursor: pointer; padding: 2px 6px; transition: 0.3s; }
         .lang-btn.active { color: var(--highlight); border-color: var(--highlight); box-shadow: 0 0 8px rgba(255,255,255,0.2); }
 
         /* --- 视图切换系统 --- */
-        main { margin-top: 70px; height: calc(100vh - 70px); position: relative; }
+        main { margin-top: 70px; height: calc(100vh - 130px); position: relative; }
         .view {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             padding: 4rem 10%; overflow-y: auto; opacity: 0; visibility: hidden;
@@ -72,141 +72,377 @@
         }
         .view.active { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        /* --- HUD 控制台 --- */
-        .hud-view { display: flex; align-items: center; padding: 0 10%; height: 100%; }
-        .hero-left { flex: 1.2; z-index: 2; padding-right: 2rem; margin-top: -120px;}
-        .hero-left h1 { font-size: 3.8rem; font-weight: 700; color: var(--highlight); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-        .hero-left p { max-width: 500px; font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; border-left: 2px solid var(--text-muted); padding-left: 1.5rem; }
-        
-        .hero-right { flex: 1; display: flex; justify-content: center; align-items: center; z-index: 5; }
-        /* --- 替换原有的圆环样式 --- */
-.hud-wrapper { 
-    position: relative; width: 550px; height: 550px; 
-    display: flex; justify-content: center; align-items: center; 
-}
-
-.hud-ring { 
-    position: absolute; border-radius: 50%; 
-    border: 1px dashed rgba(0, 0, 0, 0.08); /* 线条改为极淡的黑色 */
-    animation: rotateHUD 40s linear infinite; /* 速度放慢到 40s */
-    pointer-events: none; 
-}
-
-.ring-outer { width: 500px; height: 500px; } /* 尺寸微调变大 */
-.ring-inner { 
-    width: 240px; height: 240px; 
-    animation-direction: reverse; 
-    border-style: double; 
-    border-width: 1px; /* 内圈线条加粗 */
-}
-
-@keyframes rotateHUD { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        /* 节点样式 (统一风格，取消金色) */
-        /* --- 替换原有的节点样式 --- */
-/* 交互效果：1.18倍缩放 + 蓝色阴影 + 弹性过渡 */
-/* --- 修正版：节点样式 --- */
-
-/* 1. 父容器：只负责占位和定位，鼠标放上去绝对不动 */
-.research-node { 
-    position: absolute; 
-    width: 170px; height: 170px; 
-    z-index: 100; 
-    cursor: pointer; 
-    /* 这里不要加 transition 和 transform，以免覆盖原本的定位 */
-}
-
-/* 2. 子容器：负责画圆圈、背景色、阴影 */
-.node-content { 
-    width: 100%; height: 100%; 
-    background: rgba(255, 255, 255, 0.95); /* 白底 */
-    border: 1px solid rgba(0, 0, 0, 0.05); /* 极细边框 */
-    border-radius: 50%; 
-    display: flex; flex-direction: column; justify-content: center; align-items: center; 
-    
-    /* 动画交给子容器 */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    backdrop-filter: blur(5px); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
-    
-    /* 初始缩放比例为 1 */
-    transform: scale(1);
-}
-
-/* 3. 交互：鼠标悬停在父容器时，让子容器变大 */
-.research-node:hover .node-content { 
-    transform: scale(1.18); /* 只放大子容器，不影响父容器位置 */
-    border-color: var(--highlight); 
-    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15); 
-}
-
-/* 提升层级：鼠标悬停时确保盖住别人 */
-.research-node:hover {
-    z-index: 110;
-}
-
-/* 保持文字样式不变 */
-.node-title { 
-    font-family: var(--tech-font); font-size: 1.1rem; 
-    color: var(--accent-gray); 
-    font-weight: 700; margin-bottom: 4px; 
-}
-.node-desc { 
-    font-size: 0.85rem; color: var(--text-muted); 
-    text-align: center; padding: 0 10px; line-height: 1.2; 
-}
-.text-link {
-    color: var(--highlight);
-    text-decoration: underline;
-    text-underline-offset: 4px; /* 下划线稍微离远点，更好看 */
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
-}
-.text-link:hover {
-    color: #4fd1c5; /* 鼠标悬停变色 (青色) */
-    background: rgba(255,255,255,0.1);
-    padding: 0 4px;
-    border-radius: 4px;
-}
-        /* 节点位置 */
-        /* --- 交换位置后的节点样式 --- */
-
-        /* 1. DIA：从顶部移到了 -> 左下角 */
-        .node-dia { 
-            bottom: -15px; /* 之前是 top */
-            left: 20px;    /* 之前是 left: 50% */
-            top: auto;     /* 必须清除原本的 top 属性 */
-            transform: none; /* 清除原本的居中变换 */
+        /* --- HOME / RESEARCH editorial layouts --- */
+        #home-view,
+        #research-view {
+            padding: 0;
         }
 
-        /* 2. Terminomics：从左下角移到了 -> 顶部居中 */
-        .node-ter { 
-            top: -25px;    /* 占据顶部的宝座 */
-            left: 50%;     /* 水平居中 */
-            transform: translateX(-50%); /* 修正居中偏移 */
-            bottom: auto;  /* 清除原本的 bottom 属性 */
+        .home-profile-shell {
+            width: min(1220px, calc(100% - 96px));
+            min-height: calc(100vh - 130px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 315px);
+            gap: clamp(3rem, 6vw, 5.5rem);
+            align-items: center;
+            padding: 36px 0 44px;
         }
 
-        /* 3. Biomarker：保持右下角不变 (不用动，放在这里为了参考) */
-        .node-bio { bottom: -15px; right: 20px; }
-
-        /* 药剂学节点 (位置在右侧，尺寸小，但颜色统一) */
-        .node-pharm { 
-            position: absolute; 
-            width: 110px; height: 110px; /* 小于其他 */
-            top: 50%; right: -50px; 
-            transform: translateY(-50%);
-            z-index: 90;
+        .home-profile-copy {
+            max-width: 750px;
+            padding: 12px 0;
         }
-        /* 移除特殊的金色样式，保持统一 */
-        .node-pharm .node-title { font-size: 0.65rem; }
 
-        /* --- 还原 18.html 布局 --- */
-        .btn-tech { display: inline-block; padding: 1rem 2rem; border: 1px solid var(--accent-gray); color: var(--accent-gray); text-decoration: none; font-family: var(--tech-font); font-size: 0.8rem; transition: 0.3s; background: transparent; cursor: pointer; }
-        .btn-tech:hover { background: var(--accent-gray); color: var(--bg-color); box-shadow: 0 0 15px rgba(208, 220, 230, 0.3); }
-        
-        .section-title { font-family: var(--tech-font); font-size: 1.5rem; color: var(--highlight); margin-bottom: 2rem; padding-left: 1rem; border-left: 4px solid var(--highlight); }
+        .home-profile-name {
+            margin: 0;
+            color: var(--accent-gray);
+            font-family: var(--tech-font);
+            font-size: clamp(3.15rem, 4vw, 3.65rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .home-profile-name-cn {
+            display: block;
+            margin-top: 0.7rem;
+            color: var(--text-muted);
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .home-profile-bio {
+            max-width: 750px;
+            margin: 2.2rem 0 0;
+            padding: 0;
+            border: 0;
+            color: var(--text-muted);
+            font-size: 1.03rem;
+            line-height: 1.78;
+        }
+
+        .home-profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.8rem;
+        }
+
+        .home-profile-action {
+            display: inline-block;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            color: var(--highlight);
+            background: transparent;
+            font-family: var(--tech-font);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .home-profile-action:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .home-profile-visual {
+            justify-self: end;
+            width: min(100%, 315px);
+        }
+
+        .home-latest {
+            width: 100%;
+            max-width: 750px;
+            margin: 2.8rem 0 0;
+            padding-top: 1.1rem;
+            border-top: var(--border-thin);
+        }
+
+        .home-latest-title {
+            margin: 0 0 1.1rem;
+            color: var(--accent-gray);
+            font-family: var(--tech-font);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .home-latest-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .home-latest-item {
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--accent-gray);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .home-latest-date {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--highlight);
+            font-family: var(--tech-font);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .home-profile-portrait {
+            width: min(100%, 310px);
+            margin: 0 0 0 auto;
+        }
+
+        .home-profile-portrait img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .research-overview-shell {
+            width: min(1220px, calc(100% - 96px));
+            margin: 0 auto;
+            padding: 76px 0 132px;
+        }
+
+        .research-overview-title {
+            margin-bottom: 4.5rem;
+        }
+
+        .research-preview {
+            color: var(--accent-gray);
+        }
+
+        .research-preview-primary {
+            display: grid;
+            grid-template-columns: minmax(0, 760px) minmax(280px, 1fr);
+            gap: clamp(3rem, 5.5vw, 5.5rem);
+            align-items: end;
+        }
+
+        .research-preview-primary-figure,
+        .research-preview-foundation-figure {
+            margin: 0;
+        }
+
+        .research-preview-primary-figure img,
+        .research-preview-foundation-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: none;
+        }
+
+        .research-preview-title {
+            margin: 0 0 1rem;
+            font-family: var(--tech-font);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .research-preview-title a {
+            color: var(--accent-gray);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .research-preview-title a:hover {
+            color: var(--highlight);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .research-preview-primary-title {
+            font-size: 2.35rem;
+        }
+
+        .research-preview-summary {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .research-preview-dia {
+            width: min(700px, 100%);
+            margin: 8.5rem 0 0 5.5rem;
+        }
+
+        .research-preview-dia .research-preview-title {
+            font-size: 2rem;
+        }
+
+        .research-preview-cancer {
+            width: min(560px, 100%);
+            margin: 7.25rem 4.5rem 0 auto;
+        }
+
+        .research-preview-cancer .research-preview-title {
+            font-size: 1.78rem;
+        }
+
+        .research-preview-foundation {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 430px);
+            gap: 3.2rem;
+            align-items: center;
+            width: min(742px, 100%);
+            margin: 8rem 0 0 auto;
+        }
+
+        .research-preview-foundation .research-preview-title {
+            font-size: 1.55rem;
+        }
+
+        .text-link {
+            color: var(--highlight);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .text-link:hover {
+            color: #4fd1c5;
+            background: rgba(255,255,255,0.1);
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .home-profile-shell {
+                grid-template-columns: minmax(0, 1fr) minmax(250px, 300px);
+                gap: 3rem;
+                width: min(100% - 64px, 1220px);
+            }
+
+            .home-profile-name {
+                font-size: 3rem;
+            }
+
+            .home-profile-visual {
+                width: min(100%, 300px);
+            }
+
+            .research-overview-shell {
+                width: min(100% - 64px, 1220px);
+            }
+
+            .research-preview-primary {
+                grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+                gap: 2.5rem;
+            }
+
+            .research-preview-dia {
+                margin-left: 0;
+            }
+
+            .research-preview-cancer {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .home-profile-shell {
+                grid-template-columns: 1fr;
+                gap: 2.8rem;
+                width: calc(100% - 40px);
+                padding: 3.25rem 0 4rem;
+            }
+
+            .home-profile-name {
+                font-size: 2.75rem;
+            }
+
+            .home-profile-visual {
+                justify-self: start;
+                width: min(100%, 315px);
+            }
+
+            .home-profile-portrait {
+                margin-left: 0;
+            }
+
+            .research-overview-shell {
+                width: calc(100% - 40px);
+                padding: 3.5rem 0 7rem;
+            }
+
+            .research-overview-title {
+                margin-bottom: 3rem;
+            }
+
+            .research-preview-primary,
+            .research-preview-foundation {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .research-preview-primary-title {
+                font-size: 2rem;
+            }
+
+            .research-preview-dia,
+            .research-preview-cancer,
+            .research-preview-foundation {
+                margin-top: 5.5rem;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .research-preview-foundation-figure {
+                width: min(72vw, 280px);
+            }
+        }
+
+        .site-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            background: rgba(20, 34, 39, 0.9);
+            border-top: var(--border-thin);
+        }
+
+        .site-footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.4rem;
+        }
+
+        .site-footer-links a {
+            color: #FFFFFF;
+            font-family: var(--tech-font);
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .site-footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .section-title { font-family: var(--tech-font); font-size: 1.55rem; color: var(--highlight); margin-bottom: 1.5rem; padding-left: 0.8rem; border-left: 3px solid var(--highlight); }
         
         /* --- 出版物列表：左图右文布局 --- */
         .pub-item { 
@@ -219,6 +455,7 @@
             align-items: flex-start; /* 顶部对齐 */
             transition: 0.3s;
             border-radius: 8px;  /* 整体加一点圆角，更柔和高级 */
+            box-shadow: 0 4px 16px rgba(15,23,42,0.04);
         }
         .pub-item:hover {
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 鼠标悬浮时的阴影 */
@@ -236,15 +473,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* 给书本/期刊加点立体阴影 */
             border: 1px solid rgba(0,0,0,0.05);
         }
-
-        /* 手机端适配：屏幕变窄时自动改为上下排列 */
-        @media (max-width: 768px) {
-            .pub-item { flex-direction: column; gap: 1rem; }
-            .pub-cover { width: 90px; }
-        }
-
-
-
 
         .metrics-bar {
             display: flex;
@@ -297,6 +525,14 @@
             font-weight: 700;
             margin-left: 4px;
         }
+        .altmetric-source {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
       
         /* --- 新增：折叠栏点击提示样式 --- */
         .click-hint {
@@ -307,7 +543,7 @@
             font-family: var(--body-font);
             letter-spacing: normal;
         }
-        .pub-info h4 { color: var(--accent-gray); font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .pub-info h4 { color: var(--accent-gray); font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.4; }
         .author-highlight { color: var(--accent-gray); font-weight: bold; text-decoration: underline; text-underline-offset: 3px; }
         .impact-text { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; font-style: italic; }
 
@@ -331,29 +567,28 @@
         .btn-cv { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid var(--highlight); color: var(--highlight); text-decoration: none; font-family: var(--tech-font); font-size: 0.9rem; transition: 0.3s; }
         .btn-cv:hover { background: var(--highlight); color: var(--bg-color); }
 
-        .stat-box { background: var(--card-bg); padding: 1.5rem; border: var(--border-thin); text-align: center; }
+        .stat-box { background: var(--card-bg); padding: 1.5rem; border: var(--border-thin); text-align: center; border-radius: 8px; box-shadow: 0 4px 16px rgba(15,23,42,0.04); }
         .stat-num { font-size: 2rem; color: var(--highlight); font-weight: bold; font-family: var(--tech-font); }
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .dashboard-card { background: var(--card-bg); padding: 2rem; border: var(--border-thin); text-align: center; }
+        .dashboard-card { background: var(--card-bg); padding: 2rem; border: var(--border-thin); text-align: center; border-radius: 8px; box-shadow: 0 4px 16px rgba(15,23,42,0.04); }
         .dashboard-num { font-family: var(--tech-font); font-size: 3rem; color: var(--highlight); font-weight: bold; display: block; margin-bottom: 0.5rem; }
         .dashboard-label { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
 
         /* Rich Text */
-        .rich-text h3 { color: var(--accent-gray); font-family: var(--tech-font); margin: 1.5rem 0 0.8rem; border-left: 3px solid var(--highlight); padding-left: 0.8rem; }
-        .rich-text p { margin-bottom: 1rem; color: var(--accent-gray); }
+        .rich-text h3 { color: var(--accent-gray); font-family: var(--tech-font); font-size: 1.5rem; margin: 1.5rem 0 0.8rem; border-left: 3px solid var(--highlight); padding-left: 0.8rem; }
+        .rich-text h4 { font-size: 1.125rem; }
+        .rich-text p { margin-bottom: 1rem; color: var(--accent-gray); font-size: 1.03rem; line-height: 1.75; }
         .rich-text ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
-        .rich-text li { margin-bottom: 0.8rem; padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,0.1); }
+        .rich-text li { margin-bottom: 0.8rem; padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,0.1); font-size: 1.03rem; line-height: 1.75; }
         .rich-text strong { color: var(--accent-gray); font-weight: 800;}
-
-        @media (max-width: 1024px) {
-            .hud-view { flex-direction: column; text-align: center; padding-top: 2rem; }
-            .hero-left { margin-bottom: 3rem; }
-            .hud-wrapper { width: 320px; height: 320px; }
-            .ring-outer { width: 300px; height: 300px; }
-            .ring-inner { width: 200px; height: 200px; }
-            .research-node { width: 100px; height: 100px; }
-            .node-pharm { width: 70px; height: 70px; right: -30px; }
-        }
+        .research-detail-content > p,
+        .research-detail-content > ul,
+        .research-detail-content > ol { max-width: 820px; margin-left: auto !important; margin-right: auto !important; }
+        #dia-view .rich-text img,
+        #terminomics-view .rich-text img,
+        #biomarker-view .rich-text img,
+        #pharmaceutics-view .rich-text img { box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important; }
+        #about-view [data-t="about_bio_content"] ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: 2.5rem; }
 
         /* --- About页面新的并排布局 --- */
         .about-header-grid {
@@ -365,12 +600,6 @@
             margin-bottom: 3rem;
         }
 
-        /* 手机适配：屏幕变窄时，强制变成单栏 (上下排列) */
-        @media (max-width: 768px) {
-            .about-header-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
 /* --- 折叠栏 (Accordion) 样式 --- */
         .accordion-container {
             margin-top: 3rem; /* 与上方教育经历保持距离 */
@@ -456,18 +685,10 @@
             height: auto;
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
             flex-shrink: 0;  /* 防止照片被挤扁 */
         }
 
-        /* 手机适配：屏幕变窄时，照片跑到文字上面 */
-        @media (max-width: 768px) {
-            .about-intro-container {
-                flex-direction: column-reverse;
-                align-items: center;
-            }
-            .profile-photo { width: 100%; max-width: 300px; margin-bottom: 2rem; }
-        }
         /* --- 3. 下半部分新布局 (左教育 + 右大图) --- */
         .about-bottom-grid {
             display: grid;
@@ -475,13 +696,6 @@
             gap: 4rem;       /* 中间间距 */
             align-items: start;
             margin-bottom: 3rem;
-        }
-
-        /* 手机适配：变成上下排列 */
-        @media (max-width: 768px) {
-            .about-bottom-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* =========================================
@@ -515,102 +729,450 @@
     border-left: 3px solid var(--text-muted); /*原本的灰色竖线*/
 }
 
-/* 手机适配：屏幕变窄时 Logo 变小 */
-@media (max-width: 768px) {
-    .edu-logo-img { width: 50px; height: 50px; }
-    .edu-row { gap: 1rem; margin-bottom: 2rem; }
-}
+
+        /* --- About page refinements --- */
+        #about-view {
+            padding-top: 2.2rem;
+        }
+
+        #about-view .section-title {
+            margin-bottom: 1.25rem;
+        }
+
+        #about-view .about-intro-container {
+            gap: 2.5rem;
+            margin-bottom: 1.8rem;
+        }
+
+        #about-view [data-t="about_bio_content"] p {
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+            line-height: 1.62;
+        }
+
+        #about-view hr {
+            margin-top: 1.8rem !important;
+            margin-bottom: 1.8rem !important;
+        }
+
+        .about-inline-link {
+            color: var(--highlight);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .about-inline-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
 
 
+        /* --- About alignment refinements --- */
+        #about-view .about-bottom-grid {
+            display: block;
+            width: 100%;
+            margin-bottom: 1.25rem;
+        }
+
+        #about-view .about-bottom-grid > div,
+        #about-view .accordion-container {
+            width: 100%;
+        }
+
+        #about-view .accordion-container {
+            margin-top: 0.9rem;
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0;
+        }
+
+        #about-view .accordion-header {
+            padding: 1rem 0;
+        }
+
+        #about-view .edu-row {
+            margin-bottom: 1.8rem;
+        }
+
+        /* --- Publications: editorial list instead of cards --- */
+        #publications-view .pub-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 1.7rem 0 2rem;
+            margin: 0;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
+        }
+
+        #publications-view .pub-item:first-of-type {
+            padding-top: 0.6rem;
+        }
+
+        #publications-view .pub-item:hover {
+            box-shadow: none;
+        }
+
+        #publications-view .pub-cover {
+            width: 112px;
+        }
+
+        #publications-view .pub-cover img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        #publications-view .pub-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        #publications-view .pub-info h4 {
+            margin: 0 0 0.55rem;
+            font-size: 1.18rem;
+            line-height: 1.42;
+        }
+
+        #publications-view .impact-text {
+            margin-top: 0.65rem;
+        }
+
+        #publications-view .metrics-bar {
+            margin-top: 0.85rem;
+            gap: 1.2rem;
+        }
+
+        #publications-view .btn-view-paper {
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        #publications-view .btn-view-paper:hover {
+            background: transparent;
+            color: var(--highlight);
+            box-shadow: none;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
 
 
-.news-box {
-    /* 1. 距离拉大：从 3rem 改为 6rem，让 Research Console 和 Latest 分得更开 */
-    margin-top: 6rem;             
-    
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(0,0,0,0.1); 
-    
-    /* 2. 宽度变宽：从 500px 改为 700px，确保那句话能显示在一行 */
-    max-width: 700px;             
-}
+        /* --- About research interests --- */
+        #about-view .about-research-interests {
+            margin-top: 1.6rem;
+            border-left: none !important;
+            padding-left: 0 !important;
+        }
 
-.news-title {
-    font-family: var(--tech-font); 
-    /* 3. LATEST 标题字体加大：从 0.75rem 改为 0.95rem */
-    font-size: 0.95rem;           
-    color: #000000;
-    letter-spacing: 2px;          
-    text-transform: uppercase;    
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-weight: 700; /* 加粗一点，更清晰 */
-}
+        #about-view .about-research-interests h3 {
+            margin: 0 0 0.9rem;
+            color: var(--highlight);
+            font-family: var(--tech-font);
+            font-size: 1rem;
+            font-weight: 700;
+        }
 
-/* 呼吸灯效果 (保持不变) */
-.news-indicator {
-    display: inline-block;
-    width: 8px; height: 8px; /*稍微大一点点*/
-    background-color: #059669;    
-    border-radius: 50%;
-    box-shadow: 0 0 8px #10B981;  
-    animation: blink 2s infinite ease-in-out;
-}
-@keyframes blink { 0% {opacity: 1;} 50% {opacity: 0.3;} 100% {opacity: 1;} }
+        #about-view .about-interest-item {
+            margin-bottom: 0.8rem;
+        }
 
-.news-list {
-    list-style: none !important; 
-    padding: 0 !important;       
-    margin: 0;
-}
+        #about-view .about-interest-item strong {
+            display: block;
+            margin-bottom: 0.15rem;
+            color: var(--accent-gray);
+            font-family: var(--tech-font);
+            font-size: 0.94rem;
+        }
 
-.news-item {
-    display: flex;                
-    align-items: baseline;        
-    gap: 2rem; /* 日期和文字的间距也稍微拉大一点，不那么挤 */                  
-    margin-bottom: 1.2rem;          
-    
-    /* 4. 内容字体加大：从 0.9rem 改为 1.05rem */
-    font-size: 1.05rem; 
-    
-    color: var(--accent-gray);
-    padding-left: 5px;            
-    border-left: 2px solid transparent; 
-    transition: all 0.3s ease;
-}
+        #about-view .about-interest-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.96rem;
+            line-height: 1.55;
+        }
 
-.news-item:hover {
-    border-left: 2px solid var(--highlight);
-    padding-left: 10px;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-}
 
-.news-date {
-    font-family: var(--tech-font); 
-    color: var(--highlight);      
-    font-weight: 700;
-    
-    /* 日期字体也同步加大，保持平衡 */
-    font-size: 1rem; 
-    
-    min-width: 100px; /* 稍微加宽日期栏，防止拥挤 */
-}
+        .research-preview-dia-figure {
+            margin: 0 0 1.5rem;
+            width: 100%;
+        }
 
-.news-content {
-    font-family: var(--body-font);
-    line-height: 1.5;
-}
+        .research-preview-dia-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
 
-/* 手机适配 */
-@media (max-width: 768px) {
-    .hero-left { margin-top: 0 !important; }
-    .news-box { margin-top: 3rem; max-width: 100%; }
-    /* 手机上字体稍微小一点，不然太大了 */
-    .news-item { font-size: 0.95rem; gap: 1rem; flex-direction: column; } 
-    .news-date { margin-bottom: 0.2rem; }
-}
+
+        /* --- Research detail pages: editorial page layout, no card container --- */
+        #dia-view .pub-item,
+        #terminomics-view .pub-item,
+        #biomarker-view .pub-item,
+        #pharmaceutics-view .pub-item {
+            display: block;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
+        }
+
+        #dia-view .pub-item:hover,
+        #terminomics-view .pub-item:hover,
+        #biomarker-view .pub-item:hover,
+        #pharmaceutics-view .pub-item:hover {
+            box-shadow: none;
+        }
+
+        #dia-view .research-detail-content,
+        #terminomics-view .research-detail-content,
+        #biomarker-view .research-detail-content,
+        #pharmaceutics-view .research-detail-content {
+            width: min(100%, 980px);
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           Research overview: unified editorial layout
+           ========================================================= */
+        #research-view .research-overview-shell {
+            width: min(1100px, calc(100% - 96px));
+        }
+
+        #research-view .research-preview-primary,
+        #research-view .research-preview-dia,
+        #research-view .research-preview-foundation {
+            display: grid;
+            grid-template-columns: 420px minmax(0, 1fr);
+            gap: clamp(2.8rem, 5vw, 4.6rem);
+            align-items: center;
+            width: 100%;
+            margin: 0 0 6.2rem;
+        }
+
+        #research-view .research-preview-primary-figure,
+        #research-view .research-preview-dia-figure,
+        #research-view .research-preview-foundation-figure {
+            width: 420px;
+            height: 250px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #research-view .research-preview-primary-figure img,
+        #research-view .research-preview-dia-figure img,
+        #research-view .research-preview-foundation-figure img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        #research-view .research-preview-primary-copy,
+        #research-view .research-preview-dia-copy,
+        #research-view .research-preview-foundation-copy {
+            width: 100%;
+            min-width: 0;
+        }
+
+        #research-view .research-preview-title,
+        #research-view .research-preview-primary-title,
+        #research-view .research-preview-dia .research-preview-title,
+        #research-view .research-preview-foundation .research-preview-title {
+            margin: 0 0 0.8rem;
+            font-size: 1.72rem;
+            line-height: 1.2;
+        }
+
+        #research-view .research-preview-summary {
+            max-width: 560px;
+            margin: 0;
+            font-size: 0.98rem;
+            line-height: 1.72;
+        }
+
+        /* Cancel the old staggered positioning. */
+        #research-view .research-preview-dia,
+        #research-view .research-preview-foundation {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* =========================================================
+           Research detail pages: one consistent figure stage
+           ========================================================= */
+        #dia-view .research-detail-content img,
+        #terminomics-view .research-detail-content img,
+        #biomarker-view .research-detail-content img,
+        #pharmaceutics-view .research-detail-content img {
+            display: block !important;
+            width: 100% !important;
+            max-width: 700px !important;
+            height: 360px !important;
+            max-height: 360px !important;
+            object-fit: contain !important;
+            margin: 1.8rem auto 2.8rem !important;
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 900px) {
+            #research-view .research-overview-shell {
+                width: min(100% - 64px, 1100px);
+            }
+
+            #research-view .research-preview-primary,
+            #research-view .research-preview-dia,
+            #research-view .research-preview-foundation {
+                grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+                gap: 2.5rem;
+            }
+
+            #research-view .research-preview-primary-figure,
+            #research-view .research-preview-dia-figure,
+            #research-view .research-preview-foundation-figure {
+                width: 100%;
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            #research-view .research-overview-shell {
+                width: calc(100% - 40px);
+            }
+
+            #research-view .research-preview-primary,
+            #research-view .research-preview-dia,
+            #research-view .research-preview-foundation {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+                margin-bottom: 4.5rem;
+            }
+
+            #research-view .research-preview-primary-figure,
+            #research-view .research-preview-dia-figure,
+            #research-view .research-preview-foundation-figure {
+                width: 100%;
+                height: 240px;
+            }
+
+            #research-view .research-preview-title,
+            #research-view .research-preview-primary-title,
+            #research-view .research-preview-dia .research-preview-title,
+            #research-view .research-preview-foundation .research-preview-title {
+                font-size: 1.55rem;
+            }
+
+            #dia-view .research-detail-content img,
+            #terminomics-view .research-detail-content img,
+            #biomarker-view .research-detail-content img,
+            #pharmaceutics-view .research-detail-content img {
+                height: 300px !important;
+                max-height: 300px !important;
+            }
+        }
+
+
+        /* =========================================================
+           About: Research Interests should match Education heading
+           ========================================================= */
+        #about-view .about-research-interests h3 {
+            border-left: 0 !important;
+            padding-left: 0 !important;
+        }
+
+        /* =========================================================
+           Terminomics detail page: align headings and body copy
+           ========================================================= */
+        #terminomics-view .research-detail-content > h3,
+        #terminomics-view .research-detail-content > h4,
+        #terminomics-view .research-detail-content > p,
+        #terminomics-view .research-detail-content > ul,
+        #terminomics-view .research-detail-content > ol {
+            width: min(100%, 820px);
+            max-width: 820px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        #terminomics-view .research-detail-content > h3 {
+            margin-top: 0 !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        #terminomics-view .research-detail-content > h4 {
+            margin-top: 1.55rem !important;
+            margin-bottom: 0.55rem !important;
+        }
+
+        #terminomics-view .research-detail-content > p {
+            margin-top: 0 !important;
+            margin-bottom: 0.95rem !important;
+        }
+
+        #terminomics-view .research-detail-content > ul,
+        #terminomics-view .research-detail-content > ol {
+            margin-top: 0.35rem !important;
+            margin-bottom: 1.6rem !important;
+        }
+
+        /* Keep the workflow caption visually attached to the workflow image. */
+        #terminomics-view .research-detail-content img[src="figure/Term_workflow.jpg"] {
+            margin-bottom: 0.35rem !important;
+        }
+
+        #terminomics-view .research-detail-content img[src="figure/Term_workflow.jpg"] + p {
+            margin-top: 0.25rem !important;
+            margin-bottom: 2.2rem !important;
+            font-style: italic;
+        }
+
+
+        /* About: Research Interests and Education are peer-level headings */
+        #about-view .about-research-interests h3,
+        #about-view h3[data-t="edu_title"] {
+            color: var(--highlight) !important;
+            font-family: var(--tech-font) !important;
+            font-size: 1.17em !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            border-left: 0 !important;
+            padding-left: 0 !important;
+        }
+
+        #about-view .about-research-interests h3 {
+            margin: 0 0 2rem !important;
+        }
 
     </style>
 </head>
@@ -621,8 +1183,7 @@
 
     <header>
         <div class="logo">
-    <a onclick="switchView('home')" style="color: inherit; text-decoration: none;">Gu Kongxin(顾孔新，顧孔新)</a> 
-    <a href="https://ohtsuki-lab.jp/ja/" target="_blank" style="text-decoration: none;"><span>// Ohtsuki Lab</span></a>
+    <a onclick="switchView('home')" style="color: inherit; text-decoration: none;">Kongxin Gu (顾孔新)</a>
 </div>
         <div class="nav-container">
             <nav>
@@ -631,7 +1192,6 @@
                     <li><a onclick="switchView('about')" id="nav-about" data-t="nav_about">ABOUT</a></li>
                     <li><a onclick="switchView('research')" id="nav-research" data-t="nav_research">RESEARCH</a></li>
                     <li><a onclick="switchView('publications')" id="nav-publications" data-t="nav_pub">PUBLICATIONS</a></li>
-                    <li><a onclick="switchView('others')" id="nav-others" data-t="nav_others">OTHERS</a></li>
                     <li><a onclick="switchView('contact')" id="nav-contact" data-t="nav_contact">CONTACT</a></li>
                     <li><a onclick="checkPersonalAccess()" id="nav-personal" data-t="nav_personal">PERSONAL</a></li>
                 </ul>
@@ -645,98 +1205,105 @@
     </header>
 
     <main>
-        <section id="home-view" class="view active hud-view">
-            
-
-            <div class="hero-left">
-    <h1 data-t="hero_title">Proteomics</h1>
-    <p data-t="hero_desc">Advancing proteomics for precision medicine and drug discovery.</p>
-    <a onclick="switchView('research')" class="btn-tech" data-t="hero_btn">RESEARCH CONSOLE</a>
-
-    <div class="news-box">
-        <div class="news-title">
-            <span class="news-indicator"></span> 
-            NEWS
-        </div>
-        <ul class="news-list">
-            <li class="news-item">
-                <span class="news-date">2026.02.05</span>
-                <span class="news-content">Successfully defended Ph.D. dissertation at Kumamoto University.</span>
-            </li>
-        </ul>
-    </div>
-</div>
-
-
-            <div class="hero-right">
-                <div class="hud-wrapper">
-                    <div class="hud-ring ring-outer"></div>
-                    <div class="hud-ring ring-inner"></div>
-                    <div class="research-node node-dia" onclick="switchView('dia')">
-                        <div class="node-content"><span class="node-title">DIA-MS</span><span class="node-desc" data-t="dia_sub">MS Acquisition</span></div>
+        <section id="home-view" class="view active">
+            <div class="home-profile-shell">
+                <div class="home-profile-copy">
+                    <h1 class="home-profile-name">Kongxin Gu <span class="home-profile-name-cn">顾孔新</span></h1>
+                    <p class="home-profile-bio" data-t="home_bio">I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and investigating disease-associated proteolytic remodeling.</p>
+                    <div class="home-profile-actions">
+                        <a onclick="switchView('about')" class="home-profile-action" data-t="home_about_btn">About Me</a>
+                        <a onclick="switchView('research')" class="home-profile-action" data-t="home_research_btn">Research</a>
+                        <a onclick="switchView('publications')" class="home-profile-action" data-t="home_publications_btn">Publications</a>
                     </div>
-                    <div class="research-node node-ter" onclick="switchView('terminomics')">
-                        <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="ter_sub">Proteolytic Data</span></div>
-                    </div>
-                    <div class="research-node node-bio" onclick="switchView('biomarker')">
-                        <div class="node-content"><span class="node-title">Cancer</span><span class="node-desc" data-t="bio_sub">Application</span></div>
-                    </div>
-                    <div class="research-node node-pharm" onclick="switchView('pharmaceutics')">
-                        <div class="node-content"><span class="node-title" data-t="node_pharm_title">Pharmaceutics</span></div>
-                    </div>
+                    <section class="home-latest" aria-labelledby="home-latest-title">
+                        <h2 class="home-latest-title" id="home-latest-title" data-t="home_latest">Latest</h2>
+                        <ul class="home-latest-list">
+                            <li class="home-latest-item">
+                                <time class="home-latest-date">2026.04.01</time>
+                                <span data-t="news_job">Started as a Research Fellow at Kumamoto University.</span>
+                            </li>
+                            <li class="home-latest-item">
+                                <time class="home-latest-date">2026.02.05</time>
+                                <span data-t="news_defense">Successfully defended Ph.D. dissertation at Kumamoto University.</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="home-profile-visual">
+                    <figure class="home-profile-portrait">
+                        <img src="figure/Ko.jpg" alt="Kongxin Gu">
+                    </figure>
                 </div>
             </div>
         </section>
 
-        <section id="research-view" class="view hud-view">
-            <div class="hero-left">
-                <h2 class="section-title" data-t="nav_research">RESEARCH AREAS</h2>
-                <p data-t="res_console_desc">Select a node to view technical details and ongoing projects.</p>
-                <a onclick="switchView('home')" class="btn-tech" data-t="back_home">← BACK TO HOME</a>
-            </div>
-            <div class="hero-right">
-                <div class="hud-wrapper">
-                    <div class="hud-ring ring-outer"></div>
-                    <div class="hud-ring ring-inner"></div>
-                    <div class="research-node node-dia" onclick="switchView('dia')">
-                        <div class="node-content"><span class="node-title">DIA-MS</span><span class="node-desc" data-t="MS Acquisition">MS Acquisition</span></div>
+        <section id="research-view" class="view">
+            <div class="research-overview-shell">
+                <h1 class="section-title research-overview-title" data-t="nav_research">RESEARCH</h1>
+
+                <article class="research-preview research-preview-primary">
+                    <figure class="research-preview-primary-figure">
+                        <img src="figure/term_1.png" alt="Terminomics workflow">
+                    </figure>
+                    <div class="research-preview-primary-copy">
+                        <h2 class="research-preview-title research-preview-primary-title"><a onclick="switchView('terminomics')" data-t="research_ter_title">Terminomics</a></h2>
+                        <p class="research-preview-summary" data-t="research_ter_summary">The tumor microenvironment is characterized by dysregulated protease activity, where proteases cleave proteins and remodel the extracellular environment. These cleavage events generate new protein termini that record specific proteolytic activity and can serve as molecular fingerprints of disease-associated proteolysis. Terminomics captures these neo-termini to reveal proteolytic remodeling and identify potential disease biomarkers.</p>
                     </div>
-                    <div class="research-node node-ter" onclick="switchView('terminomics')">
-                        <div class="node-content"><span class="node-title">Terminomics</span><span class="node-desc" data-t="Proteolytic Data">Proteolytic Data</span></div>
+                </article>
+
+                <article class="research-preview research-preview-dia">
+                    <figure class="research-preview-dia-figure">
+                        <img src="figure/DIA.png" alt="DIA-MS">
+                    </figure>
+                    <div class="research-preview-dia-copy">
+                        <h2 class="research-preview-title"><a onclick="switchView('dia')" data-t="research_dia_title">DIA-MS</a></h2>
+                        <p class="research-preview-summary" data-t="research_dia_summary">Data-independent acquisition (DIA) systematically fragments precursor ions across predefined isolation windows, enabling comprehensive and reproducible proteome profiling.</p>
                     </div>
-                    <div class="research-node node-bio" onclick="switchView('biomarker')">
-                        <div class="node-content"><span class="node-title">Cancer</span><span class="node-desc" data-t="bio_sub"></span></div>
+                </article>
+
+                <!-- Cancer preview temporarily hidden.
+                <article class="research-preview research-preview-cancer">
+                    <h2 class="research-preview-title"><a onclick="switchView('biomarker')" data-t="research_cancer_title">Cancer</a></h2>
+                    <p class="research-preview-summary" data-t="research_cancer_summary">Cancer research connects tumor-targeted drug delivery with current proteomic strategies for identifying biomarkers in complex biological samples for early detection and diagnosis.</p>
+                </article>
+                -->
+
+                <article class="research-preview research-preview-foundation">
+                    <figure class="research-preview-foundation-figure">
+                        <img src="figure/DDS.png" alt="Drug delivery system">
+                    </figure>
+                    <div class="research-preview-foundation-copy">
+                        <h2 class="research-preview-title"><a onclick="switchView('pharmaceutics')" data-t="research_pharm_title">Drug Delivery System</a></h2>
+                        <p class="research-preview-summary" data-t="research_pharm_summary">Drug delivery research focuses on designing delivery systems to improve administration, control drug release, and enhance targeted delivery.</p>
                     </div>
-                    <div class="research-node node-pharm" onclick="switchView('pharmaceutics')">
-                        <div class="node-content"><span class="node-title" data-t="node_pharm_title">Pharmaceutics</span><span class="node-desc" data-t="details_arrow"></span></div>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <section id="dia-view" class="view">
             <h2 class="section-title">RESEARCH: DIA</h2>
-            <div class="pub-item rich-text"><div data-t="dia_content"></div></div>
+            <div class="pub-item rich-text"><div class="research-detail-content" data-t="dia_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
         <section id="terminomics-view" class="view">
             <h2 class="section-title">RESEARCH: Terminomics</h2>
-            <div class="pub-item rich-text"><div data-t="ter_content"></div></div>
+            <div class="pub-item rich-text"><div class="research-detail-content" data-t="ter_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
         <section id="biomarker-view" class="view">
             <h2 class="section-title">RESEARCH: Cancer</h2>
-            <div class="pub-item rich-text"><div data-t="bio_content"></div></div>
+            <div class="pub-item rich-text"><div class="research-detail-content" data-t="bio_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
         <section id="pharmaceutics-view" class="view">
-            <h2 class="section-title" data-t="pharm_page_title">Pharmaceutics</h2>
+            <h2 class="section-title" data-t="pharm_page_title">Drug Delivery System</h2>
             <div class="pub-item rich-text">
                 
-                <div data-t="master_desc"></div>
+                <div class="research-detail-content" data-t="master_desc"></div>
             </div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
@@ -758,7 +1325,7 @@
                 <div class="about-bottom-grid">
                     
                     <div>
-    <h3 style="color:var(--highlight); font-family:var(--tech-font); margin-bottom:2rem;" data-t="edu_title">// EDUCATION</h3>
+    <h3 style="color:var(--highlight); font-family:var(--tech-font); margin-bottom:2rem;" data-t="edu_title">EDUCATION</h3>
     
     <div class="edu-row">
        <img src="figure/kumamoto.jpg" class="edu-logo-img" alt="Kumamoto Univ" style="width: 100px; height: 100px; object-fit: contain; mix-blend-mode: multiply;">
@@ -788,7 +1355,7 @@
 
                 <div class="accordion-container" style="margin-bottom: 1.5rem;">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3 class="accordion-title">// SKILLS <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
+                        <h3 class="accordion-title">SKILLS <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
                         <span class="accordion-icon">▶</span>
                     </button>
                     <div class="accordion-content">
@@ -798,7 +1365,7 @@
 
                 <div class="accordion-container">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3 class="accordion-title"><span data-t="conf_title">// CONFERENCE PRESENTATIONS</span> <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
+                        <h3 class="accordion-title"><span data-t="conf_title">CONFERENCE PRESENTATIONS</span> <span class="click-hint" data-t="click_hint">(Click to expand)</span></h3>
                         <span class="accordion-icon">▶</span>
                     </button>
                     <div class="accordion-content">
@@ -825,7 +1392,8 @@
                     <div class="metrics-bar">
                         <a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" class="btn-view-paper" data-t="view_paper">View Paper ↗</a>
                         <span class="metric-text">Citations: <strong id="cite-1">-</strong></span>
-                        <div class="altmetric-embed" data-badge-type="4" data-doi="10.1021/acs.jproteome.5c00036" data-hide-no-mentions="true" style="display:inline-block;"></div>
+                        <span class="metric-text">Altmetric: <strong id="altmetric-1">-</strong></span>
+                        <div class="altmetric-embed altmetric-source" data-badge-type="4" data-doi="10.1021/acs.jproteome.5c00036" data-hide-no-mentions="true" data-score-target="altmetric-1"></div>
                     </div>
                 </div>
             </div>
@@ -843,14 +1411,20 @@
                     <div class="metrics-bar">
                         <a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" class="btn-view-paper" data-t="view_paper">View Paper ↗</a>
                         <span class="metric-text">Citations: <strong id="cite-2">-</strong></span>
-                        <div class="altmetric-embed" data-badge-type="4" data-doi="10.1021/acs.jproteome.4c00149" data-hide-no-mentions="true" style="display:inline-block;"></div>
+                        <span class="metric-text">Altmetric: <strong id="altmetric-2">-</strong></span>
+                        <div class="altmetric-embed altmetric-source" data-badge-type="4" data-doi="10.1021/acs.jproteome.4c00149" data-hide-no-mentions="true" data-score-target="altmetric-2"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="others-view" class="view">
-    <h2 class="section-title" data-t="nav_others">OTHERS</h2>
+        <section id="personal-view" class="view">
+    <h2 class="section-title">PERSONAL DASHBOARD</h2>
+    <div class="dashboard-grid" style="margin-bottom: 3rem;">
+        <div class="dashboard-card"><span id="busuanzi_value_site_pv" class="dashboard-num">...</span><span class="dashboard-label">Total Visits</span></div>
+        <div class="dashboard-card"><span id="busuanzi_value_site_uv" class="dashboard-num">...</span><span class="dashboard-label">Unique Visitors</span></div>
+    </div>
+    <h2 class="section-title">TOOLS &amp; RESOURCES</h2>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
 
@@ -934,7 +1508,7 @@
                 <p style="color:var(--text-muted); margin-bottom:1rem;" data-t="contact_desc">Feel free to reach out for collaboration.</p>
                <span style="color: var(--accent-gray); font-family: var(--tech-font);">gukongxin [at] outlook.com</span>
                <br>
-               <span style="color: var(--accent-gray); font-family: var(--tech-font);">231y2011 [at] st.kumamoto-u.ac.jp</span>
+               <span style="color: var(--accent-gray); font-family: var(--tech-font);">gukongxin [at] st.kumamoto-u.ac.jp</span>
                 <div class="academic-socials">
                     <a href="https://orcid.org/0009-0009-9685-2104" target="_blank" class="academic-icon">ORCID</a>
                     <a href="https://www.researchgate.net/profile/Kongxin-Gu" target="_blank" class="academic-icon">ResearchGate</a>
@@ -947,53 +1521,65 @@
                 <div class="cv-wrapper"><a href="#" class="btn-cv" data-t="cv_btn">DOWNLOAD CV (PDF)</a></div>
             </div>
         </section>
-        
-        <section id="personal-view" class="view">
-            <h2 class="section-title">PERSONAL DASHBOARD</h2>
-            <div class="dashboard-grid">
-                <div class="dashboard-card"><span id="busuanzi_value_site_pv" class="dashboard-num">...</span><span class="dashboard-label">Total Visits</span></div>
-                <div class="dashboard-card"><span id="busuanzi_value_site_uv" class="dashboard-num">...</span><span class="dashboard-label">Unique Visitors</span></div>
-            </div>
-        </section>
     </main>
 
-    <footer style="position: fixed; bottom: 0; width: 100%; padding: 0.8rem; text-align: center; color: var(--text-muted); font-size: 0.7rem; background: rgba(20, 34, 39, 0.9); border-top: var(--border-thin);">
-        <p>&copy; 2026 Gu Kongxin(顾孔新，顧孔新) // Ohtsuki Lab.</p>
+    <footer class="site-footer">
+        <nav class="site-footer-links" aria-label="Footer">
+            <a href="mailto:gukongxin@outlook.com" title="gukongxin [at] outlook.com">Email</a>
+            <a href="https://github.com/gukongxin" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://orcid.org/0009-0009-9685-2104" target="_blank" rel="noopener noreferrer">ORCID</a>
+        </nav>
     </footer>
 
     <script>
         const i18n = {
             en: {
                 nav_home: "HOME", nav_about: "ABOUT", nav_research: "RESEARCH", nav_pub: "PUBLICATIONS", nav_others: "OTHERS", nav_contact: "CONTACT", nav_personal: "PERSONAL",
+                news_job: "Started as a Research Fellow at Kumamoto University.",
+                news_defense: "Successfully defended Ph.D. dissertation at Kumamoto University.",
+                home_bio: "I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and investigating disease-associated proteolytic remodeling.",
+                home_about_btn: "About Me",
+                home_research_btn: "Research",
+                home_publications_btn: "Publications",
+                home_latest: "Latest",
+                research_ter_title: "Terminomics",
+                research_ter_summary: "The tumor microenvironment is characterized by dysregulated protease activity, where proteases cleave proteins and remodel the extracellular environment. These cleavage events generate new protein termini that record specific proteolytic activity and can serve as molecular fingerprints of disease-associated proteolysis. Terminomics captures these neo-termini to reveal proteolytic remodeling and identify potential disease biomarkers.",
+                research_dia_title: "DIA-MS",
+                research_dia_summary: "Data-independent acquisition (DIA) systematically fragments precursor ions across predefined isolation windows, enabling comprehensive and reproducible proteome profiling.",
+                research_cancer_title: "Cancer",
+                research_cancer_summary: "Cancer research connects tumor-targeted drug delivery with current proteomic strategies for identifying biomarkers in complex biological samples for early detection and diagnosis.",
+                research_pharm_title: "Drug Delivery System",
+                research_pharm_summary: "Drug delivery research focuses on designing delivery systems to improve administration, control drug release, and enhance targeted delivery.",
                 
                 // --- 确保您的文字都在这里 ---
                 about_bio_content: `
-                    <p>I am currently a PhD student at Kumamoto University (2022–2026), supervised by <strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>Prof. Sumio Ohtsuki</a></strong>. My research foundation began in Pharmaceutics during my Master’s degree at Hebei Medical University. Since starting my PhD, I have transitioned my research focus to Proteomics.</p>
-                    
-                    <p>Currently, I am highly passionate about exploring the potential of proteomics. My research interests and expertise include:</p>
-                    <ul style="margin-bottom:1.5rem;">
-                        <li>Proteomics Sample Preparation</li>
-                        <li>Plasma Proteomics</li>
-                        <li>MS-CETSA/TPP/PISA</li>
-                        <li>Protein Corona</li>
-                        <li>Top-down Proteomics </li>
-                        <li>Post-Translational Modifications (PTMs)<li>
-                        <li>Data-Independent Acquisition (DIA)</li>
-                        <li><strong>Terminomics (Current Project)</strong></li>
-                    </ul>
-                    
-                    <p><strong>Goal:</strong> My ultimate goal is to utilize proteomics as a powerful tool to drive research in precision medicine and drug development.</p>
+                    <p>I began my research training in pharmaceutics at Hebei Medical University, China, where my master’s research focused on the development of <a onclick="switchView('pharmaceutics')" class="about-inline-link">drug delivery systems ↗</a>. My work centered on designing delivery strategies to enable more convenient administration, controlled drug release, and targeted delivery.</p>
+
+                    <p>I later moved to Japan to pursue my Ph.D. under the supervision of <strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>Prof. Sumio Ohtsuki ↗</a></strong> at Kumamoto University. Quantitative proteomics was used in the lab to study the blood-brain barrier and its transporters, and to investigate the transport of drugs and drug delivery systems across the barrier. This was where I first encountered proteomics, and my research focus gradually shifted from drug delivery toward mass spectrometry-based proteomic methodology.</p>
+
+                    <p>My doctoral research centered on data-independent acquisition mass spectrometry (<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>) and positional proteomics, also known as <a onclick="switchView('terminomics')" class="about-inline-link">terminomics ↗</a>. For DIA-MS, my research focused on optimizing acquisition strategies and data analysis to enhance DIA performance. For terminomics, I established a workflow for terminal peptide analysis, including terminal peptide enrichment and database searching. I applied this workflow to clinical plasma samples from patients with colorectal cancer, mapping the proteolytic landscape and characterizing disease-associated proteolytic remodeling. After completing my Ph.D., I continued at Kumamoto University as a Research Fellow, focusing on the further validation of promising biomarker candidates from this study.</p>
+
+                    <div class="about-research-interests">
+                        <h3>RESEARCH INTERESTS</h3>
+                        <div class="about-interest-item">
+                            <strong>1. Proteomics Technology</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>2. Post-Translational Modifications (PTMs)</strong>
+                            <p>How PTMs regulate protein function and cellular signaling, and how their dysregulation contributes to cancer, neurological diseases, and aging.</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>3. Protein Corona</strong>
+                            <p>Applications of protein corona in plasma proteomics and its impact on the biological identity and in vivo fate of nanocarriers.</p>
+                        </div>
+                    </div>
                 `,
 
-                edu_title: "// EDUCATION",
+                edu_title: "EDUCATION",
                 edu_phd: "<strong>Kumamoto University (Japan)</strong><br>Ph.D. Course in Pharmaceutical and Life Sciences<br>Supervisor: Prof. Sumio Ohtsuki",
                 edu_master: "<strong>Hebei Medical University (China)</strong><br>M.S. in Pharmaceutics",
                 
-                // 还原 16.html Hero
-                hero_title: "Proteomics", 
-                hero_desc: "Advancing proteomics for precision medicine and drug discovery.", 
-                hero_btn: "RESEARCH CONSOLE",
-
 
 skills_content: `
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -1070,14 +1656,7 @@ conf_list: `
                 `,
 
 
-                // 还原 16.html Node Subtitles
-                dia_sub: "MS Acquisition",
-                ter_sub: "Proteolytic Data",
-                bio_sub: "Application",
-                node_pharm_title: "Pharmaceutics",
-
-                node_details: "View Details", details_arrow: "Details ↗", back_home: "← BACK TO HOME", back_console: "← Back to Console",
-                res_console_desc: "Select a node to view technical details and ongoing projects.",
+                back_console: "← Back to Console",
                 
                 ter_content: `
                     <h3 style="color:var(--highlight); margin-bottom:1.5rem;">Tumor Biomarker Discovery Based on Terminomics</h3>
@@ -1087,7 +1666,7 @@ conf_list: `
                     <p>Unlike traditional biomarkers that merely reflect full-length protein abundance, these peptides bearing specific <strong>"proteolytic fingerprints"</strong> directly carry functional state information of the tumor. Furthermore, due to their lower molecular weight, these cleavage products easily penetrate tissue interstitial spaces and "leak" into the blood circulation. Therefore, capturing and identifying these neo-terminal peptides derived from tumor-specific cleavage provides a high-specificity, high-sensitivity novel strategy for liquid biopsy in cancer screening and monitoring.</p>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Core Challenges</h4>
                     <ul style="list-style:none; padding-left:0;">
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
@@ -1125,7 +1704,7 @@ conf_list: `
     <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
     
     <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-        // General workflow of terminomics
+        General workflow of terminomics
     </p>
 </div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
@@ -1181,15 +1760,30 @@ conf_list: `
                 
                 others_tools: "// TOOLS NAVIGATION", others_journals: "// KEY JOURNALS", contact_desc: "Feel free to reach out for collaboration.", cv_btn: "DOWNLOAD CV (PDF)",
                 // 修改总标题为复数 Projects
-                pharm_page_title: "Pharmaceutics", 
+                pharm_page_title: "Drug Delivery System", 
                 
-                conf_title: "// CONFERENCE PRESENTATIONS",
+                conf_title: "CONFERENCE PRESENTATIONS",
                
                 
                 master_desc: `
-            
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. Development of Amisulpride Orally Disintegrating Tablets</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy drugs usually face the challenge of "wide distribution but poor specificity." After entering the body, they cannot distinguish between "friend and foe," severely damaging normal tissues (leading to severe systemic toxicity) while killing cancer cells. Moreover, they often struggle to penetrate the dense stroma of tumors, resulting in insufficient effective drug concentration at the lesion site.</p>
+                    
+                    <p><strong>The Goal:</strong> To construct an intelligent "nanocarrier" as a drug transport tool, utilizing the characteristics of the tumor microenvironment to achieve precise "navigation" delivery, ensuring that drugs are released only after arriving at the tumor site, thereby achieving "enhanced efficacy and reduced toxicity."</p>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
+                    <p>I utilized functionalized nanomaterials to construct a drug delivery system and achieved active targeting of tumors through surface modification technology. The carrier successfully overcame physiological barriers, remained stable in the blood circulation, and triggered disintegration upon receiving specific stimuli after reaching the tumor microenvironment. Final experiments confirmed that the drug was successfully released at targeted locations within the tumor tissue, significantly increasing the accumulation of the drug at the tumor site. While maintaining potent anti-tumor activity, it greatly reduced toxic side effects on major organs.</p>
+                    
+                    <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+<div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. Development of Amisulpride Orally Disintegrating Tablets</h3>
                     
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
                     <p><strong>The Clinical Dilemma:</strong> Amisulpride is a first-line treatment for schizophrenia, but it faces two major challenges: 1) It belongs to BCS Class II drugs (poorly water-soluble), resulting in low bioavailability; 2) Patients often resist medication ("cheek-it" or spit it out) due to extreme bitterness or swallowing difficulties, which seriously affects the therapeutic outcome.</p>
@@ -1204,8 +1798,8 @@ conf_list: `
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
-                    <div style="margin-bottom: 2rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. Development of a Nanoemulsion Transdermal Delivery System</h3>
+<div style="margin-bottom: 2rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. Development of a Nanoemulsion Transdermal Delivery System</h3>
                     
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
                     <p><strong>The Clinical Dilemma:</strong> Carbamazepine (CBZ) is a first-line drug for treating epilepsy and trigeminal neuralgia, but its oral preparations face three major problems: 1) It is a BCS Class II drug with extremely poor water solubility, leading to unstable absorption; 2) There is a significant hepatic first-pass effect, which seriously reduces bioavailability; 3) Gastrointestinal reactions and swallowing difficulties during long-term oral administration lead to poor compliance in specific patient groups.</p>
@@ -1217,23 +1811,7 @@ conf_list: `
                     
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
                 </div>
-                    
-
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
-                    <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy drugs usually face the challenge of "wide distribution but poor specificity." After entering the body, they cannot distinguish between "friend and foe," severely damaging normal tissues (leading to severe systemic toxicity) while killing cancer cells. Moreover, they often struggle to penetrate the dense stroma of tumors, resulting in insufficient effective drug concentration at the lesion site.</p>
-                    
-                    <p><strong>The Goal:</strong> To construct an intelligent "nanocarrier" as a drug transport tool, utilizing the characteristics of the tumor microenvironment to achieve precise "navigation" delivery, ensuring that drugs are released only after arriving at the tumor site, thereby achieving "enhanced efficacy and reduced toxicity."</p>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
-                    <p>I utilized functionalized nanomaterials to construct a drug delivery system and achieved active targeting of tumors through surface modification technology. The carrier successfully overcame physiological barriers, remained stable in the blood circulation, and triggered disintegration upon receiving specific stimuli after reaching the tumor microenvironment. Final experiments confirmed that the drug was successfully released at targeted locations within the tumor tissue, significantly increasing the accumulation of the drug at the tumor site. While maintaining potent anti-tumor activity, it greatly reduced toxic side effects on major organs.</p>
-                    
-                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
-                </div>
-
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+                
                 `,
 
                 // --- Publications (英文版缺失的数据) ---
@@ -1266,36 +1844,52 @@ conf_list: `
                 nav_others: "その他", 
                 nav_contact: "連絡先", 
                 nav_personal: "個人用",
+                news_job: "熊本大学のResearch Fellowに着任しました。",
+                news_defense: "熊本大学にて博士論文の審査に合格しました。",
+                home_bio: "私は質量分析を基盤とするプロテオミクスに取り組む研究者であり、特にこれらのアプローチを生物学および疾患研究に応用することに関心を持っています。2026年に日本の熊本大学で博士号を取得しました。博士研究では、データ非依存的取得法（DIA）とターミノミクスを中心に、タンパク質分解ランドスケープのマッピングおよび疾患に関連するタンパク質分解リモデリングの解析に取り組みました。",
+                home_about_btn: "略歴",
+                home_research_btn: "研究内容",
+                home_publications_btn: "業績",
+                home_latest: "最新情報",
+                research_ter_title: "ターミノミクス",
+                research_ter_summary: "腫瘍微小環境ではプロテアーゼ活性が制御異常を起こし、プロテアーゼによるタンパク質切断と細胞外環境のリモデリングが生じます。これらの切断イベントは新たなタンパク質末端を生成し、特異的なタンパク質分解活性を記録することで、疾患関連タンパク質分解の分子フィンガープリントとして機能します。ターミノミクスはこれらのneo-terminiを捉え、タンパク質分解リモデリングを明らかにし、潜在的な疾患バイオマーカーを同定します。",
+                research_dia_title: "DIA-MS",
+                research_dia_summary: "データ非依存的取得法（DIA）は、あらかじめ設定した分離ウィンドウ全体で前駆体イオンを体系的にフラグメント化し、包括的かつ再現性の高いプロテオームプロファイリングを可能にします。",
+                research_cancer_title: "がん研究",
+                research_cancer_summary: "腫瘍標的型ドラッグデリバリーの経験と、複雑な生体試料から早期発見・診断用バイオマーカーを探索する現在のプロテオミクス研究を結び付けています。",
+                research_pharm_title: "ドラッグデリバリーシステム",
+                research_pharm_summary: "ドラッグデリバリー研究では、投与方法の改善、薬物放出の制御、標的送達の向上を目的として送達システムを設計します。",
                 
-                // 2. 首页主视觉区
-                hero_title: "プロテオミクス", 
-                hero_desc: "プレシジョン・メディシン（精密医療）および創薬を指向したプロテオミクス研究。", 
-                hero_btn: "研究コンソールへ",
-
                 // (后续其他翻译我们一步步往这里面加)
 
 
                 // --- 以下为新添加的 About Me 与 学历部分 ---
                 
                 about_bio_content: `
-                    <p>現在、熊本大学大学院の博士後期課程（2022–2026年）に在籍し、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>大槻 純男 教授</a></strong>の指導の下で研究を行っております。修士課程（河北医科大学）では薬剤学（Pharmaceutics）を専攻し、博士課程への進学を機にプロテオミクス分野へ研究の軸足を移しました。</p>
-                    
-                    <p>現在はプロテオミクスが持つ可能性の探究に強い熱意を持って取り組んでいます。主な研究の関心・専門領域は以下の通りです：</p>
-                    <ul style="margin-bottom:1.5rem;">
-                        <li>プロテオミクス前処理技術 (Sample Preparation)</li>
-                        <li>血漿プロテオミクス (Plasma Proteomics)</li>
-                        <li>MS-CETSA/TPP/PISA</li>
-                        <li>プロテインコロナ (Protein Corona)</li>
-                        <li>トップダウン・プロテオミクス (Top-down Proteomics)</li>
-                        <li>翻訳後修飾 (Post-Translational Modifications: PTMs)</li>
-                        <li>データ非依存的取得法 (Data-Independent Acquisition: DIA)</li>
-                        <li><strong>ターミノミクス / N・C末端プロテオミクス (現在進行中のプロジェクト)</strong></li>
-                    </ul>
-                    
-                    <p><strong>目標:</strong> プロテオミクスを強力なツールとして活用し、プレシジョン・メディシン（精密医療）および創薬研究を牽引することが、私の最終的な目標です。</p>
+                    <p>中国の河北医科大学で薬剤学の研究トレーニングを開始し、修士課程では<a onclick="switchView('pharmaceutics')" class="about-inline-link">ドラッグデリバリーシステム ↗</a>の開発に取り組みました。投与の利便性向上、薬物放出の制御、標的送達を実現するための送達戦略の設計を中心に研究しました。</p>
+
+                    <p>その後、日本の熊本大学に移り、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻 純男 教授 ↗</a></strong>の指導の下で博士課程に進学しました。研究室では定量プロテオミクスを用いて血液脳関門とそのトランスポーターを研究し、薬物やドラッグデリバリーシステムがこの関門をどのように通過して輸送・送達されるかを解析していました。ここで初めてプロテオミクスに触れ、研究の重点はドラッグデリバリーから質量分析に基づくプロテオミクス方法論へと徐々に移りました。</p>
+
+                    <p>博士研究では、data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）と、<a onclick="switchView('terminomics')" class="about-inline-link">ターミノミクス ↗</a>とも呼ばれるポジショナルプロテオミクスを中心に取り組みました。DIA-MSでは、DIA性能を高めるために取得戦略とデータ解析の最適化に取り組みました。ターミノミクスでは、末端ペプチド濃縮とデータベース検索を含む末端ペプチド解析ワークフローを確立しました。このワークフローを大腸がん患者の臨床血漿試料に適用し、タンパク質分解ランドスケープをマッピングするとともに、疾患関連のタンパク質分解リモデリングを解析しました。博士号取得後も熊本大学にResearch Fellowとして在籍し、この研究で見いだした有望なバイオマーカー候補のさらなる検証に取り組んでいます。</p>
+
+                    <div class="about-research-interests">
+                        <h3>研究関心</h3>
+                        <div class="about-interest-item">
+                            <strong>1. プロテオミクス技術</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>2. 翻訳後修飾（PTMs）</strong>
+                            <p>PTMsがタンパク質機能と細胞シグナル伝達をどのように制御し、その制御異常ががん、神経疾患、老化にどのように関与するか。</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>3. プロテインコロナ</strong>
+                            <p>血漿プロテオミクスにおけるプロテインコロナの応用と、ナノキャリアのbiological identityおよびin vivo fateに対するプロテインコロナの影響。</p>
+                        </div>
+                    </div>
                 `,
 
-                edu_title: "// 学歴 (EDUCATION)",
+                edu_title: "学歴 (EDUCATION)",
                 edu_phd: "<strong>熊本大学大学院</strong><br>薬学教育部 創薬・生命薬学専攻 博士後期課程<br>指導教員：大槻 純男 教授",
                 edu_master: "<strong>河北医科大学 (中国)</strong><br>薬学院 薬剤学専攻 修士課程",
 
@@ -1335,7 +1929,7 @@ conf_list: `
                     </div>
                 `,
 
-                conf_title: "// 学会発表 (CONFERENCE PRESENTATIONS)",
+                conf_title: "学会発表 (CONFERENCE PRESENTATIONS)",
                 conf_list: `
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
@@ -1376,154 +1970,160 @@ conf_list: `
                 `,
 
 
-                // --- 研究コンソール UI (Research Console UI) ---
-                dia_sub: "MSデータ取得",
-                ter_sub: "タンパク質分解データ",
-                bio_sub: "臨床応用",
-                node_pharm_title: "薬剤学",
-                node_details: "詳細を見る", 
-                details_arrow: "詳細 ↗", 
-                back_home: "← ホームに戻る", 
                 back_console: "← コンソールに戻る",
-                res_console_desc: "ノードを選択して、技術的な詳細と現在進行中のプロジェクトを確認してください。",
-                pharm_page_title: "薬剤学 (Pharmaceutics)",
+                pharm_page_title: "ドラッグデリバリーシステム",
 
                 // --- 研究ノード: DIA ---
                 dia_content: `
-                    <p>私のDIA研究への探究は、プロテオミクスの体系的なトレーニングの中で、ハイスループットなマルチプレックスDIAプロジェクトを通じてデータ取得と解析の確かな経験を積んだことから始まりました。この基盤の上に立ち、DIAメソッドの最適化に取り組んできました。データ取得の面では<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows（分離ウィンドウ）の最適化</a>を行い、データ解析の面では<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIAデータに対するFDR（False Discovery Rate）制御手法</a>の確立と評価を行いました。</p>
+                    <p>プロテオミクスの体系的なトレーニングの中でDIA研究に取り組み始め、高スループットMultiplexed DIAプロジェクトを通じてデータ取得とデータ処理の確かな経験を積みました。この基盤の上でDIA方法論を最適化し、データ取得側では<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>、データ解析側では<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIAデータのFDR制御法</a>の確立と評価に取り組みました。</p>
 
-                    <p>さらに、プロテオミクスの検索ソフトウェアに対して強い情熱を持っています。新しいツールを試すことが好きで、これらは私にとっての「武器」です。アルゴリズムのアップデートによってもたらされるDIAの性能の飛躍的な向上を目の当たりにすることは非常に魅力的であり、この分野を深く掘り下げる楽しさを常に感じています。</p>
+                    <p>さらに、プロテオミクス検索ソフトウェアに強い関心があります。新しいツールを試すことが好きで、これらは私にとって研究上の「武器」です。アルゴリズムの更新によってDIA性能が段階的に向上していく過程を見ることは非常に興味深く、この分野をさらに深く掘り下げることを楽しんでいます。</p>
 
-                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">現在進行中のプロジェクト (Ongoing Research)</h3>
+                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">進行中の研究</h3>
                     <ul style="list-style:none; padding:0;">
                         <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            ライブラリフリー・プロテオミクス解析に向けた最新DIAツールの包括的ベンチマーキング (Comprehensive Benchmarking of Recent DIA Tools)
+                            Library-Free Proteomics Analysisのための最新Data-independent Acquisition Toolsの包括的ベンチマーキング
                         </li>
                         <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            翻訳後修飾 (PTMs) に向けたDIAの最適化
+                            Post-Translational Modifications（PTMs）のためのDIA最適化
                         </li>
                     </ul>
                 `,
 
                 // --- 研究ノード: がん研究 (Cancer) ---
                 bio_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">がん研究におけるバックグラウンド</h3>
-                    
-                    <p>私のがん研究への関わりは、学部時代にがん専門病院での臨床実習に参加したことから始まりました。この経験を通じて臨床現場に直接触れ、患者の実際の状況、化学療法などの標準的な治療プロセス、そしてこれらの治療に伴う副作用について深く理解することができました。</p>
-                    
-                    <p>
-                    <span class="text-link" onclick="switchView('pharmaceutics')">治療分野においては</span>、腫瘍標的型ドラッグデリバリー（DDS）に焦点を当ててきました。ナノキャリアシステムの設計と最適化に注力し、腫瘍内の抗がん剤濃度を高めつつ、全身の毒性を軽減することを目指しました。</p>
-                    
-                    <p>現在は、最先端の技術を活用してがんの早期発見・診断に関する課題解決に専念しています。私の研究の中核は、高度なプロテオミクス戦略（現在進行中の<span class="text-link" onclick="switchView('terminomics')">ターミノミクス研究</span>など）を応用し、複雑な生体試料から新規がんバイオマーカーを網羅的にスクリーニングし同定することです。</p>
-                    
-                    <p>将来的には、がん研究、特に腫瘍学分野のトランスレーショナル・プロテオミクス（Translational Proteomics）に引き続き貢献したいと強く願っています。</p>
+                    <p>中国の河北医科大学で薬剤学の研究トレーニングを開始し、修士課程では<a onclick="switchView('pharmaceutics')" class="about-inline-link">ドラッグデリバリーシステム ↗</a>の開発に取り組みました。投与の利便性向上、薬物放出の制御、標的送達を実現するための送達戦略の設計を中心に研究しました。</p>
+
+                    <p>その後、日本の熊本大学に移り、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻 純男 教授 ↗</a></strong>の指導の下で博士課程に進学しました。研究室では定量プロテオミクスを用いて血液脳関門とそのトランスポーターを研究し、薬物やドラッグデリバリーシステムがこの関門をどのように通過して輸送・送達されるかを解析していました。ここで初めてプロテオミクスに触れ、研究の重点はドラッグデリバリーから質量分析に基づくプロテオミクス方法論へと徐々に移りました。</p>
+
+                    <p>博士研究では、data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）と、<a onclick="switchView('terminomics')" class="about-inline-link">ターミノミクス ↗</a>とも呼ばれるポジショナルプロテオミクスを中心に取り組みました。DIA-MSでは、DIA性能を高めるために取得戦略とデータ解析の最適化に取り組みました。ターミノミクスでは、末端ペプチド濃縮とデータベース検索を含む末端ペプチド解析ワークフローを確立しました。このワークフローを大腸がん患者の臨床血漿試料に適用し、タンパク質分解ランドスケープをマッピングするとともに、疾患関連のタンパク質分解リモデリングを解析しました。博士号取得後も熊本大学にResearch Fellowとして在籍し、この研究で見いだした有望なバイオマーカー候補のさらなる検証に取り組んでいます。</p>
+
+                    <div class="about-research-interests">
+                        <h3>研究関心</h3>
+                        <div class="about-interest-item">
+                            <strong>1. プロテオミクス技術</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>2. 翻訳後修飾（PTMs）</strong>
+                            <p>PTMsがタンパク質機能と細胞シグナル伝達をどのように制御し、その制御異常ががん、神経疾患、老化にどのように関与するか。</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>3. プロテインコロナ</strong>
+                            <p>血漿プロテオミクスにおけるプロテインコロナの応用と、ナノキャリアのbiological identityおよびin vivo fateに対するプロテインコロナの影響。</p>
+                        </div>
+                    </div>
                 `,
 
                 // --- 研究ノード: Terminomics ---
                 ter_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">ターミノミクスに基づく腫瘍バイオマーカーの探索</h3>
-                    
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">ターミノミクスに基づく腫瘍バイオマーカー探索</h3>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
-                    <p>腫瘍の浸潤および転移は、腫瘍微小環境（TME）内におけるプロテアーゼ制御ネットワークの大規模な再構築を伴います。この病態において、異常活性化したプロテアーゼ（MMPやカテプシンなど）は、組織バリアを突破するために細胞外マトリックスを分解するだけでなく、プロテオーム全体に対して広範かつ異常な<strong>「Aberrant Proteolysis（異常なタンパク質分解）」</strong>を引き起こします。これらの特異的な切断イベントにより、正常な生理的条件下では存在しない新たなN末端またはC末端配列（<strong>Neo-termini</strong>）が露出します。</p>
-                    <p>全長タンパク質の存在量を反映するだけの従来のバイオマーカーとは異なり、特異的な<strong>「分解の指紋（Proteolytic fingerprints）」</strong>を持つこれらのペプチドは、腫瘍の機能的状態に関する情報を直接的に保持しています。さらに、低分子量であるため、これらの切断産物は組織間隙を容易に透過し、血中へと「漏出」します。したがって、腫瘍特異的な切断に由来するこれらNeo-terminiペプチドを捕捉し同定することは、がんのスクリーニングおよびモニタリングのための高特異的かつ高感度なリキッドバイオプシーの新たな戦略となります。</p>
+                    <p>腫瘍の浸潤と転移は、腫瘍微小環境（TME）におけるプロテアーゼ制御ネットワークの大規模なリモデリングを伴います。この病理状態では、異常に活性化したプロテアーゼ（MMPs、Cathepsinsなど）が細胞外マトリックスを分解して組織バリアを破るだけでなく、プロテオームに対して広範かつ異常な<strong>「Aberrant Proteolysis」</strong>を引き起こします。これらの特異的なタンパク質分解イベントにより、正常な生理条件では存在しない新たなN末端またはC末端配列（<strong>Neo-termini</strong>）が露出します。</p>
+                    <p>全長タンパク質量のみを反映する従来のバイオマーカーとは異なり、特異的な<strong>「proteolytic fingerprints」</strong>を持つこれらのペプチドは、腫瘍の機能状態に関する情報を直接保持しています。さらに、分子量が小さいため、これらの切断産物は組織間隙を通過しやすく、血液循環へ「漏出」します。したがって、腫瘍特異的切断に由来するneo-terminal peptidesを捕捉・同定することは、がんスクリーニングおよびモニタリングのための高特異度・高感度なリキッドバイオプシー戦略となります。</p>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決すべき核心的課題 (Core Challenges)</h4>
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">主要な課題</h4>
                     <ul style="list-style:none; padding-left:0;">
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            1. 「トリプシン」問題:<br>
-                            従来のプロテオミクスでは、検出のためにトリプシンを用いてタンパク質をペプチドに消化する必要があります。しかし、トリプシン消化は人工的なものであり、生体内には本来存在しない数百万もの「内部ペプチド（Internal peptides）」を生成します。これらの人工的に生成されたペプチドが巨大なバックグラウンドノイズとなり、腫瘍特異的な酵素切断によって本来生成された自然なN末端/C末端シグナルが希釈され、あるいは完全に失われてしまいます。
+                            1. 「Trypsin」の問題:<br>
+                            従来のプロテオミクスでは、検出のためにtrypsinでタンパク質をペプチドへ消化する必要があります。しかしtrypsin消化は人工的な操作であり、生体内には本来存在しない多数の「internal peptides」を生成します。これらの人工的なペプチドが大きなバックグラウンドとなり、腫瘍特異的な酵素切断によって生じた天然のN末端/C末端シグナルが希釈され、失われることがあります。
                         </li>
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            2. サブストイキオメトリー（Sub-stoichiometric）な性質:
-                            病理学的なタンパク質分解は、しばしば「サブストイキオメトリー」なイベントです。高発現タンパク質であっても、特異的切断を受ける分子は全体のごく一部に過ぎない場合があります。これらの微量な切断断片は、未切断の完全長タンパク質のバックグラウンドに完全に埋もれてしまい、シグナルが容易にマスキングされます。
+                            2. Sub-stoichiometricな性質:
+                            病的なタンパク質分解はしばしばsub-stoichiometricなイベントです。高発現タンパク質であっても、特定の切断を受ける分子は全体の一部にすぎない場合があります。これらの微量な切断型は、未切断の完全長タンパク質のバックグラウンドに埋もれ、シグナルが容易にマスクされます。
                         </li>
                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            3. バイオインフォマティクスの限界:
-                            標準的なデータベース検索戦略は通常、ペプチドが「Fully Tryptic」であることを前提とし最適化されています。しかし、腫瘍由来の切断断片はしばしば「Semi-tryptic」またはノン・トリプティックです。現在の主流であるDIA解析パイプラインは通常「Peptide-centric」なスコアリング戦略を採用しており、DIAモードで直接Semi-specific検索を実行すると検索スペースが指数関数的に拡大し、データ解釈に計り知れない困難をもたらします。
+                            3. バイオインフォマティクス上の制約:
+                            標準的なデータベース検索では通常、ペプチドが「Fully Tryptic」であることを前提として最適化されています。一方、腫瘍由来の切断断片はしばしば「Semi-tryptic」またはnon-trypticです。現在主流のData-Independent Acquisition（DIA）解析パイプラインは一般に「Peptide-centric」なスコアリング戦略を採用しており、DIAで直接semi-specific searchを行うと検索空間が大幅に拡大し、データ解釈が困難になります。
                         </li>
                     </ul>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策: ターミノミクス (Terminomics)</h4>
-                    
-                    <p>ターミノミクス（ポジショナル・プロテオミクスとも呼ばれる）は、生体系内の全タンパク質のN末端およびC末端（ターミノーム）の体系的な研究に特化したプロテオミクスの一分野です。</p>
-                    <p>従来のプロテオミクスがタンパク質全体を見るのに対し、ターミノミクスは「末端」に特化しています。末端はタンパク質のライフサイクルの履歴を保持しているため非常に重要です：</p>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策: ターミノミクス</h4>
+
+                    <p>ターミノミクスはポジショナルプロテオミクスとも呼ばれ、生物システム内のすべてのタンパク質のN末端とC末端、すなわち「terminome」を体系的に研究するプロテオミクスの専門分野です。</p>
+                    <p>従来のプロテオミクスがタンパク質全体を見るのに対し、ターミノミクスは特に「末端」に注目します。末端はタンパク質の履歴を反映するため重要です。</p>
                     <ul>
-                        <li>タンパク質の成熟 (Protein Maturation): 翻訳後にタンパク質がどのように処理されるか。</li>
-                        <li>タンパク質分解 (Proteolysis): プロテアーゼがどのようにタンパク質を切断し、活性化、不活性化、または分解するか。</li>
-                        <li>翻訳後修飾 (PTMs): アセチル化やミリストイル化などの修飾が末端で特異的に起こり、タンパク質の安定性や局在を制御する仕組み。</li>
+                        <li>Protein Maturation: 翻訳後にタンパク質がどのようにプロセシングされるか。</li>
+                        <li>Proteolysis: プロテアーゼがタンパク質を切断し、活性化、不活性化、または分解する仕組み。</li>
+                        <li>Post-Translational Modifications（PTMs）: アセチル化やミリストイル化など、末端に特異的に生じてタンパク質の安定性や局在を制御する修飾。</li>
                     </ul>
-                    <p>プロテオミクスが「工場の全従業員のマップ」だとすれば、ターミノミクスは「彼らがいつ働き始め、いつ解雇され、役割がどう変わるか」を正確に示すマニュアルです。</p>
-                    
-                    <p>「スイッチ」メカニズム: タンパク質分解は不可逆的な生物学的スイッチであり、血液凝固、細胞死（アポトーシス）、免疫応答などのプロセスを制御します。ターミノミクスにより、これらの「切断」がどこで起こるかを正確に把握できます。</p>
-                    <p>「Neo-termini」の発見: プロテアーゼがタンパク質を切断すると、新しいN末端（neo-N-terminus）が生成されます。これを同定することで、特定の酵素の基質を見つけることができ、創薬において極めて重要です。</p>
-                    <p>疾患バイオマーカー: がんやアルツハイマー病などの多くの疾患は、異常なタンパク質切断を伴います。ターミノミクスは、早期警戒のサインとして機能する血液や組織中の特定の「タンパク質断片」を特定できます。</p>
+                    <p>プロテオミクスが工場にいるすべての作業員の地図だとすれば、ターミノミクスは彼らがいつ働き始め、いつ役割を終え、どのように役割が変化するかを示すマニュアルに相当します。</p>
+
+                    <p>「Switch」機構: Proteolysis、すなわちタンパク質切断は不可逆的な生物学的スイッチです。血液凝固、細胞死（apoptosis）、免疫応答などを制御しており、ターミノミクスによってこれらの「切断」がどこで起こるかを捉えることができます。</p>
+                    <p>「Neo-termini」の発見: プロテアーゼがタンパク質を切断すると、新たなN末端（neo-N-terminus）が生じます。これを同定することで、特定の酵素の基質を見つけることができ、創薬にも重要です。</p>
+                    <p>疾患バイオマーカー: がんやAlzheimer’s diseaseなど多くの疾患では異常なタンパク質切断が生じます。ターミノミクスは、血液や組織中の特定の「protein fragments」を同定し、早期の疾患シグナルとして利用できる可能性があります。</p>
 
                     <div style="text-align: center; margin: 2rem 0;">
-                        <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                        <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-                            // ターミノミクスの一般的なワークフロー (General workflow of terminomics)
-                        </p>
-                    </div>
+    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+
+    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
+        ターミノミクスの一般的なワークフロー
+    </p>
+</div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">現在進行中の研究 (Ongoing Research)</h4>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">進行中の研究</h4>
                     <ol style="padding-left:1.5rem; margin-bottom:2rem;">
-                        <li style="margin-bottom:0.5rem;">高感度なターミノミクス・サンプル前処理法の確立と最適化。</li>
-                        <li style="margin-bottom:0.5rem;">Semi-trypticペプチド同定のためのデータ検索戦略の最適化。</li>
-                        <li style="margin-bottom:0.5rem;">臨床サンプルコホートを活用した予備的なバイオマーカー探索。</li>
-                        <li style="margin-bottom:0.5rem;">スクリーニングされた主要な候補Neo-terminiバイオマーカーの検証研究。</li>
+                        <li style="margin-bottom:0.5rem;">高感度ターミノミクス試料前処理法の確立と最適化。</li>
+                        <li style="margin-bottom:0.5rem;">Semi-tryptic peptide同定のためのデータ検索戦略の最適化。</li>
+                        <li style="margin-bottom:0.5rem;">臨床試料コホートを用いた予備的バイオマーカー探索。</li>
+                        <li style="margin-bottom:0.5rem;">スクリーニングされた主要なneo-terminiバイオマーカー候補の後続検証。</li>
                     </ol>
+
+
                 `,
 
                 // --- 研究ノード: 薬剤学 (Pharmaceutics - 修士課程の業績) ---
                 master_desc: `
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. アミスルプリド口腔内崩壊錠 (ODT) の開発</h3>
-                    
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. ナノキャリアを用いた腫瘍標的型ドラッグデリバリーシステムの開発</h3>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床におけるジレンマ:</strong> アミスルプリドは統合失調症の第一選択薬ですが、2つの大きな課題があります。1) BCSクラスII（難水溶性）薬物であるため、バイオアベイラビリティが低いこと。2) 極度の苦味や嚥下困難により、患者が服薬を拒否する（頬に隠す、吐き出す等）ことが多く、治療効果に深刻な影響を及ぼすこと。</p>
-                    
-                    <p><strong>目標:</strong> 水なしで口の中で溶ける「口腔内崩壊錠 (ODT)」を開発し、製剤設計を通じてアドヒアランス低下の根本原因を解決すること。</p>
-                    
+                    <p><strong>臨床上の課題:</strong> 従来の化学療法薬は一般に「広く分布する一方で特異性が低い」という問題を抱えています。体内に入ると「標的」と「非標的」を区別できず、がん細胞を殺傷すると同時に正常組織にも大きな損傷を与え、強い全身毒性を生じます。さらに、腫瘍の緻密な間質に浸透しにくく、病変部で十分な有効薬物濃度を得られないことがあります。</p>
+
+                    <p><strong>目標:</strong> 腫瘍微小環境の特徴を利用して精密な「navigation」送達を実現する薬物輸送ツールとしてインテリジェントな「nanocarrier」を構築し、腫瘍部位に到達した後にのみ薬物を放出させることで「enhanced efficacy and reduced toxicity」を実現すること。</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>固体分散体技術（Solid Dispersion Technology）を用いて溶解性のボトルネックを克服し、苦味のマスキングに成功しました。最終的な製剤は、30秒以内という極めて迅速な崩壊と良好な服用感を実現しました。これにより、患者の服薬回避を効果的に防ぐとともに、同薬のODT製剤という市場の空白を埋めることができました。</p>
-                    
+                    <p>機能化ナノ材料を用いてドラッグデリバリーシステムを構築し、表面修飾技術によって腫瘍へのactive targetingを実現しました。キャリアは生理学的バリアを克服し、血液循環中で安定性を維持し、腫瘍微小環境に到達した後に特定の刺激を受けて崩壊しました。最終的な実験では、薬物が腫瘍組織内の標的位置で放出され、腫瘍部位への薬物蓄積が大きく増加したことを確認しました。強い抗腫瘍活性を維持しながら、主要臓器への毒性副作用を大幅に低減しました。</p>
+
+                    <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. Amisulpride口腔内崩壊錠の開発</h3>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
+                    <p><strong>臨床上の課題:</strong> Amisulprideは統合失調症の第一選択治療薬ですが、2つの大きな課題があります。1）BCS Class II薬物で水溶性が低く、バイオアベイラビリティが低いこと。2）強い苦味や嚥下困難により、患者が服薬を拒否し、頬に隠したり吐き出したりすることがあり、治療効果に大きく影響することです。</p>
+
+                    <p><strong>目標:</strong> 水を必要とせず口腔内で崩壊する「Orally Disintegrating Tablet（ODT）」を開発し、剤形設計によって服薬アドヒアランス低下の根本原因に対応すること。</p>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
+                    <p>Solid Dispersion Technologyを用いて溶解性のボトルネックを克服し、苦味のマスキングにも成功しました。最終製剤は30秒以内という非常に速い崩壊と良好な口当たりを実現しました。これにより患者が薬を隠す行為を効果的に防ぎ、この薬剤におけるODT剤形の市場上の空白を埋めました。</p>
+
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
                 </div>
 
-                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
                 <div style="margin-bottom: 2rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. ナノエマルション経皮送達システムの開発</h3>
-                    
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. ナノエマルション経皮ドラッグデリバリーシステムの開発</h3>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床におけるジレンマ:</strong> カルバマゼピン（CBZ）はてんかんや三叉神経痛の第一選択薬ですが、経口製剤には3つの問題があります。1) BCSクラスIIの難水溶性薬物であり、吸収が不安定。2) 初回通過効果が大きく、バイオアベイラビリティが著しく低下する。3) 長期経口投与に伴う胃腸障害や嚥下困難が、特定の患者群においてアドヒアランスの低下を招く。</p>
-                    
-                    <p><strong>目標:</strong> 非侵襲的な「ナノエマルション経皮送達システム」を構築し、ナノキャリア技術による溶解性の改善、皮膚経路を通じた肝初回通過効果の回避、そして安定した薬物送達と患者のアドヒアランス向上を実現すること。</p>
-                    
+                    <p><strong>臨床上の課題:</strong> Carbamazepine（CBZ）はてんかんと三叉神経痛の第一選択薬ですが、経口製剤には3つの問題があります。1）BCS Class IIの難水溶性薬物であり、吸収が不安定であること。2）肝初回通過効果が大きく、バイオアベイラビリティが大幅に低下すること。3）長期経口投与に伴う消化器症状や嚥下困難によって、一部の患者群で服薬アドヒアランスが低下することです。</p>
+
+                    <p><strong>目標:</strong> 非侵襲的な「Nanoemulsion Transdermal Delivery System」を構築し、ナノキャリア技術によって溶解性のボトルネックを解決し、皮膚経路を通じて肝初回通過代謝を回避し、安定した薬物送達と服薬アドヒアランスの改善を実現すること。</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>カルバマゼピンを封入した<strong>ナノエマルション</strong>製剤を調製しました。超微小な液滴サイズとナノエマルション特有の脂質親和性を活かし、難水溶性薬物カルバマゼピンの担持量を大幅に増加させただけでなく、皮膚の角質層バリアを効果的に突破しました。In vitroおよびin vivo実験において、本システムが薬物を全身循環へ経皮的に浸透させることに成功し、肝初回通過効果を効果的に回避し、経口投与と比較してより安定した血中濃度プロファイルを提供できることを確認しました。これは長期治療を必要とする患者にとってより良い選択肢となります。</p>
-                    
+                    <p>Carbamazepineを搭載した<strong>Nanoemulsion</strong>製剤を調製しました。ナノエマルションの非常に小さな液滴径と特徴的な脂質親和性を利用することで、難水溶性薬物Carbamazepineの搭載量を大きく増加させると同時に、皮膚の角質層バリアを効果的に克服しました。In vitroおよびin vivo実験により、本システムが薬物を経皮的に全身循環へ移行させ、肝初回通過効果を回避し、経口投与と比較してより平滑な血漿中濃度プロファイルを実現することを確認しました。長期治療を必要とする患者に対するより良い選択肢となる可能性があります。</p>
+
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
-                </div>
-                    
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. ナノキャリアベースの腫瘍標的型ドラッグデリバリーシステム (DDS) の開発</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床におけるジレンマ:</strong> 従来の化学療法薬は通常、「広く分布するが特異性に乏しい」という課題を抱えています。体内に入った後、「敵と味方」を区別できず、がん細胞を殺傷すると同時に正常組織に深刻なダメージを与えます（重篤な全身毒性）。さらに、腫瘍の緻密な間質に浸透することが難しく、病変部での有効薬物濃度が不足しがちです。</p>
-                    
-                    <p><strong>目標:</strong> 薬物輸送のツールとしてインテリジェントな「ナノキャリア」を構築し、腫瘍微小環境の特性を利用して精密な「ナビゲーション」送達を実現すること。腫瘍部位に到達した後にのみ薬物を放出させることで、「薬効の増強と毒性の軽減（Enhanced efficacy and reduced toxicity）」を達成すること。</p>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>機能化ナノ材料を用いて薬物送達システムを構築し、表面修飾技術を通じて腫瘍へのアクティブターゲティング（能動的標的化）を実現しました。このキャリアは生理学的バリアを克服して血中循環において安定性を保ち、腫瘍微小環境に到達した後に特定の刺激を受けて崩壊を引き起こします。最終的な実験により、腫瘍組織内の標的部位で薬物が無事に放出され、腫瘍部位への薬物蓄積量が著しく増加したことが確認されました。強力な抗腫瘍活性を維持しつつ、主要臓器に対する毒性・副作用を大幅に軽減しました。</p>
-                    
-                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
                 </div>
                 `,
 
@@ -1559,32 +2159,48 @@ conf_list: `
                 nav_others: "其他", 
                 nav_contact: "联系方式", 
                 nav_personal: "个人数据",
+                news_job: "开始在熊本大学担任 Research Fellow。",
+                news_defense: "在熊本大学顺利通过博士学位论文答辩。",
+                home_bio: "我是一名从事基于质谱的蛋白质组学研究的科研人员，尤其关注将这些方法应用于生物学和疾病研究。我于2026年获得日本熊本大学博士学位。我的博士研究以数据非依赖性采集（DIA）和末端蛋白质组学为核心，应用于绘制蛋白水解图谱并研究疾病相关的蛋白水解重塑。",
+                home_about_btn: "关于我",
+                home_research_btn: "研究领域",
+                home_publications_btn: "学术成果",
+                home_latest: "最新动态",
+                research_ter_title: "末端蛋白质组学",
+                research_ter_summary: "肿瘤微环境中存在失调的蛋白酶活性，蛋白酶会切割蛋白质并重塑细胞外环境。这些切割事件产生新的蛋白质末端，记录特定的蛋白水解活性，并可作为疾病相关蛋白水解的分子指纹。末端蛋白质组学捕获这些新末端，以揭示蛋白水解重塑并发现潜在的疾病生物标志物。",
+                research_dia_title: "DIA-MS",
+                research_dia_summary: "数据非依赖性采集（DIA）在预先设定的隔离窗口范围内系统性地碎裂前体离子，从而实现全面且可重复的蛋白质组分析。",
+                research_cancer_title: "癌症研究",
+                research_cancer_summary: "将早期肿瘤靶向递药研究与当前蛋白质组学策略相结合，从复杂生物样本中寻找用于癌症早期发现和诊断的生物标志物。",
+                research_pharm_title: "药物递送系统",
+                research_pharm_summary: "药物递送研究聚焦于设计递送系统，以改善给药方式、控制药物释放并增强靶向递送。",
                 
-                // 2. 首页主视觉区
-                hero_title: "蛋白质组学", 
-                hero_desc: "致力于推动蛋白质组学在精准医疗与创新药物研发中的应用。", 
-                hero_btn: "进入研究控制台",
-
                 // 3. About Me 与 学历部分
                 about_bio_content: `
-                    <p>我目前是熊本大学的博士研究生（2022–2026年），师从<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ' target='_blank' style='color:var(--highlight); text-decoration:none; border-bottom: 1px dashed var(--highlight);'>大槻纯男（Sumio Ohtsuki）教授</a></strong>。我的科研基础始于在河北医科大学攻读药剂学（Pharmaceutics）硕士学位期间。进入博士阶段后，我将研究重心全面转向了蛋白质组学领域。</p>
-                    
-                    <p>目前，我对探索蛋白质组学的巨大潜力充满热情。我的主要研究兴趣与专业领域包括：</p>
-                    <ul style="margin-bottom:1.5rem;">
-                        <li>蛋白质组学样品前处理 (Sample Preparation)</li>
-                        <li>血浆蛋白质组学 (Plasma Proteomics)</li>
-                        <li>MS-CETSA/TPP/PISA</li>
-                        <li>蛋白晕 (Protein Corona)</li>
-                        <li>自上而下蛋白质组学 (Top-down Proteomics)</li>
-                        <li>蛋白质翻译后修饰 (PTMs)</li>
-                        <li>数据非依赖性采集 (Data-Independent Acquisition, DIA)</li>
-                        <li><strong>末端蛋白质组学 / Terminomics (目前主攻项目)</strong></li>
-                    </ul>
-                    
-                    <p><strong>最终目标:</strong> 将蛋白质组学作为强大的驱动工具，推动精准医学与创新药物研发的进步。</p>
+                    <p>我的科研训练始于中国河北医科大学的药剂学研究，硕士期间主要从事<a onclick="switchView('pharmaceutics')" class="about-inline-link">药物递送系统 ↗</a>的开发。我的工作主要围绕递送策略的设计，以实现更便捷的给药、可控的药物释放和靶向递送。</p>
+
+                    <p>之后，我前往日本熊本大学，在<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻纯男（Sumio Ohtsuki）教授 ↗</a></strong>指导下攻读博士学位。实验室利用定量蛋白质组学研究血脑屏障及其转运体，并探讨药物和药物递送系统如何跨越该屏障进行转运与递送。我也由此首次接触到蛋白质组学，研究重心逐渐从药物递送转向基于质谱的蛋白质组学方法学。</p>
+
+                    <p>博士期间，我的研究主要集中于 data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）和位置蛋白质组学，也就是<a onclick="switchView('terminomics')" class="about-inline-link">末端蛋白质组学 ↗</a>。在DIA-MS方面，我主要优化数据采集策略和数据分析，以提高DIA性能。在末端蛋白质组学方面，我建立了末端肽段分析工作流程，包括末端肽段富集和数据库搜索。我将这一工作流程应用于结直肠癌患者的临床血浆样本，绘制蛋白水解图谱并表征疾病相关的蛋白水解重塑。博士毕业后，我继续留在熊本大学担任Research Fellow，进一步验证该研究中发现的有潜力的生物标志物候选物。</p>
+
+                    <div class="about-research-interests">
+                        <h3>研究兴趣</h3>
+                        <div class="about-interest-item">
+                            <strong>1. 蛋白质组学技术</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>2. 蛋白质翻译后修饰（PTMs）</strong>
+                            <p>PTMs如何调控蛋白质功能和细胞信号，以及其失调如何影响癌症、神经系统疾病和衰老。</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>3. Protein Corona</strong>
+                            <p>Protein corona在血浆蛋白质组学中的应用，以及其对纳米载体biological identity和in vivo fate的影响。</p>
+                        </div>
+                    </div>
                 `,
 
-                edu_title: "// 教育背景",
+                edu_title: "教育背景",
                 edu_phd: "<strong>熊本大学 (日本)</strong><br>药学教育部 创药·生命药学专攻 博士<br>导师：大槻纯男 (Sumio Ohtsuki) 教授",
                 edu_master: "<strong>河北医科大学 (中国)</strong><br>药学院 药剂学 硕士",
 
@@ -1623,7 +2239,7 @@ conf_list: `
                     </div>
                 `,
 
-                conf_title: "// 学术会议发表",
+                conf_title: "学术会议发表",
                 conf_list: `
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 1.5rem; border-left: 3px solid var(--accent-gray); padding-left: 1rem;">
@@ -1663,149 +2279,157 @@ conf_list: `
                     </ul>
                 `,
 
-                // 5. 研究控制台 UI
-                dia_sub: "质谱数据采集",
-                ter_sub: "蛋白酶解数据",
-                bio_sub: "临床转化应用",
-                node_pharm_title: "药剂学",
-                node_details: "查看详情", 
-                details_arrow: "详情 ↗", 
-                back_home: "← 返回首页", 
                 back_console: "← 返回控制台",
-                res_console_desc: "点击相应节点，查看技术细节与目前正在开展的研究项目。",
-                pharm_page_title: "药剂学 (Pharmaceutics)",
+                pharm_page_title: "药物递送系统",
 
                 // 6. 研究节点内容
                 dia_content: `
-                    <p>我对 DIA 研究的探索始于我接受的系统性蛋白质组学训练。在参与高通量 Multiplexed DIA 项目的过程中，我积累了扎实的数据采集与处理经验。在此基础之上，我致力于对 DIA 方法学进行深度优化：在数据采集端，我深入探讨了<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA 隔离窗口（Isolation Windows）</a>的优化策略；在数据分析端，我建立并系统评估了<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">针对 DIA 无库搜索的 FDR 控制方法</a>。</p>
+                    <p>我对DIA研究的探索始于系统性的蛋白质组学训练，在高通量Multiplexed DIA项目中积累了扎实的数据采集和数据处理经验。在此基础上，我进一步优化DIA方法学。在数据采集端，我研究了<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>；在数据分析端，我建立并评估了<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA数据的FDR控制方法</a>。</p>
 
-                    <p>此外，我对蛋白质组学搜索引擎及软件工具抱有极大的热情。我热衷于探索各类新工具——它们是我解决科研难题的“武器”。见证算法迭代如何一步步推动 DIA 性能的飞跃是一件非常迷人的事情，我也非常享受深挖这一领域底层的乐趣。</p>
+                    <p>此外，我对蛋白质组学搜索软件一直很感兴趣。我喜欢尝试新的工具，这些工具是我的“武器”。算法更新一步步推动DIA性能提升的过程非常有意思，我也一直享受继续深入研究这一领域的过程。</p>
 
-                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">目前开展的研究项目</h3>
+                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">正在开展的研究</h3>
                     <ul style="list-style:none; padding:0;">
                         <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            面向无库搜索（Library-Free）蛋白质组学分析的最新 DIA 工具综合基准测试
+                            面向Library-Free Proteomics Analysis的最新Data-independent Acquisition Tools综合基准测试
                         </li>
                         <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            针对蛋白质翻译后修饰 (PTMs) 的 DIA 方法学优化
+                            面向Post-Translational Modifications（PTMs）的DIA优化
                         </li>
                     </ul>
                 `,
 
                 bio_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">我在肿瘤研究领域的背景</h3>
-                    
-                    <p>我与肿瘤研究的渊源始于本科期间在肿瘤专科医院的临床实习。这段经历让我得以直击临床一线，深刻理解了患者的真实处境、化疗等标准治疗流程，以及伴随这些治疗而来的严重副作用。</p>
-                    
-                    <p>
-                    在<span class="text-link" onclick="switchView('pharmaceutics')">治疗学领域</span>，我的早期工作聚焦于肿瘤靶向递药系统（Targeted DDS）。我致力于设计并优化纳米载体，旨在提高抗癌药物在肿瘤局部的富集浓度，同时最大限度地降低其对全身的毒副作用。</p>
-                    
-                    <p>如今，我专注于利用前沿分析技术解决癌症早期发现与诊断的难题。我目前研究的核心是应用高级蛋白质组学策略（如目前主攻的<span class="text-link" onclick="switchView('terminomics')">末端蛋白质组学</span>），从复杂的临床生物样本中系统性地筛选并鉴定新型的癌症生物标志物。</p>
-                    
-                    <p>未来，我希望能够继续深耕肿瘤学研究，特别是在肿瘤转化蛋白质组学（Translational Proteomics）等交叉领域贡献自己的力量。</p>
+                    <p>我的科研训练始于中国河北医科大学的药剂学研究，硕士期间主要从事<a onclick="switchView('pharmaceutics')" class="about-inline-link">药物递送系统 ↗</a>的开发。我的工作主要围绕递送策略的设计，以实现更便捷的给药、可控的药物释放和靶向递送。</p>
+
+                    <p>之后，我前往日本熊本大学，在<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻纯男（Sumio Ohtsuki）教授 ↗</a></strong>指导下攻读博士学位。实验室利用定量蛋白质组学研究血脑屏障及其转运体，并探讨药物和药物递送系统如何跨越该屏障进行转运与递送。我也由此首次接触到蛋白质组学，研究重心逐渐从药物递送转向基于质谱的蛋白质组学方法学。</p>
+
+                    <p>博士期间，我的研究主要集中于 data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）和位置蛋白质组学，也就是<a onclick="switchView('terminomics')" class="about-inline-link">末端蛋白质组学 ↗</a>。在DIA-MS方面，我主要优化数据采集策略和数据分析，以提高DIA性能。在末端蛋白质组学方面，我建立了末端肽段分析工作流程，包括末端肽段富集和数据库搜索。我将这一工作流程应用于结直肠癌患者的临床血浆样本，绘制蛋白水解图谱并表征疾病相关的蛋白水解重塑。博士毕业后，我继续留在熊本大学担任Research Fellow，进一步验证该研究中发现的有潜力的生物标志物候选物。</p>
+
+                    <div class="about-research-interests">
+                        <h3>研究兴趣</h3>
+                        <div class="about-interest-item">
+                            <strong>1. 蛋白质组学技术</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>2. 蛋白质翻译后修饰（PTMs）</strong>
+                            <p>PTMs如何调控蛋白质功能和细胞信号，以及其失调如何影响癌症、神经系统疾病和衰老。</p>
+                        </div>
+                        <div class="about-interest-item">
+                            <strong>3. Protein Corona</strong>
+                            <p>Protein corona在血浆蛋白质组学中的应用，以及其对纳米载体biological identity和in vivo fate的影响。</p>
+                        </div>
+                    </div>
                 `,
 
                 ter_content: `
                     <h3 style="color:var(--highlight); margin-bottom:1.5rem;">基于末端蛋白质组学的肿瘤生物标志物发现</h3>
-                    
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
-                    <p>肿瘤的浸润与转移往往伴随着肿瘤微环境（TME）内蛋白酶调控网络的深刻重塑。在这种病理状态下，异常激活的蛋白酶（如基质金属蛋白酶 MMPs、组织蛋白酶 Cathepsins）不仅通过降解细胞外基质来突破组织屏障，还会对整个蛋白质组进行广泛且异常的<strong>“异常蛋白酶解（Aberrant Proteolysis）”</strong>。这些特异性的剪切事件暴露出在正常生理条件下不存在的全新 N 端或 C 端序列（即 <strong>新末端 / Neo-termini</strong>）。</p>
-                    <p>有别于仅仅反映全长蛋白丰度变化的传统标志物，这些带有特定<strong>“酶解指纹（Proteolytic fingerprints）”</strong>的肽段直接承载了肿瘤的功能状态信息。此外，由于分子量较小，这些剪切产物更容易穿透组织间隙并“渗漏”进入血液循环。因此，精准捕获并鉴定这些源自肿瘤特异性剪切的新末端肽段，为癌症筛查与动态监测提供了一种高特异性、高灵敏度的液体活检（Liquid Biopsy）新策略。</p>
+                    <p>肿瘤的浸润和转移伴随着肿瘤微环境（TME）中蛋白酶调控网络的深刻重塑。在这种病理状态下，异常激活的蛋白酶（如MMPs、Cathepsins）不仅会降解细胞外基质以突破组织屏障，还会在整个蛋白质组中引起广泛而异常的<strong>“Aberrant Proteolysis”</strong>。这些特异性的蛋白水解事件会暴露出正常生理条件下不存在的新N端或C端序列（<strong>Neo-termini</strong>）。</p>
+                    <p>与仅反映全长蛋白丰度的传统生物标志物不同，这些带有特异性<strong>“proteolytic fingerprints”</strong>的肽段直接携带肿瘤功能状态的信息。此外，由于分子量较小，这些切割产物更容易穿过组织间隙并“渗漏”进入血液循环。因此，捕获并鉴定来源于肿瘤特异性切割的neo-terminal peptides，为癌症筛查和监测提供了一种高特异性、高灵敏度的液体活检策略。</p>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/Term.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">核心技术挑战</h4>
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">核心挑战</h4>
                     <ul style="list-style:none; padding-left:0;">
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            1. “胰蛋白酶”带来的噪音干扰：<br>
-                            常规的自下而上蛋白质组学必须使用胰蛋白酶（Trypsin）将蛋白质消化成肽段才能进行质谱检测。然而，这种体外消化是人为干预的过程，会产生数以百万计体内原本不存在的“内部肽段（Internal peptides）”。这些人为产生的肽段构成了巨大的背景噪音，使得原本由肿瘤特异性酶解产生的微量自然 N/C 端信号被严重稀释甚至完全掩盖。
+                            1. “Trypsin”问题:<br>
+                            常规蛋白质组学必须使用trypsin将蛋白质消化成肽段后进行检测。然而，trypsin消化是人为过程，会产生大量体内原本不存在的“internal peptides”。这些人工产生的肽段形成巨大的背景，使原本由肿瘤特异性酶切产生的天然N端/C端信号被稀释，甚至完全丢失。
                         </li>
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            2. 极低的化学计量比（Sub-stoichiometric）：<br>
-                            病理状态下的蛋白酶解通常是一个“亚化学计量（Sub-stoichiometric）”事件。即使是高丰度蛋白，发生特异性剪切的分子可能也只占总量的极小一部分。这些痕量的截短型蛋白片段完全淹没在未被剪切的完整蛋白背景中，导致信号极易丢失。
+                            2. Sub-stoichiometric特性:
+                            病理性蛋白水解通常属于sub-stoichiometric事件。即使对于高丰度蛋白，发生特异性切割的分子也可能只占总量的一小部分。这些微量的截短形式会被未切割完整蛋白的背景淹没，导致信号容易被掩盖。
                         </li>
                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            3. 生物信息学的算法限制：<br>
-                            标准的数据库搜索策略通常假设所有肽段都是“完全胰酶切（Fully Tryptic）”的，并针对此类肽段进行了算法优化。然而，肿瘤微环境中产生的剪切片段往往是“半胰酶切（Semi-tryptic）”甚至非胰酶切的。目前主流的 DIA 分析流程大多采用“以肽段为中心（Peptide-centric）”的打分策略，如果在 DIA 模式下直接进行半特异性搜索，搜索空间将呈指数级爆炸式增长，给数据解析带来难以估量的难度。
+                            3. 生物信息学限制:
+                            标准数据库搜索策略通常假设肽段为“Fully Tryptic”，并针对此类肽段进行优化。然而，肿瘤产生的切割片段通常是“Semi-tryptic”或non-tryptic。目前主流的Data-Independent Acquisition（DIA）分析流程通常采用“Peptide-centric”评分策略。在DIA模式下直接进行semi-specific search会显著扩大搜索空间，使数据解析更加困难。
                         </li>
                     </ul>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案：末端蛋白质组学 (Terminomics)</h4>
-                    
-                    <p>末端蛋白质组学（也称为位置蛋白质组学 / Positional Proteomics）是蛋白质组学的一个高度专业化分支，致力于系统性研究生物系统内所有蛋白质的 N 端和 C 端（即末端组 / Terminome）。</p>
-                    <p>如果说传统的蛋白质组学关注的是蛋白质的“全貌”，那么末端蛋白质组学则死死盯住蛋白质的“两端”。这两端之所以至关重要，是因为它们记录了蛋白质生命周期中的核心历史：</p>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案: 末端蛋白质组学</h4>
+
+                    <p>末端蛋白质组学也称为位置蛋白质组学，是蛋白质组学的一个专门分支，用于系统研究生物系统中所有蛋白质的N端和C端，也就是“terminome”。</p>
+                    <p>传统蛋白质组学关注整个蛋白，而末端蛋白质组学专门关注蛋白质的“末端”。这些末端十分重要，因为它们记录了蛋白质生命周期中的信息。</p>
                     <ul>
-                        <li>蛋白质的成熟：蛋白质翻译后是如何被加工剪切的。</li>
-                        <li>蛋白酶解过程：蛋白酶是如何通过切断蛋白质来激活、失活或降解它们的。</li>
-                        <li>翻译后修饰 (PTMs)：如乙酰化、肉豆蔻酰化等特异性发生在末端的修饰，控制着蛋白质的稳定性与亚细胞定位。</li>
+                        <li>Protein Maturation: 蛋白质翻译后如何被加工。</li>
+                        <li>Proteolysis: 蛋白酶如何切割蛋白质，使其激活、失活或被降解。</li>
+                        <li>Post-Translational Modifications（PTMs）: 如乙酰化或肉豆蔻酰化等特异性发生在末端的修饰，用于调控蛋白质稳定性和定位。</li>
                     </ul>
-                    
-                    <p>“开关”机制：蛋白酶解（切割蛋白质）是一个不可逆的生物学开关，它精确控制着血液凝固、细胞凋亡、免疫应答等关键过程。末端蛋白质组学让我们能够精确地看到这些“切割”究竟发生在哪里。</p>
-                    <p>发现“新末端 (Neo-termini)”：当蛋白酶切断蛋白质时，会暴露出一个全新的 N 端。精准鉴定这些新末端，有助于研究人员发现酶的特异性底物，这对于靶向药物的研发至关重要。</p>
+                    <p>如果蛋白质组学是一张工厂中所有工人的地图，那么末端蛋白质组学就像一本说明书，展示他们何时开始工作、何时结束工作以及角色如何发生变化。</p>
+
+                    <p>“Switch”机制: Proteolysis，也就是蛋白质切割，是一种不可逆的生物学开关。它控制凝血、细胞死亡（apoptosis）和免疫反应等过程。末端蛋白质组学使我们能够看到这些“切割”究竟发生在哪里。</p>
+                    <p>发现“Neo-termini”: 当蛋白酶切割蛋白质时，会产生新的N端（neo-N-terminus）。对这些新末端进行鉴定，有助于研究者寻找特定酶的底物，这对于药物开发非常重要。</p>
+                    <p>疾病生物标志物: 癌症、Alzheimer’s disease等多种疾病都涉及异常蛋白质切割。末端蛋白质组学可以识别血液或组织中的特定“protein fragments”，作为疾病的早期信号。</p>
 
                     <div style="text-align: center; margin: 2rem 0;">
-                        <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                        <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-                            // 末端蛋白质组学常规分析工作流
-                        </p>
-                    </div>
+    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+
+    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
+        末端蛋白质组学的一般工作流程
+    </p>
+</div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">目前开展的研究工作</h4>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">正在开展的研究</h4>
                     <ol style="padding-left:1.5rem; margin-bottom:2rem;">
-                        <li style="margin-bottom:0.5rem;">建立并优化高灵敏度的末端组学样品前处理方法体系。</li>
-                        <li style="margin-bottom:0.5rem;">优化针对半特异性（Semi-tryptic）肽段鉴定的质谱数据检索与打分策略。</li>
-                        <li style="margin-bottom:0.5rem;">利用临床样本队列，开展新末端生物标志物的早期发现与筛选。</li>
-                        <li style="margin-bottom:0.5rem;">对筛选出的关键候选新末端标志物进行大规模的后续验证研究。</li>
+                        <li style="margin-bottom:0.5rem;">建立并优化高灵敏度末端蛋白质组学样品前处理方法。</li>
+                        <li style="margin-bottom:0.5rem;">优化semi-tryptic peptide鉴定的数据检索策略。</li>
+                        <li style="margin-bottom:0.5rem;">利用临床样本队列开展初步生物标志物发现。</li>
+                        <li style="margin-bottom:0.5rem;">对筛选出的关键neo-termini生物标志物候选物开展后续验证研究。</li>
                     </ol>
+
+
                 `,
 
                 master_desc: `
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">01. 氨磺必利口腔崩解片 (ODT) 的处方设计与开发</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
-                    <p><strong>临床用药困境：</strong> 氨磺必利是治疗精神分裂症的一线药物，但其面临两大难题：1）属于 BCS II 类药物（水溶性极差），导致生物利用度低；2）精神类疾病患者常因药物极度苦涩或吞咽困难而产生抗拒心理（如将药片藏于舌下后吐出），严重影响最终治疗效果。</p>
-                    
-                    <p><strong>研究目标：</strong> 开发一种无需用水、入口即化的“口腔崩解片 (ODT)”，从剂型设计的源头解决患者服药依从性差的根本问题。</p>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
-                    <p>我巧妙运用固体分散体技术（Solid Dispersion）突破了药物的溶解性瓶颈，并成功实现了对苦味的掩盖。最终制备的处方在 30 秒内即可完成极速崩解，且口感良好。这一成果不仅有效防止了患者“藏药”的行为，也填补了该药物在 ODT 剂型领域的市场空白。</p>
-                    
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. 基于纳米载体的肿瘤靶向药物递送系统开发</h3>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
+                    <p><strong>临床困境:</strong> 传统化疗药物通常面临“分布广但特异性差”的问题。进入体内后，它们无法区分“敌友”，在杀伤癌细胞的同时也会严重损伤正常组织，从而导致明显的全身毒性。此外，这些药物往往难以穿透肿瘤致密的间质，导致病灶部位的有效药物浓度不足。</p>
+
+                    <p><strong>目标:</strong> 构建一种智能“nanocarrier”作为药物运输工具，利用肿瘤微环境的特征实现精准“navigation”递送，确保药物只有在到达肿瘤部位后才释放，从而实现“enhanced efficacy and reduced toxicity”。</p>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
+                    <p>我利用功能化纳米材料构建药物递送系统，并通过表面修饰技术实现了肿瘤的active targeting。载体成功跨越生理屏障，在血液循环中保持稳定，并在到达肿瘤微环境后受到特定刺激而触发解体。最终实验确认，药物能够在肿瘤组织内的目标位置成功释放，显著提高肿瘤部位的药物蓄积。在保持较强抗肿瘤活性的同时，也大幅降低了对主要脏器的毒副作用。</p>
+
+                    <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                </div>
+
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. 氨磺必利口腔崩解片开发</h3>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
+                    <p><strong>临床困境:</strong> 氨磺必利是治疗精神分裂症的一线药物，但存在两个主要问题。1）它属于BCS Class II药物，水溶性差，导致生物利用度低。2）由于强烈苦味或吞咽困难，患者可能抗拒服药，例如将药物藏在颊部或吐出，从而严重影响治疗效果。</p>
+
+                    <p><strong>目标:</strong> 开发一种无需饮水即可在口腔内崩解的“Orally Disintegrating Tablet（ODT）”，通过剂型设计解决患者依从性差的根本原因。</p>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
+                    <p>我采用Solid Dispersion Technology解决溶解性瓶颈，并成功掩盖苦味。最终处方可在30秒内快速崩解，并具有良好的口感。这能够有效避免患者藏药，并填补该药物在ODT剂型方面的市场空白。</p>
+
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
                 </div>
 
-                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
+                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
                 <div style="margin-bottom: 2rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">02. 纳米乳经皮递药系统 (TDS) 的构建与评价</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
-                    <p><strong>临床用药困境：</strong> 卡马西平（CBZ）是治疗癫痫及三叉神经痛的首选药物，但其常规口服制剂面临三大缺陷：1）BCS II 类难溶性药物，胃肠道吸收极不稳定；2）存在显著的肝脏首过效应，大幅削弱了绝对生物利用度；3）长期口服带来的胃肠道刺激及频繁给药导致特定患者群体的依从性急剧下降。</p>
-                    
-                    <p><strong>研究目标：</strong> 构建一种无创的“纳米乳经皮递药系统”，旨在借助纳米载体技术打破溶解性壁垒，通过皮肤给药途径绕过肝脏首过代谢，最终实现平稳释药并改善患者依从性。</p>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
-                    <p>我成功制备了负载卡马西平的<strong>纳米乳（Nanoemulsion）</strong>处方。凭借纳米乳超小的液滴粒径与独特的亲脂性，不仅大幅提升了难溶药卡马西平的载药量，更有效克服了皮肤角质层这一天然屏障。体外及体内动物实验均证实，该系统成功实现了药物的透皮吸收并进入体循环，彻底规避了肝脏首过效应。与口服给药相比，该系统提供了更为平稳持久的血药浓度曲线，为需要长期用药的患者提供了一种更优的替代治疗方案。</p>
-                    
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. 纳米乳经皮药物递送系统开发</h3>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
+                    <p><strong>临床困境:</strong> 卡马西平（CBZ）是治疗癫痫和三叉神经痛的一线药物，但其口服制剂面临三个主要问题。1）它属于BCS Class II难溶性药物，导致吸收不稳定。2）存在明显的肝脏首过效应，显著降低生物利用度。3）长期口服过程中出现的胃肠道反应和吞咽困难会导致部分患者群体依从性较差。</p>
+
+                    <p><strong>目标:</strong> 构建一种无创的“Nanoemulsion Transdermal Delivery System”，通过纳米载体技术解决溶解性瓶颈，经皮肤途径绕过肝脏首过代谢，并在改善患者依从性的同时实现稳定的药物递送。</p>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
+                    <p>我制备了负载卡马西平的<strong>Nanoemulsion</strong>处方。利用纳米乳极小的液滴尺寸和独特的脂质亲和性，不仅显著提高了难溶性药物卡马西平的载药量，也有效克服了皮肤角质层屏障。In vitro和in vivo实验确认，该系统成功实现了药物经皮进入全身循环，有效绕过肝脏首过效应，并且与口服给药相比提供了更平稳的血浆药物浓度曲线，为需要长期治疗的患者提供了更好的替代方案。</p>
+
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
-                </div>
-                    
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">03. 基于纳米载体的肿瘤靶向给药系统 (Targeted DDS)</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与痛点</h4>
-                    <p><strong>临床用药困境：</strong> 传统的化疗药物通常面临“分布广而特异性差”的致命弱点。药物进入体内后无法明辨“敌友”，在杀伤癌细胞的同时也会对正常组织造成严重破坏（即剧烈的全身毒副作用）。此外，化疗药物往往难以穿透肿瘤内部致密的间质组织，导致病灶深处的有效药物浓度严重不足。</p>
-                    
-                    <p><strong>研究目标：</strong> 打造一款智能化的“纳米载体”作为药物运输装甲，利用肿瘤微环境的独特性质实现精准的“导航”递送。确保药物在血液中不泄漏，只有在抵达肿瘤深处后才触发释放，从而实现抗肿瘤的“增效减毒”。</p>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与成果</h4>
-                    <p>我利用功能化纳米材料构建了智能递药系统，并通过表面修饰技术赋予了载体主动靶向肿瘤的能力。该载体成功克服了多重生理屏障，在血液循环中保持高度稳定；而在抵达肿瘤微环境后，能够响应特定刺激触发载体解体。最终的动物活体实验证实，药物被精准无误地释放在了肿瘤组织的靶向区域，使得病灶局部的药物蓄积量呈倍数级增长。在保持强效抗肿瘤活性的同时，极大程度地减轻了对心肝肾等主要脏器的毒副作用。</p>
-                    
-                    <img src="figure/DDS.jpg" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
                 </div>
                 `,
 
@@ -1886,7 +2510,7 @@ function checkPersonalAccess() {
             const lang = localStorage.getItem('pref_lang') || 'en';
             changeLang(lang);
             const hash = window.location.hash.replace('#', '');
-            const views = ['home', 'about', 'research', 'publications', 'others', 'contact', 'dia', 'terminomics', 'biomarker', 'pharmaceutics', 'personal'];
+            const views = ['home', 'about', 'research', 'publications', 'contact', 'dia', 'terminomics', 'biomarker', 'pharmaceutics', 'personal'];
             switchView(views.includes(hash) ? hash : 'home');
         });
 
@@ -1949,6 +2573,34 @@ function checkPersonalAccess() {
             return '-';
         }
 
+        function readAltmetricScore(source) {
+            const scoreNode = source.querySelector('.altmetric-score, ._altmetric_score');
+            if (scoreNode && /^\d+$/.test(scoreNode.textContent.trim())) return scoreNode.textContent.trim();
+
+            for (const image of source.querySelectorAll('img')) {
+                const altMatch = (image.alt || '').match(/Altmetric(?: Attention)? Score(?: of)?\s*(\d+)/i);
+                if (altMatch) return altMatch[1];
+                try {
+                    const score = new URL(image.src, window.location.href).searchParams.get('score');
+                    if (score && /^\d+$/.test(score)) return score;
+                } catch (e) {}
+            }
+            return null;
+        }
+
+        function watchAltmetricScores() {
+            document.querySelectorAll('.altmetric-source').forEach(source => {
+                const target = document.getElementById(source.dataset.scoreTarget);
+                if (!target) return;
+                const update = () => {
+                    const score = readAltmetricScore(source);
+                    if (score !== null) target.textContent = score;
+                };
+                new MutationObserver(update).observe(source, { childList: true, subtree: true, attributes: true });
+                update();
+            });
+        }
+
         function loadPaperMetrics() {
             // 注意：这里不再需要处理 altId，因为 Altmetric 交给官方 JS 自动渲染了
             const papers = [
@@ -1962,6 +2614,7 @@ function checkPersonalAccess() {
                     if (el) el.innerText = n;
                 });
             });
+            watchAltmetricScores();
             
             // 通知第三方脚本渲染 Altmetric 徽章 (对于动态载入页面的单页应用很有用)
             setTimeout(() => {
