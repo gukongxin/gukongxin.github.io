@@ -1480,7 +1480,7 @@
                         <h2 class="research-preview-title"><a onclick="switchView('pharmaceutics')" data-t="research_pharm_title">Drug Delivery System</a></h2>
                         <p class="research-preview-summary" data-t="research_pharm_summary">Drug delivery research focuses on designing delivery systems to improve administration, control drug release, and enhance targeted delivery.</p>
                         <div class="research-subprojects">
-                            <div class="research-subprojects-label">This research includes three projects</div>
+                            <div class="research-subprojects-label" data-t="research_pharm_intro">This research includes three projects</div>
                             <span data-t="research_pharm_sub1">01&nbsp;&nbsp;Tumor Microenvironment-Responsive Nanocarrier Drug Delivery System</span>
                             <span data-t="research_pharm_sub2">02&nbsp;&nbsp;Orally Disintegrating Tablet</span>
                             <span data-t="research_pharm_sub3">03&nbsp;&nbsp;Nanoemulsion Transdermal Delivery System</span>
@@ -1493,14 +1493,14 @@
 
         <section id="dia-view" class="view">
             <a onclick="switchView('research')" class="research-back-link" data-t="back_research">← Back to Research</a>
-            <h2 class="section-title">RESEARCH: Data-Independent Acquisition</h2>
+            <h2 class="section-title" data-t="dia_page_title">RESEARCH: Data-Independent Acquisition</h2>
             <div class="pub-item rich-text"><div class="research-detail-content" data-t="dia_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
         <section id="terminomics-view" class="view">
             <a onclick="switchView('research')" class="research-back-link" data-t="back_research">← Back to Research</a>
-            <h2 class="section-title">RESEARCH: Terminomics</h2>
+            <h2 class="section-title" data-t="terminomics_page_title">RESEARCH: Terminomics</h2>
             <div class="pub-item rich-text"><div class="research-detail-content" data-t="ter_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
@@ -1774,11 +1774,14 @@
                 back_research: "← Back to Research",
                 more_below: "More below ↓",
                 
+                research_pharm_intro: "This research includes three projects",
+                dia_page_title: "RESEARCH: Data-Independent Acquisition",
+                terminomics_page_title: "RESEARCH: Terminomics",
                 // --- 确保您的文字都在这里 ---
                 about_bio_content: `
                     <p>I began my research training in pharmaceutics at Hebei Medical University, China, where my master’s research focused on the development of <a onclick="switchView('pharmaceutics')" class="about-inline-link">drug delivery systems ↗</a>. My work centered on designing delivery strategies to enable more convenient administration, controlled drug release, and targeted delivery.</p>
 
-                    <p>I later moved to Japan to pursue my Ph.D. under the supervision of <strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>Prof. Sumio Ohtsuki ↗</a></strong> at Kumamoto University. Quantitative proteomics was used in the lab to study the blood-brain barrier and its transporters, and to investigate the transport of drugs and drug delivery systems across the barrier. This was where I first encountered proteomics, and my research focus gradually shifted from drug delivery toward mass spectrometry-based proteomic methodology.</p>
+                    <p>I later moved to Japan to pursue my Ph.D. under the supervision of <strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>Prof. Sumio Ohtsuki ↗</a></strong> at Kumamoto University. Proteomics was used in the lab to study the blood-brain barrier and its transporters, helping to understand drug transport and delivery to the brain. This was where I first encountered proteomics, and my research focus gradually shifted from drug delivery toward mass spectrometry-based proteomic methodology.</p>
 
                     <p>My doctoral research centered on data-independent acquisition mass spectrometry (<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>) and positional proteomics, also known as <a onclick="switchView('terminomics')" class="about-inline-link">terminomics ↗</a>. For DIA-MS, my research focused on optimizing acquisition strategies and data analysis to enhance DIA performance. For terminomics, I established a workflow for terminal peptide analysis, including terminal peptide enrichment and database searching. I applied this workflow to clinical plasma samples from patients with colorectal cancer, mapping the proteolytic landscape and characterizing disease-associated proteolytic remodeling. After completing my Ph.D., I continued at Kumamoto University as a Research Fellow, focusing on the further validation of promising biomarker candidates from this study.</p>
 
@@ -1786,7 +1789,7 @@
                         <h3>RESEARCH INTERESTS</h3>
                         <div class="about-interest-item">
                             <strong>1. Proteomics Technologies</strong>
-                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS, etc.</p>
+                            <p>Spatial Proteomics, Single-cell Proteomics, Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS, etc.</p>
                         </div>
                         <div class="about-interest-item">
                             <strong>2. Post-Translational Modifications (PTMs)</strong>
@@ -2059,52 +2062,55 @@ bio_content: `
                 nav_personal: "個人用",
                 news_job: "熊本大学のResearch Fellowに着任しました。",
                 news_defense: "熊本大学にて博士論文の審査に合格しました。",
-                home_bio: "私は質量分析を基盤とするプロテオミクスに取り組む研究者であり、特にこれらのアプローチを生物学および疾患研究に応用することに関心を持っています。2026年に日本の熊本大学で博士号を取得しました。博士研究では、データ非依存的取得法（DIA）とターミノミクスを中心に、タンパク質分解ランドスケープのマッピングおよび疾患に関連するタンパク質分解リモデリングの解析に取り組みました。",
+                home_bio: "私は質量分析を基盤とするプロテオミクスに取り組む研究者であり、特にこれらのアプローチを生物学および疾患研究に応用することに関心を持っています。2026年に日本の熊本大学で博士号を取得しました。博士研究では、データ非依存的取得法（DIA）とターミノミクスを中心に、タンパク質分解ランドスケープのマッピングと大腸がんのバイオマーカー同定に取り組みました。",
                 home_about_btn: "略歴",
                 home_research_btn: "研究内容",
                 home_publications_btn: "業績",
                 home_latest: "最新情報",
-                research_ter_title: "ターミノミクス",
-                research_ter_summary: "腫瘍微小環境ではプロテアーゼ活性が制御異常を起こし、プロテアーゼによるタンパク質切断と細胞外環境のリモデリングが生じます。これらの切断イベントは新たなタンパク質末端を生成し、特異的なタンパク質分解活性を記録することで、疾患関連タンパク質分解の分子フィンガープリントとして機能します。ターミノミクスはこれらのneo-terminiを捉え、タンパク質分解リモデリングを明らかにし、潜在的な疾患バイオマーカーを同定します。",
-                research_dia_title: "DIA-MS",
-                research_dia_summary: "データ非依存的取得法（DIA）は、あらかじめ設定した分離ウィンドウ全体で前駆体イオンを体系的にフラグメント化し、包括的かつ再現性の高いプロテオームプロファイリングを可能にします。",
+                research_ter_title: "ターミノミクス / ポジショナルプロテオミクス",
+                research_ter_summary: "腫瘍微小環境ではプロテアーゼ活性が制御異常を示し、プロテアーゼによるタンパク質切断と細胞外環境のリモデリングが生じます。これらの切断イベントは新たなタンパク質末端を生成し、特異的なタンパク質分解活性を記録することで、疾患関連タンパク質分解の分子フィンガープリントとして機能します。ターミノミクスはこれらのneo-terminiを捉え、タンパク質分解リモデリングを明らかにし、潜在的な疾患バイオマーカーを同定します。",
+                research_dia_title: "データ非依存的取得法（DIA-MS）",
+                research_dia_summary: "データ非依存的取得法（DIA）は、あらかじめ設定したisolation window全体で前駆体イオンを体系的にフラグメンテーションし、包括的で再現性の高いプロテオームプロファイリングを可能にします。",
                 research_cancer_title: "がん研究",
                 research_cancer_summary: "腫瘍標的型ドラッグデリバリーの経験と、複雑な生体試料から早期発見・診断用バイオマーカーを探索する現在のプロテオミクス研究を結び付けています。",
                 research_pharm_title: "ドラッグデリバリーシステム",
-                research_pharm_summary: "ドラッグデリバリー研究では、投与方法の改善、薬物放出の制御、標的送達の向上を目的として送達システムを設計します。",
+                research_pharm_summary: "ドラッグデリバリー研究では、投与方法の改善、薬物放出の制御、標的送達の向上を目的としたデリバリーシステムの設計に取り組みます。",
                 research_status_current: "進行中",
                 research_status_manuscript: "原稿準備中",
-                research_pharm_sub1: "腫瘍標的型ドラッグデリバリーシステム",
-                research_pharm_sub2: "口腔内崩壊錠",
-                research_pharm_sub3: "ナノエマルション経皮ドラッグデリバリーシステム",
+                research_pharm_sub1: "01  腫瘍微小環境応答型ナノキャリアドラッグデリバリーシステム",
+                research_pharm_sub2: "02  口腔内崩壊錠",
+                research_pharm_sub3: "03  ナノエマルション経皮ドラッグデリバリーシステム",
                 back_research: "← Researchに戻る",
                 more_below: "続きがあります ↓",
                 
+                research_pharm_intro: "この研究には3つのプロジェクトが含まれます",
+                dia_page_title: "研究：データ非依存的取得法",
+                terminomics_page_title: "研究：ターミノミクス",
                 // (后续其他翻译我们一步步往这里面加)
 
 
                 // --- 以下为新添加的 About Me 与 学历部分 ---
                 
                 about_bio_content: `
-                    <p>中国の河北医科大学で薬剤学の研究トレーニングを開始し、修士課程では<a onclick="switchView('pharmaceutics')" class="about-inline-link">ドラッグデリバリーシステム ↗</a>の開発に取り組みました。投与の利便性向上、薬物放出の制御、標的送達を実現するための送達戦略の設計を中心に研究しました。</p>
+                    <p>中国の河北医科大学で薬剤学の研究トレーニングを開始し、修士研究では<a onclick="switchView('pharmaceutics')" class="about-inline-link">ドラッグデリバリーシステム ↗</a>の開発に取り組みました。私の研究は、より利便性の高い投与、制御された薬物放出、標的送達を可能にするデリバリー戦略の設計を中心としていました。</p>
 
-                    <p>その後、日本の熊本大学に移り、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻 純男 教授 ↗</a></strong>の指導の下で博士課程に進学しました。研究室では定量プロテオミクスを用いて血液脳関門とそのトランスポーターを研究し、薬物やドラッグデリバリーシステムがこの関門をどのように通過して輸送・送達されるかを解析していました。ここで初めてプロテオミクスに触れ、研究の重点はドラッグデリバリーから質量分析に基づくプロテオミクス方法論へと徐々に移りました。</p>
+                    <p>その後、日本の熊本大学に移り、<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻 純男 教授 ↗</a></strong>の指導の下で博士課程に進学しました。研究室ではプロテオミクスを用いて血液脳関門とそのトランスポーターを研究し、脳への薬物輸送とデリバリーの理解に役立てていました。ここで初めてプロテオミクスに触れ、研究の重点はドラッグデリバリーから質量分析に基づくプロテオミクス方法論へと徐々に移りました。</p>
 
-                    <p>博士研究では、data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）と、<a onclick="switchView('terminomics')" class="about-inline-link">ターミノミクス ↗</a>とも呼ばれるポジショナルプロテオミクスを中心に取り組みました。DIA-MSでは、DIA性能を高めるために取得戦略とデータ解析の最適化に取り組みました。ターミノミクスでは、末端ペプチド濃縮とデータベース検索を含む末端ペプチド解析ワークフローを確立しました。このワークフローを大腸がん患者の臨床血漿試料に適用し、タンパク質分解ランドスケープをマッピングするとともに、疾患関連のタンパク質分解リモデリングを解析しました。博士号取得後も熊本大学にResearch Fellowとして在籍し、この研究で見いだした有望なバイオマーカー候補のさらなる検証に取り組んでいます。</p>
+                    <p>博士研究では、データ非依存的取得質量分析（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）と、<a onclick="switchView('terminomics')" class="about-inline-link">ターミノミクス ↗</a>とも呼ばれるポジショナルプロテオミクスを中心に研究しました。DIA-MSでは、DIAの性能向上を目的として取得戦略とデータ解析の最適化に取り組みました。ターミノミクスでは、末端ペプチドの濃縮とデータベース検索を含む末端ペプチド解析ワークフローを確立しました。このワークフローを大腸がん患者の臨床血漿試料に適用し、タンパク質分解ランドスケープをマッピングするとともに、疾患関連のタンパク質分解リモデリングを解析しました。博士号取得後も熊本大学でResearch Fellowとして研究を継続し、この研究で得られた有望なバイオマーカー候補のさらなる検証に取り組んでいます。</p>
 
                     <div class="about-research-interests">
                         <h3>研究関心</h3>
                         <div class="about-interest-item">
                             <strong>1. プロテオミクス技術</strong>
-                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                            <p>Spatial Proteomics, Single-cell Proteomics, Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS, etc.</p>
                         </div>
                         <div class="about-interest-item">
                             <strong>2. 翻訳後修飾（PTMs）</strong>
-                            <p>PTMsがタンパク質機能と細胞シグナル伝達をどのように制御し、その制御異常ががん、神経疾患、老化にどのように関与するか。</p>
+                            <p>PTMがタンパク質機能と細胞シグナル伝達をどのように制御し、その異常ががん、神経疾患、老化にどのように寄与するか。</p>
                         </div>
                         <div class="about-interest-item">
-                            <strong>3. プロテインコロナ</strong>
-                            <p>血漿プロテオミクスにおけるプロテインコロナの応用と、ナノキャリアのbiological identityおよびin vivo fateに対するプロテインコロナの影響。</p>
+                            <strong>3. Protein Corona</strong>
+                            <p>血漿プロテオミクスにおけるprotein coronaの応用と、ナノキャリアの生物学的アイデンティティおよびin vivoでの動態に与える影響。</p>
                         </div>
                     </div>
                 `,
@@ -2195,19 +2201,20 @@ bio_content: `
 
                 // --- 研究ノード: DIA ---
                 dia_content: `
-                    <p>プロテオミクスの体系的なトレーニングの中でDIA研究に取り組み始め、高スループットMultiplexed DIAプロジェクトを通じてデータ取得とデータ処理の確かな経験を積みました。この基盤の上でDIA方法論を最適化し、データ取得側では<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>、データ解析側では<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIAデータのFDR制御法</a>の確立と評価に取り組みました。</p>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">データ非依存的取得法</h3>
 
-                    <p>さらに、プロテオミクス検索ソフトウェアに強い関心があります。新しいツールを試すことが好きで、これらは私にとって研究上の「武器」です。アルゴリズムの更新によってDIA性能が段階的に向上していく過程を見ることは非常に興味深く、この分野をさらに深く掘り下げることを楽しんでいます。</p>
+                    <p>データ依存的取得法（DDA）は、質量分析を基盤とするプロテオミクスで長く広く用いられてきた取得戦略の一つです。DDAでは、MS1シグナルに基づいて前駆体イオンを選択し、フラグメンテーションを行います。そのため、反復測定ごとに選択される前駆体が異なる可能性があり、低存在量イオンは見逃されることがあります。この選択的サンプリングによるプロテオームカバレッジと再現性の制約を軽減するため、データ非依存的取得法（DIA）ではより体系的な取得戦略を用います。あらかじめ設定した質量範囲を連続するisolation windowに分割し、各window内の前駆体イオンを順次フラグメンテーションします。DDAと比較して、DIAはペプチドシグナルをより包括的かつ再現性高くサンプリングでき、大規模定量プロテオミクスに特に適しています。質量分析装置とDIAデータ解析の急速な進歩に伴い、DIAは現在のプロテオミクスにおける主要な取得戦略の一つとなっています。</p>
 
-                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">進行中の研究</h3>
-                    <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            Library-Free Proteomics Analysisのための最新Data-independent Acquisition Toolsの包括的ベンチマーキング
-                        </li>
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            Post-Translational Modifications（PTMs）のためのDIA最適化
-                        </li>
-                    </ul>
+                    <img src="figure/DDA_DIA.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.8rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Comparison of DDA and DIA acquisition strategies">
+                    <p class="research-image-caption research-image-caption-en">DDAとDIAの取得戦略の比較。</p>
+
+                    <p>DIAは、私が本格的にプロテオミクスの分野に入るきっかけとなりました。私の最初のプロテオミクス研究は、<a href="https://www.nature.com/articles/s41587-022-01389-w" target="_blank" style="color:var(--highlight); text-decoration:underline;">plexDIA ↗</a>（Derks et al., Nat. Biotechnol., 2023）を基盤としていました。これは、同一実験内で複数の標識サンプルを解析することでプロテオミクスのスループット向上を目的としたmultiplexed DIA戦略です。当時、私たちはこの戦略をさらに改善することに関心を持っていました。質量分析、プロテオミクス、DIAデータ解析はいずれも私にとってほぼ完全に新しい分野であり、この分野を学びながら同時に新しい方法を開発しようとすることは大きな挑戦でした。</p>
+
+                    <p>プロジェクトが進むにつれて、他のグループも非常に類似したアイデアに取り組んでおり、より速く、より包括的に研究を進めていることが分かりました。その一つである<a href="https://link.springer.com/article/10.15252/msb.202211503" target="_blank" style="color:var(--highlight); text-decoration:underline;">mDIA ↗</a>は、最終的に私たちより先に関連研究を発表しました（Thielert et al., Mol. Syst. Biol., 2023）。そのため、このプロジェクトは当初想定していた方向では継続しませんでした。しかし私にとっては非常に貴重な経験でした。比較的短期間のうちに、DIA取得、データ処理、ペプチド同定、定量解析、方法評価を体系的に経験することができ、この経験がその後のDIA研究の基盤となりました。</p>
+
+                    <p>その後、この経験を二つのより焦点を絞ったDIAプロジェクトへ発展させました。一つは<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">isolation windows ↗</a>がDIAの同定性能に与える影響を検討する研究で、もう一つはDIAデータ解析におけるfalse discovery rate（<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR ↗</a>）制御を評価する研究です。これらのプロジェクトに加えて、さまざまなプロテオミクス検索エンジンを使い、比較することを特に楽しんでいます。DIA-NNやFragPipeなどを日常的に使用し、PTM解析や同定が難しいペプチドクラスなど、より困難な検索課題を検討しています。主要なソフトウェアアップデートが公開されると、新しいバージョンをベンチマークし、更新されたアルゴリズムやパラメータが実際に何を変えるのかを確認することもよくあります。また、公開されたプロテオミクスデータセットを異なる検索戦略で再解析し、既存データの中に有用な情報がまだ隠れていないかを探ることも楽しんでいます。DIA方法論とデータ解析の経験を積むにつれて、DIA関連論文の査読依頼も受けるようになり、新しい方法や課題に継続的に触れる別の機会となっています。</p>
+
+                    <p>DIAに取り組み始めてまだ数年ですが、その発展速度は目覚ましいものがあります。この間、質量分析装置、取得戦略、検索アルゴリズムはいずれも急速に進歩してきました。ある意味では、私はDIAを学びながら、その技術が周囲で進化していく過程を同時に見てきました。プロテオミクスは、多くの意味で「数」を追う研究でもあります。より多くのペプチド、より多くのタンパク質、より多くの修飾部位を同定することを常に目指しています。私はこのプロセスを純粋に楽しんでおり、新しい取得戦略、ソフトウェア、解析アプローチを試し、データからどこまで多くの情報を引き出せるかを確認することが好きです。こうした継続的な検証、比較、最適化は、私にとってプロテオミクスの最も面白い部分の一つです。最終的には、これらの技術的改善をより良いデータへつなげ、本当に重要な生物学的問いにより効果的に答えられるようにしたいと考えています。</p>
                 `,
 
                 // --- 研究ノード: がん研究 (Cancer) ---
@@ -2237,117 +2244,100 @@ bio_content: `
 
                 // --- 研究ノード: Terminomics ---
                 ter_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">ターミノミクスに基づく腫瘍バイオマーカー探索</h3>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">ターミノミクスを用いた大腸がん関連血漿タンパク質分解ランドスケープのマッピングとバイオマーカー候補の同定</h3>
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
-                    <p>腫瘍の浸潤と転移は、腫瘍微小環境（TME）におけるプロテアーゼ制御ネットワークの大規模なリモデリングを伴います。この病理状態では、異常に活性化したプロテアーゼ（MMPs、Cathepsinsなど）が細胞外マトリックスを分解して組織バリアを破るだけでなく、プロテオームに対して広範かつ異常な<strong>「Aberrant Proteolysis」</strong>を引き起こします。これらの特異的なタンパク質分解イベントにより、正常な生理条件では存在しない新たなN末端またはC末端配列（<strong>Neo-termini</strong>）が露出します。</p>
-                    <p>全長タンパク質量のみを反映する従来のバイオマーカーとは異なり、特異的な<strong>「proteolytic fingerprints」</strong>を持つこれらのペプチドは、腫瘍の機能状態に関する情報を直接保持しています。さらに、分子量が小さいため、これらの切断産物は組織間隙を通過しやすく、血液循環へ「漏出」します。したがって、腫瘍特異的切断に由来するneo-terminal peptidesを捕捉・同定することは、がんスクリーニングおよびモニタリングのための高特異度・高感度なリキッドバイオプシー戦略となります。</p>
+                    <p>タンパク質分解は生物学的システムに広く存在し、プロテアーゼは特定の部位でタンパク質を切断し、この切断活性は疾患によって変化することがあります。不可逆的な翻訳後修飾（PTM）として、各タンパク質分解イベントは新たなN末端と新たなC末端を生成します。これらの新生末端には切断位置の情報が保持されるため、タンパク質分解活性の分子的な痕跡とみなすことができます。</p>
+                    <p>タンパク質分解の制御異常は、がんで特に顕著です。腫瘍の発生は腫瘍微小環境の広範なリモデリングを伴い、その重要な特徴の一つがプロテアーゼ活性の変化です。マトリックスメタロプロテアーゼ（MMPs）は、この過程に関与する代表的なプロテアーゼファミリーの一つです。MMPsは細胞外マトリックスを切断・リモデリングし、腫瘍浸潤、血管新生、腫瘍細胞と周囲環境との相互作用に関与します。この継続的な組織リモデリングの過程で多数のタンパク質断片が放出され、その後循環血中へ移行することがあります。これらの循環中のタンパク質分解産物は腫瘍およびその微小環境に由来する疾患関連情報を保持する可能性があり、疾患の検出、層別化、モニタリングへの応用が期待されます。</p>
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto 0.6rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <p class="research-image-caption research-image-caption-en">MMP活性を含む腫瘍関連プロテアーゼ活性の上昇は、バイオマーカーとなり得るタンパク質分解断片を生成します。</p>
+                    <p class="ai-image-note ai-image-note-en">このイラストは生成AIを用いて作成しました。</p>
 
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
+                    <p>これらのタンパク質分解変化を従来のプロテオミクスで直接捉えることは困難です。従来のプロテオミクスは主としてタンパク質全体の量を測定する一方、タンパク質分解ではタンパク質がどこで切断されるかが変化します。特定部位の切断が大きく変化していても、タンパク質全体の量はほとんど変化しない場合があります。そのため、タンパク質量の測定だけでは、この部位特異的なタンパク質分解情報を見逃す可能性があります。</p>
+                    <p>タンパク質が特定の部位で切断されると、切断部位の両側に新たなタンパク質末端が形成されます。新たに生成されたN末端とC末端を選択的に解析することで、切断イベントの正確な位置を推定できます。このアプローチはターミノミクス、またはポジショナルプロテオミクスと呼ばれ、タンパク質分解プロセシングを研究するためにタンパク質末端を特異的に解析します。タンパク質がどこで切断されたかを明らかにすることで、ターミノミクスは従来のタンパク質量測定では容易に捉えられないタンパク質分解情報を提供します。</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">主要な課題</h4>
                     <ul style="list-style:none; padding-left:0;">
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            1. 「Trypsin」の問題:<br>
-                            従来のプロテオミクスでは、検出のためにtrypsinでタンパク質をペプチドへ消化する必要があります。しかしtrypsin消化は人工的な操作であり、生体内には本来存在しない多数の「internal peptides」を生成します。これらの人工的なペプチドが大きなバックグラウンドとなり、腫瘍特異的な酵素切断によって生じた天然のN末端/C末端シグナルが希釈され、失われることがあります。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>1. 末端ペプチドの検出感度の限界</strong><br>
+                            <p>従来のプロテオミクスでは、質量分析のためにトリプシンを用いてタンパク質をペプチドへ消化することが一般的です。この消化によって多数の内部ペプチドが人工的に生成され、内在性タンパク質分解によって生じたN末端およびC末端シグナルの検出を妨げる強いバックグラウンドとなります。</p>
+                            <p>同時に、病的なタンパク質分解はしばしばsub-stoichiometricです。高存在量タンパク質であっても、特定部位で切断される分子はごく一部に限られる場合があります。そのため末端ペプチドは低い化学量論比で存在しながら、大量の内部ペプチドを背景として検出する必要があり、タンパク質分解由来の末端シグナルを高感度に検出することは特に困難です。</p>
                         </li>
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            2. Sub-stoichiometricな性質:
-                            病的なタンパク質分解はしばしばsub-stoichiometricなイベントです。高発現タンパク質であっても、特定の切断を受ける分子は全体の一部にすぎない場合があります。これらの微量な切断型は、未切断の完全長タンパク質のバックグラウンドに埋もれ、シグナルが容易にマスクされます。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>2. 現行ターミノミクス法の限界</strong><br>
+                            <p>複雑なペプチド混合物中から低存在量の末端ペプチドを検出するため、ターミノミクス法では一般に選択的濃縮が必要です。しかし、現在の方法は感度と同定深度が依然として限定的で、同定できるタンパク質末端数が比較的少なく、複雑な実験ワークフローを必要とすることがあります。</p>
+                            <p>確立されたターミノミクス法のほとんどはN末端解析に焦点を当てており、C末端解析ははるかに限られています。C末端解析は、末端カルボキシ基の化学反応性が比較的低く、タンパク質やペプチド中に存在する多数の他のカルボキシ基の中から選択的に標的化する必要があるため、技術的により困難です。各タンパク質分解イベントは新たなN末端と新たなC末端の両方を生成するため、N末端側に偏った解析では同一の切断イベントから得られる相補的な情報のかなりの部分が測定されないまま残ります。</p>
+                            <img src="figure/Term Workflow.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.6rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="N- and C-terminomics workflows">
+                            <p class="research-image-caption research-image-caption-en">本研究で開発したN-およびC-ターミノミクスワークフロー。</p>
                         </li>
-                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            3. バイオインフォマティクス上の制約:
-                            標準的なデータベース検索では通常、ペプチドが「Fully Tryptic」であることを前提として最適化されています。一方、腫瘍由来の切断断片はしばしば「Semi-tryptic」またはnon-trypticです。現在主流のData-Independent Acquisition（DIA）解析パイプラインは一般に「Peptide-centric」なスコアリング戦略を採用しており、DIAで直接semi-specific searchを行うと検索空間が大幅に拡大し、データ解釈が困難になります。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>3. バイオインフォマティクス上の限界</strong><br>
+                            <p>標準的なデータベース検索では一般に完全トリプシン消化ペプチドを想定しており、既存の解析ワークフローも主としてこのペプチド空間に最適化されています。一方、疾患関連タンパク質分解によって生成されるペプチドはsemi-trypticまたはnon-trypticであることが少なくありません。現在主流のデータ非依存的取得法（DIA）解析パイプラインでは、通常peptide-centric scoring strategyが用いられます。semi-specific searchを直接行うと検索空間が大幅に拡大し、信頼性の高い同定数が減少するとともに、false discovery rate（FDR）の適切な制御がより困難になるため、データ解釈の難易度が高くなります。</p>
                         </li>
                     </ul>
 
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策: ターミノミクス</h4>
-
-                    <p>ターミノミクスはポジショナルプロテオミクスとも呼ばれ、生物システム内のすべてのタンパク質のN末端とC末端、すなわち「terminome」を体系的に研究するプロテオミクスの専門分野です。</p>
-                    <p>従来のプロテオミクスがタンパク質全体を見るのに対し、ターミノミクスは特に「末端」に注目します。末端はタンパク質の履歴を反映するため重要です。</p>
-                    <ul>
-                        <li>Protein Maturation: 翻訳後にタンパク質がどのようにプロセシングされるか。</li>
-                        <li>Proteolysis: プロテアーゼがタンパク質を切断し、活性化、不活性化、または分解する仕組み。</li>
-                        <li>Post-Translational Modifications（PTMs）: アセチル化やミリストイル化など、末端に特異的に生じてタンパク質の安定性や局在を制御する修飾。</li>
-                    </ul>
-                    <p>プロテオミクスが工場にいるすべての作業員の地図だとすれば、ターミノミクスは彼らがいつ働き始め、いつ役割を終え、どのように役割が変化するかを示すマニュアルに相当します。</p>
-
-                    <p>「Switch」機構: Proteolysis、すなわちタンパク質切断は不可逆的な生物学的スイッチです。血液凝固、細胞死（apoptosis）、免疫応答などを制御しており、ターミノミクスによってこれらの「切断」がどこで起こるかを捉えることができます。</p>
-                    <p>「Neo-termini」の発見: プロテアーゼがタンパク質を切断すると、新たなN末端（neo-N-terminus）が生じます。これを同定することで、特定の酵素の基質を見つけることができ、創薬にも重要です。</p>
-                    <p>疾患バイオマーカー: がんやAlzheimer’s diseaseなど多くの疾患では異常なタンパク質切断が生じます。ターミノミクスは、血液や組織中の特定の「protein fragments」を同定し、早期の疾患シグナルとして利用できる可能性があります。</p>
-
-                    <div style="text-align: center; margin: 2rem 0;">
-    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-
-    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-        ターミノミクスの一般的なワークフロー
-    </p>
-</div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">進行中の研究</h4>
                     <ol style="padding-left:1.5rem; margin-bottom:2rem;">
-                        <li style="margin-bottom:0.5rem;">高感度ターミノミクス試料前処理法の確立と最適化。</li>
-                        <li style="margin-bottom:0.5rem;">Semi-tryptic peptide同定のためのデータ検索戦略の最適化。</li>
-                        <li style="margin-bottom:0.5rem;">臨床試料コホートを用いた予備的バイオマーカー探索。</li>
-                        <li style="margin-bottom:0.5rem;">スクリーニングされた主要なneo-terminiバイオマーカー候補の後続検証。</li>
+                        <li style="margin-bottom:0.5rem;">高感度ターミノミクス試料前処理法の確立と最適化。 <span class="research-status-done">（完了）</span></li>
+                        <li style="margin-bottom:0.5rem;">semi-tryptic peptide同定のためのデータ検索戦略の最適化。 <span class="research-status-done">（完了）</span></li>
+                        <li style="margin-bottom:0.5rem;">大腸がんに関連する血漿タンパク質分解ランドスケープを体系的にマッピングし、バイオマーカー探索解析を実施。 <span class="research-status-done">（完了）</span></li>
+                        <li style="margin-bottom:0.5rem;">スクリーニングされた主要なneo-terminiバイオマーカー候補の後続検証。 <span class="research-status-done">（完了）</span></li>
+                        <li style="margin-bottom:0.5rem;">論文を準備中。</li>
                     </ol>
-
-
                 `,
 
                 // --- 研究ノード: 薬剤学 (Pharmaceutics - 修士課程の業績) ---
                 master_desc: `
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. ナノキャリアを用いた腫瘍標的型ドラッグデリバリーシステムの開発</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. 腫瘍微小環境応答型ナノキャリアドラッグデリバリーシステム</h3>
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床上の課題:</strong> 従来の化学療法薬は一般に「広く分布する一方で特異性が低い」という問題を抱えています。体内に入ると「標的」と「非標的」を区別できず、がん細胞を殺傷すると同時に正常組織にも大きな損傷を与え、強い全身毒性を生じます。さらに、腫瘍の緻密な間質に浸透しにくく、病変部で十分な有効薬物濃度を得られないことがあります。</p>
-
-                    <p><strong>目標:</strong> 腫瘍微小環境の特徴を利用して精密な「navigation」送達を実現する薬物輸送ツールとしてインテリジェントな「nanocarrier」を構築し、腫瘍部位に到達した後にのみ薬物を放出させることで「enhanced efficacy and reduced toxicity」を実現すること。</p>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p>化学療法はがん治療における重要な手段ですが、多くの抗がん剤は腫瘍選択性に乏しく、がん細胞を殺傷する一方で正常組織にも影響を与えるため、顕著な全身毒性を生じます。そのため、腫瘍標的型ドラッグデリバリーでは、腫瘍部位における有効薬物濃度を高めながら、正常組織への不要な曝露を減らすことが重要です。</p>
+                    <p>ナノキャリアは体内における薬物の分布と放出挙動を変化させ、腫瘍部位への集積を高めることができます。しかし、腫瘍標的型デリバリーは、体内からのクリアランスや腫瘍微小環境の高度な不均一性などの影響を受けます。これらの障壁はナノキャリアの腫瘍組織への侵入と組織内分布を制限します。そのため、理想的なデリバリーシステムには腫瘍部位への薬物集積を高めるだけでなく、腫瘍へ到達した後に有効かつ制御された薬物放出を実現することが求められます。</p>
+                    <p>腫瘍微小環境は、このような応答型デリバリーの生物学的基盤を提供します。マトリックスメタロプロテアーゼ（MMPs）は細胞外マトリックスの分解と組織リモデリングに関与するタンパク質分解酵素です。多くの悪性腫瘍ではMMPsの発現または活性が上昇しており、腫瘍の増殖、浸潤、転移に関与します。さらに、MMPsは特定のペプチド配列を認識して切断できます。したがって、腫瘍組織で高まったタンパク質分解活性を内因性トリガーとして利用し、腫瘍微小環境内でナノキャリアの応答性と薬物放出を制御できます。</p>
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>機能化ナノ材料を用いてドラッグデリバリーシステムを構築し、表面修飾技術によって腫瘍へのactive targetingを実現しました。キャリアは生理学的バリアを克服し、血液循環中で安定性を維持し、腫瘍微小環境に到達した後に特定の刺激を受けて崩壊しました。最終的な実験では、薬物が腫瘍組織内の標的位置で放出され、腫瘍部位への薬物蓄積が大きく増加したことを確認しました。強い抗腫瘍活性を維持しながら、主要臓器への毒性副作用を大幅に低減しました。</p>
+                    <p>腫瘍組織で上昇したプロテアーゼ活性に基づき、<strong>プロテアーゼ応答型ナノキャリアドラッグデリバリーシステム</strong>を開発しました。このシステムは、腫瘍関連プロテアーゼが特定の応答構造を認識・切断する性質を利用し、全身循環中ではナノキャリアを比較的安定に保ちながら、プロテアーゼ活性の高い腫瘍領域では薬物放出挙動を変化させます。これにより局所的な薬物放出が促進され、腫瘍部位における有効薬物曝露が増加します。</p>
+                    <p>実験では、このデリバリーシステムが腫瘍組織における薬物放出と集積を高める一方、強い抗腫瘍活性と良好なin vivo安全性を維持することが示されました。これらの結果は、腫瘍関連プロテアーゼをより選択的なドラッグデリバリーの生物学的トリガーとして利用できることを示しています。</p>
 
                     <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
-                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
+                    <p class="ai-image-note ai-image-note-en">このイラストは生成AIを用いて作成しました。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. Amisulpride口腔内崩壊錠の開発</h3>
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床上の課題:</strong> Amisulprideは統合失調症の第一選択治療薬ですが、2つの大きな課題があります。1）BCS Class II薬物で水溶性が低く、バイオアベイラビリティが低いこと。2）強い苦味や嚥下困難により、患者が服薬を拒否し、頬に隠したり吐き出したりすることがあり、治療効果に大きく影響することです。</p>
-
-                    <p><strong>目標:</strong> 水を必要とせず口腔内で崩壊する「Orally Disintegrating Tablet（ODT）」を開発し、剤形設計によって服薬アドヒアランス低下の根本原因に対応すること。</p>
-
+<div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. アミスルプリド口腔内崩壊錠の開発</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p><strong>臨床上の課題：</strong>アミスルプリドは統合失調症の第一選択治療薬ですが、二つの大きな課題があります。1）BCS Class IIの難水溶性薬物であり、バイオアベイラビリティが低いこと。2）強い苦味や嚥下困難により、患者が服薬を拒否し、口腔内に隠したり吐き出したりすることがあり、治療効果に大きく影響することです。</p>
+                    
+                    <p><strong>目標：</strong>水を必要とせず口腔内で崩壊するOrally Disintegrating Tablet（ODT）を開発し、剤形設計によって服薬アドヒアランス低下の根本原因に対応すること。</p>
+                    
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>Solid Dispersion Technologyを用いて溶解性のボトルネックを克服し、苦味のマスキングにも成功しました。最終製剤は30秒以内という非常に速い崩壊と良好な口当たりを実現しました。これにより患者が薬を隠す行為を効果的に防ぎ、この薬剤におけるODT剤形の市場上の空白を埋めました。</p>
-
+                    <p>Solid Dispersion Technologyを用いて溶解性の問題を克服し、苦味のマスキングにも成功しました。最終製剤は30秒以内に非常に速く崩壊し、良好な口当たりを示しました。これにより患者が薬を隠す行為を効果的に防ぎ、この薬剤におけるODT剤形の市場上の空白を埋めます。</p>
+                    
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
-                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
+                    <p class="ai-image-note ai-image-note-en">このイラストは生成AIを用いて作成しました。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
-                <div style="margin-bottom: 2rem;">
+<div style="margin-bottom: 2rem;">
                     <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. ナノエマルション経皮ドラッグデリバリーシステムの開発</h3>
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景と課題</h4>
-                    <p><strong>臨床上の課題:</strong> Carbamazepine（CBZ）はてんかんと三叉神経痛の第一選択薬ですが、経口製剤には3つの問題があります。1）BCS Class IIの難水溶性薬物であり、吸収が不安定であること。2）肝初回通過効果が大きく、バイオアベイラビリティが大幅に低下すること。3）長期経口投与に伴う消化器症状や嚥下困難によって、一部の患者群で服薬アドヒアランスが低下することです。</p>
-
-                    <p><strong>目標:</strong> 非侵襲的な「Nanoemulsion Transdermal Delivery System」を構築し、ナノキャリア技術によって溶解性のボトルネックを解決し、皮膚経路を通じて肝初回通過代謝を回避し、安定した薬物送達と服薬アドヒアランスの改善を実現すること。</p>
-
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p><strong>臨床上の課題：</strong>カルバマゼピン（CBZ）はてんかんおよび三叉神経痛の第一選択薬ですが、経口製剤には三つの主要な問題があります。1）BCS Class IIの極めて難水溶性の薬物であり、吸収が不安定であること。2）顕著な肝初回通過効果によってバイオアベイラビリティが大きく低下すること。3）長期経口投与に伴う消化管反応や嚥下困難により、特定の患者群で服薬アドヒアランスが低下することです。</p>
+                    
+                    <p><strong>目標：</strong>非侵襲的なNanoemulsion Transdermal Delivery Systemを構築し、ナノキャリア技術によって溶解性の問題を解決するとともに、皮膚経路を介して肝初回通過効果を回避し、患者の服薬アドヒアランスを改善しながら安定した薬物送達を実現すること。</p>
+                    
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解決策と成果</h4>
-                    <p>Carbamazepineを搭載した<strong>Nanoemulsion</strong>製剤を調製しました。ナノエマルションの非常に小さな液滴径と特徴的な脂質親和性を利用することで、難水溶性薬物Carbamazepineの搭載量を大きく増加させると同時に、皮膚の角質層バリアを効果的に克服しました。In vitroおよびin vivo実験により、本システムが薬物を経皮的に全身循環へ移行させ、肝初回通過効果を回避し、経口投与と比較してより平滑な血漿中濃度プロファイルを実現することを確認しました。長期治療を必要とする患者に対するより良い選択肢となる可能性があります。</p>
-
+                    <p>カルバマゼピンを搭載した<strong>Nanoemulsion</strong>製剤を調製しました。ナノエマルションの極小液滴径と脂質親和性を利用することで、難水溶性薬物であるカルバマゼピンの搭載量を大幅に増加させるだけでなく、皮膚の角質層バリアも効果的に克服しました。In vitroおよびin vivo実験により、このシステムが薬物を経皮的に全身循環へ移行させ、肝初回通過効果を回避し、経口投与と比較してより安定した血漿中薬物濃度プロファイルを示すことが確認され、長期治療を必要とする患者に対するより良い選択肢となる可能性が示されました。</p>
+                    
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
-                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
+                    <p class="ai-image-note ai-image-note-en">このイラストは生成AIを用いて作成しました。</p>
                 </div>
                 `,
 
@@ -2385,48 +2375,51 @@ bio_content: `
                 nav_personal: "个人数据",
                 news_job: "开始在熊本大学担任 Research Fellow。",
                 news_defense: "在熊本大学顺利通过博士学位论文答辩。",
-                home_bio: "我是一名从事基于质谱的蛋白质组学研究的科研人员，尤其关注将这些方法应用于生物学和疾病研究。我于2026年获得日本熊本大学博士学位。我的博士研究以数据非依赖性采集（DIA）和末端蛋白质组学为核心，应用于绘制蛋白水解图谱并研究疾病相关的蛋白水解重塑。",
+                home_bio: "我是一名从事基于质谱的蛋白质组学研究的科研人员，尤其关注将这些方法应用于生物学和疾病研究。我于2026年获得日本熊本大学博士学位。我的博士研究以数据非依赖性采集（DIA）和末端蛋白质组学为核心，应用于绘制蛋白水解图谱并鉴定结直肠癌生物标志物。",
                 home_about_btn: "关于我",
                 home_research_btn: "研究领域",
                 home_publications_btn: "学术成果",
                 home_latest: "最新动态",
-                research_ter_title: "末端蛋白质组学",
-                research_ter_summary: "肿瘤微环境中存在失调的蛋白酶活性，蛋白酶会切割蛋白质并重塑细胞外环境。这些切割事件产生新的蛋白质末端，记录特定的蛋白水解活性，并可作为疾病相关蛋白水解的分子指纹。末端蛋白质组学捕获这些新末端，以揭示蛋白水解重塑并发现潜在的疾病生物标志物。",
-                research_dia_title: "DIA-MS",
+                research_ter_title: "末端蛋白质组学 / 位置蛋白质组学",
+                research_ter_summary: "肿瘤微环境的一个重要特征是蛋白酶活性失调，蛋白酶会切割蛋白质并重塑细胞外环境。这些切割事件产生新的蛋白质末端，记录特定的蛋白水解活性，并可作为疾病相关蛋白水解的分子指纹。末端蛋白质组学捕获这些neo-termini，以揭示蛋白水解重塑并鉴定潜在的疾病生物标志物。",
+                research_dia_title: "数据非依赖性采集（DIA-MS）",
                 research_dia_summary: "数据非依赖性采集（DIA）在预先设定的隔离窗口范围内系统性地碎裂前体离子，从而实现全面且可重复的蛋白质组分析。",
                 research_cancer_title: "癌症研究",
                 research_cancer_summary: "将早期肿瘤靶向递药研究与当前蛋白质组学策略相结合，从复杂生物样本中寻找用于癌症早期发现和诊断的生物标志物。",
                 research_pharm_title: "药物递送系统",
-                research_pharm_summary: "药物递送研究聚焦于设计递送系统，以改善给药方式、控制药物释放并增强靶向递送。",
-                research_status_current: "当前研究",
-                research_status_manuscript: "稿件准备中",
-                research_pharm_sub1: "肿瘤靶向药物递送系统",
-                research_pharm_sub2: "口腔崩解片",
-                research_pharm_sub3: "纳米乳经皮药物递送系统",
+                research_pharm_summary: "药物递送研究主要通过设计递送系统来改善给药方式、控制药物释放并增强靶向递送。",
+                research_status_current: "进行中",
+                research_status_manuscript: "论文准备中",
+                research_pharm_sub1: "01  肿瘤微环境响应型纳米载体药物递送系统",
+                research_pharm_sub2: "02  口腔崩解片",
+                research_pharm_sub3: "03  纳米乳经皮药物递送系统",
                 back_research: "← 返回 Research",
                 more_below: "下方还有内容 ↓",
                 
+                research_pharm_intro: "本研究包括三个项目",
+                dia_page_title: "研究：数据非依赖性采集",
+                terminomics_page_title: "研究：末端蛋白质组学",
                 // 3. About Me 与 学历部分
                 about_bio_content: `
-                    <p>我的科研训练始于中国河北医科大学的药剂学研究，硕士期间主要从事<a onclick="switchView('pharmaceutics')" class="about-inline-link">药物递送系统 ↗</a>的开发。我的工作主要围绕递送策略的设计，以实现更便捷的给药、可控的药物释放和靶向递送。</p>
+                    <p>我在中国河北医科大学开始了药剂学研究训练，硕士阶段的研究主要聚焦于<a onclick="switchView('pharmaceutics')" class="about-inline-link">药物递送系统 ↗</a>的开发。我的工作主要围绕递送策略的设计，以实现更便捷的给药、可控的药物释放和靶向递送。</p>
 
-                    <p>之后，我前往日本熊本大学，在<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻纯男（Sumio Ohtsuki）教授 ↗</a></strong>指导下攻读博士学位。实验室利用定量蛋白质组学研究血脑屏障及其转运体，并探讨药物和药物递送系统如何跨越该屏障进行转运与递送。我也由此首次接触到蛋白质组学，研究重心逐渐从药物递送转向基于质谱的蛋白质组学方法学。</p>
+                    <p>之后，我前往日本熊本大学，在<strong><a href='https://scholar.google.co.jp/citations?user=uJB9alMAAAAJ&hl=ja' target='_blank' class='about-inline-link'>大槻纯男教授 ↗</a></strong>的指导下攻读博士学位。实验室使用蛋白质组学研究血脑屏障及其转运体，以帮助理解药物向脑内的转运和递送。这是我第一次接触蛋白质组学，我的研究重点也逐渐从药物递送转向基于质谱的蛋白质组学方法学。</p>
 
-                    <p>博士期间，我的研究主要集中于 data-independent acquisition mass spectrometry（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）和位置蛋白质组学，也就是<a onclick="switchView('terminomics')" class="about-inline-link">末端蛋白质组学 ↗</a>。在DIA-MS方面，我主要优化数据采集策略和数据分析，以提高DIA性能。在末端蛋白质组学方面，我建立了末端肽段分析工作流程，包括末端肽段富集和数据库搜索。我将这一工作流程应用于结直肠癌患者的临床血浆样本，绘制蛋白水解图谱并表征疾病相关的蛋白水解重塑。博士毕业后，我继续留在熊本大学担任Research Fellow，进一步验证该研究中发现的有潜力的生物标志物候选物。</p>
+                    <p>我的博士研究以数据非依赖性采集质谱（<a onclick="switchView('dia')" class="about-inline-link">DIA-MS ↗</a>）和位置蛋白质组学为核心，后者也称为<a onclick="switchView('terminomics')" class="about-inline-link">末端蛋白质组学 ↗</a>。在DIA-MS方面，我主要通过优化采集策略和数据分析来提高DIA性能。在末端蛋白质组学方面，我建立了包括末端肽富集和数据库搜索在内的末端肽分析流程。我将这一流程应用于结直肠癌患者的临床血浆样本，绘制蛋白水解图谱并表征疾病相关的蛋白水解重塑。博士毕业后，我继续在熊本大学担任Research Fellow，进一步验证该研究中筛选出的有前景的生物标志物候选。</p>
 
                     <div class="about-research-interests">
                         <h3>研究兴趣</h3>
                         <div class="about-interest-item">
                             <strong>1. 蛋白质组学技术</strong>
-                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                            <p>Spatial Proteomics, Single-cell Proteomics, Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS, etc.</p>
                         </div>
                         <div class="about-interest-item">
                             <strong>2. 蛋白质翻译后修饰（PTMs）</strong>
-                            <p>PTMs如何调控蛋白质功能和细胞信号，以及其失调如何影响癌症、神经系统疾病和衰老。</p>
+                            <p>PTM如何调控蛋白质功能和细胞信号传导，以及其失调如何参与癌症、神经系统疾病和衰老。</p>
                         </div>
                         <div class="about-interest-item">
                             <strong>3. Protein Corona</strong>
-                            <p>Protein corona在血浆蛋白质组学中的应用，以及其对纳米载体biological identity和in vivo fate的影响。</p>
+                            <p>Protein corona在血浆蛋白质组学中的应用，以及其对纳米载体生物学身份和体内命运的影响。</p>
                         </div>
                     </div>
                 `,
@@ -2515,19 +2508,20 @@ bio_content: `
 
                 // 6. 研究节点内容
                 dia_content: `
-                    <p>我对DIA研究的探索始于系统性的蛋白质组学训练，在高通量Multiplexed DIA项目中积累了扎实的数据采集和数据处理经验。在此基础上，我进一步优化DIA方法学。在数据采集端，我研究了<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>；在数据分析端，我建立并评估了<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA数据的FDR控制方法</a>。</p>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">数据非依赖性采集</h3>
 
-                    <p>此外，我对蛋白质组学搜索软件一直很感兴趣。我喜欢尝试新的工具，这些工具是我的“武器”。算法更新一步步推动DIA性能提升的过程非常有意思，我也一直享受继续深入研究这一领域的过程。</p>
+                    <p>数据依赖性采集（DDA）长期以来一直是基于质谱的蛋白质组学中应用最广泛的采集策略之一。在DDA中，前体离子根据其MS1信号被选择进行碎裂。因此，在重复运行中被选择的前体离子可能不同，而低丰度离子则可能被遗漏。为减少这种选择性采样对蛋白质组覆盖度和重复性的限制，数据非依赖性采集（DIA）采用更加系统化的采集策略。预先设定的质量范围被划分为连续的隔离窗口，每个窗口内的前体离子依次进行碎裂。与DDA相比，DIA能够更加全面且可重复地采样肽段信号，尤其适合大规模定量蛋白质组学。随着质谱仪器和DIA数据分析的快速发展，DIA已经成为现代蛋白质组学的主要采集策略之一。</p>
 
-                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">正在开展的研究</h3>
-                    <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            面向Library-Free Proteomics Analysis的最新Data-independent Acquisition Tools综合基准测试
-                        </li>
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            面向Post-Translational Modifications（PTMs）的DIA优化
-                        </li>
-                    </ul>
+                    <img src="figure/DDA_DIA.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.8rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Comparison of DDA and DIA acquisition strategies">
+                    <p class="research-image-caption research-image-caption-en">DDA与DIA采集策略的比较。</p>
+
+                    <p>DIA是我真正进入蛋白质组学领域的起点。我的第一个蛋白质组学项目基于<a href="https://www.nature.com/articles/s41587-022-01389-w" target="_blank" style="color:var(--highlight); text-decoration:underline;">plexDIA ↗</a>（Derks et al., Nat. Biotechnol., 2023），这是一种通过在同一实验中分析多个标记样本来提高蛋白质组学通量的多重DIA策略。当时，我们希望进一步改进这一策略。质谱、蛋白质组学和DIA数据分析对我而言几乎都是全新的，因此在学习这一领域的同时尝试开发新方法是一项相当大的挑战。</p>
+
+                    <p>随着项目推进，我们意识到其他团队也在开展非常相似的研究，并且推进得更快、更全面。其中的<a href="https://link.springer.com/article/10.15252/msb.202211503" target="_blank" style="color:var(--highlight); text-decoration:underline;">mDIA ↗</a>最终先于我们发表了相关工作（Thielert et al., Mol. Syst. Biol., 2023）。因此，这个项目没有继续沿着我们最初设想的方向发展。对我而言，这仍然是一段非常有价值的经历。在相对较短的时间内，我系统接触了DIA采集、数据处理、肽段鉴定、定量分析和方法评价，这段经历也成为我之后开展DIA研究的基础。</p>
+
+                    <p>之后，我将这段经历发展为两个更加聚焦的DIA项目，一个研究<a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">isolation windows ↗</a>如何影响DIA鉴定性能，另一个评估DIA数据分析中的错误发现率（<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR ↗</a>）控制。除这些项目外，我尤其喜欢使用和比较不同的蛋白质组学搜索引擎。我经常使用DIA-NN和FragPipe等工具探索更具挑战性的搜索问题，包括PTM分析和难以鉴定的肽段类型。当主要软件发布重要更新时，我也经常对新版本进行benchmark，以观察更新后的算法或参数在实际分析中究竟带来了什么变化。我还喜欢使用不同的搜索策略重新分析已发表的蛋白质组学数据集，探索现有数据中是否仍隐藏着有用的信息。随着我在DIA方法学和数据分析方面积累了更多经验，我也开始收到DIA相关论文的审稿邀请，这为我持续接触该领域的新方法和新挑战提供了另一种方式。</p>
+
+                    <p>从我第一次开始接触DIA到现在其实只有几年时间，但这一技术的发展速度令人印象深刻。在此期间，质谱仪器、采集策略和搜索算法都取得了快速进展。从某种意义上说，我是在学习DIA的同时，也亲眼看到这项技术不断演进。蛋白质组学在很多方面是一场“数字游戏”，我们总是在尝试鉴定更多肽段、更多蛋白质以及更多修饰位点。我确实很享受这一过程，也喜欢测试新的采集策略、软件和分析方法，看能从数据中进一步提取多少信息。对我而言，这种持续测试、比较和优化的过程是蛋白质组学最有趣的部分之一。最终，我希望这些技术改进能够转化为更好的数据，使我们能够更有效地回答真正重要的生物学问题。</p>
                 `,
 
                 bio_content: `
@@ -2555,116 +2549,99 @@ bio_content: `
                 `,
 
                 ter_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">基于末端蛋白质组学的肿瘤生物标志物发现</h3>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">利用末端蛋白质组学绘制结直肠癌相关血浆蛋白水解图谱并鉴定候选生物标志物</h3>
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
-                    <p>肿瘤的浸润和转移伴随着肿瘤微环境（TME）中蛋白酶调控网络的深刻重塑。在这种病理状态下，异常激活的蛋白酶（如MMPs、Cathepsins）不仅会降解细胞外基质以突破组织屏障，还会在整个蛋白质组中引起广泛而异常的<strong>“Aberrant Proteolysis”</strong>。这些特异性的蛋白水解事件会暴露出正常生理条件下不存在的新N端或C端序列（<strong>Neo-termini</strong>）。</p>
-                    <p>与仅反映全长蛋白丰度的传统生物标志物不同，这些带有特异性<strong>“proteolytic fingerprints”</strong>的肽段直接携带肿瘤功能状态的信息。此外，由于分子量较小，这些切割产物更容易穿过组织间隙并“渗漏”进入血液循环。因此，捕获并鉴定来源于肿瘤特异性切割的neo-terminal peptides，为癌症筛查和监测提供了一种高特异性、高灵敏度的液体活检策略。</p>
+                    <p>蛋白水解广泛存在于生物系统中，蛋白酶在特定位点切割蛋白质，而这种切割活性可在疾病中发生变化。作为一种不可逆的翻译后修饰（PTM），每一次蛋白水解事件都会产生一个新的N端和一个新的C端。这些新形成的末端保留了切割位置的信息，因此可以被视为蛋白水解活性的分子痕迹。</p>
+                    <p>蛋白水解失调在癌症中尤为突出。肿瘤发展伴随着肿瘤微环境的广泛重塑，其中蛋白酶活性的改变是一个重要特征。基质金属蛋白酶（MMPs）是参与这一过程最突出的蛋白酶家族之一。它们能够切割并重塑细胞外基质，并参与肿瘤侵袭、血管生成以及肿瘤细胞与周围环境之间的相互作用。在持续的组织重塑过程中，大量蛋白质片段可被释放，随后进入循环系统。这些循环中的蛋白水解产物可能携带来自肿瘤及其微环境的疾病相关信息，因此具有用于疾病检测、分层和监测的转化潜力。</p>
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto 0.6rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <p class="research-image-caption research-image-caption-en">包括MMP活性在内的肿瘤相关蛋白酶活性升高可产生具有生物标志物潜力的蛋白水解片段。</p>
+                    <p class="ai-image-note ai-image-note-en">该插图由生成式AI生成。</p>
 
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
+                    <p>这些蛋白水解变化难以通过常规蛋白质组学直接捕获。常规蛋白质组学主要测量蛋白质整体丰度，而蛋白水解改变的是蛋白质被切割的位置。即使某个特定位点的切割发生显著变化，蛋白质总丰度仍可能几乎不变。因此，仅依赖蛋白质丰度测量可能会遗漏这种位点特异性的蛋白水解信息。</p>
+                    <p>当蛋白质在特定位点被切割时，切割位点两侧都会形成新的蛋白质末端。通过选择性分析这些新生成的N端和C端，可以推断切割事件的精确位置。这种方法称为末端蛋白质组学（terminomics），也称为位置蛋白质组学（positional proteomics），其核心是针对蛋白质末端进行分析以研究蛋白水解加工。通过揭示蛋白质被切割的位置，末端蛋白质组学能够提供常规蛋白质丰度测量难以直接解析的一层蛋白水解信息。</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">核心挑战</h4>
                     <ul style="list-style:none; padding-left:0;">
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            1. “Trypsin”问题:<br>
-                            常规蛋白质组学必须使用trypsin将蛋白质消化成肽段后进行检测。然而，trypsin消化是人为过程，会产生大量体内原本不存在的“internal peptides”。这些人工产生的肽段形成巨大的背景，使原本由肿瘤特异性酶切产生的天然N端/C端信号被稀释，甚至完全丢失。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>1. 末端肽检测能力有限</strong><br>
+                            <p>常规蛋白质组学通常使用胰蛋白酶将蛋白质消化为肽段后进行质谱分析。这一消化过程会人为产生大量内部肽，形成强烈背景，从而干扰由内源性蛋白水解产生的天然N端和C端信号的检测。</p>
+                            <p>与此同时，病理性蛋白水解通常处于亚化学计量水平。即使对于高丰度蛋白质，也可能只有很小一部分分子在某一特定位点发生切割。因此，末端肽以低化学计量比例存在，同时还需要与大量内部肽背景竞争，使蛋白水解来源的末端信号尤其难以实现高灵敏度检测。</p>
                         </li>
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            2. Sub-stoichiometric特性:
-                            病理性蛋白水解通常属于sub-stoichiometric事件。即使对于高丰度蛋白，发生特异性切割的分子也可能只占总量的一小部分。这些微量的截短形式会被未切割完整蛋白的背景淹没，导致信号容易被掩盖。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>2. 现有末端蛋白质组学方法的局限</strong><br>
+                            <p>为了在复杂肽段混合物中检测低丰度末端肽，末端蛋白质组学方法通常依赖选择性富集。然而，现有方法在灵敏度和鉴定深度方面仍然有限，通常只能鉴定相对较少的蛋白质末端，并且可能需要复杂的实验流程。</p>
+                            <p>几乎所有成熟的末端蛋白质组学方法都集中于N端分析，而C端分析受到的关注远少得多。C端分析在技术上更加困难，这是由于末端羧基的化学反应性相对较低，并且必须在蛋白质和肽段中大量其他羧基存在的背景下实现选择性修饰。由于每一次蛋白水解切割都会同时产生一个新的N端和一个新的C端，主要聚焦N端会使同一切割事件中的大量互补信息未被测量。</p>
+                            <img src="figure/Term Workflow.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.6rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="N- and C-terminomics workflows">
+                            <p class="research-image-caption research-image-caption-en">本研究开发的N端和C端末端蛋白质组学工作流程。</p>
                         </li>
-                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            3. 生物信息学限制:
-                            标准数据库搜索策略通常假设肽段为“Fully Tryptic”，并针对此类肽段进行优化。然而，肿瘤产生的切割片段通常是“Semi-tryptic”或non-tryptic。目前主流的Data-Independent Acquisition（DIA）分析流程通常采用“Peptide-centric”评分策略。在DIA模式下直接进行semi-specific search会显著扩大搜索空间，使数据解析更加困难。
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>3. 生物信息学局限</strong><br>
+                            <p>标准数据库搜索策略通常假设完全胰蛋白酶特异性肽段，现有分析流程也主要针对这一肽段空间进行优化。然而，由疾病相关蛋白水解产生的肽段通常为半胰蛋白酶特异性（semi-tryptic）或非胰蛋白酶特异性（non-tryptic）肽段。目前主流的数据非依赖性采集（DIA）分析流程通常采用以肽段为中心的评分策略。直接进行半特异性搜索会显著扩大搜索空间，使数据解释更加困难，包括降低高置信度鉴定数量，并使可靠的错误发现率（FDR）控制更具挑战性。</p>
                         </li>
                     </ul>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案: 末端蛋白质组学</h4>
-
-                    <p>末端蛋白质组学也称为位置蛋白质组学，是蛋白质组学的一个专门分支，用于系统研究生物系统中所有蛋白质的N端和C端，也就是“terminome”。</p>
-                    <p>传统蛋白质组学关注整个蛋白，而末端蛋白质组学专门关注蛋白质的“末端”。这些末端十分重要，因为它们记录了蛋白质生命周期中的信息。</p>
-                    <ul>
-                        <li>Protein Maturation: 蛋白质翻译后如何被加工。</li>
-                        <li>Proteolysis: 蛋白酶如何切割蛋白质，使其激活、失活或被降解。</li>
-                        <li>Post-Translational Modifications（PTMs）: 如乙酰化或肉豆蔻酰化等特异性发生在末端的修饰，用于调控蛋白质稳定性和定位。</li>
-                    </ul>
-                    <p>如果蛋白质组学是一张工厂中所有工人的地图，那么末端蛋白质组学就像一本说明书，展示他们何时开始工作、何时结束工作以及角色如何发生变化。</p>
-
-                    <p>“Switch”机制: Proteolysis，也就是蛋白质切割，是一种不可逆的生物学开关。它控制凝血、细胞死亡（apoptosis）和免疫反应等过程。末端蛋白质组学使我们能够看到这些“切割”究竟发生在哪里。</p>
-                    <p>发现“Neo-termini”: 当蛋白酶切割蛋白质时，会产生新的N端（neo-N-terminus）。对这些新末端进行鉴定，有助于研究者寻找特定酶的底物，这对于药物开发非常重要。</p>
-                    <p>疾病生物标志物: 癌症、Alzheimer’s disease等多种疾病都涉及异常蛋白质切割。末端蛋白质组学可以识别血液或组织中的特定“protein fragments”，作为疾病的早期信号。</p>
-
-                    <div style="text-align: center; margin: 2rem 0;">
-    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-
-    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-        末端蛋白质组学的一般工作流程
-    </p>
-</div>
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">正在开展的研究</h4>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">进行中的研究</h4>
                     <ol style="padding-left:1.5rem; margin-bottom:2rem;">
-                        <li style="margin-bottom:0.5rem;">建立并优化高灵敏度末端蛋白质组学样品前处理方法。</li>
-                        <li style="margin-bottom:0.5rem;">优化semi-tryptic peptide鉴定的数据检索策略。</li>
-                        <li style="margin-bottom:0.5rem;">利用临床样本队列开展初步生物标志物发现。</li>
-                        <li style="margin-bottom:0.5rem;">对筛选出的关键neo-termini生物标志物候选物开展后续验证研究。</li>
+                        <li style="margin-bottom:0.5rem;">建立并优化高灵敏度末端蛋白质组学样品前处理方法。 <span class="research-status-done">（已完成）</span></li>
+                        <li style="margin-bottom:0.5rem;">优化用于semi-tryptic肽段鉴定的数据检索策略。 <span class="research-status-done">（已完成）</span></li>
+                        <li style="margin-bottom:0.5rem;">系统绘制与结直肠癌相关的血浆蛋白水解图谱，并进行生物标志物发现分析。 <span class="research-status-done">（已完成）</span></li>
+                        <li style="margin-bottom:0.5rem;">对筛选出的关键neo-termini生物标志物候选进行后续验证。 <span class="research-status-done">（已完成）</span></li>
+                        <li style="margin-bottom:0.5rem;">论文准备中。</li>
                     </ol>
-
-
                 `,
 
                 master_desc: `
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. 基于纳米载体的肿瘤靶向药物递送系统开发</h3>
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. 肿瘤微环境响应型纳米载体药物递送系统</h3>
 
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
-                    <p><strong>临床困境:</strong> 传统化疗药物通常面临“分布广但特异性差”的问题。进入体内后，它们无法区分“敌友”，在杀伤癌细胞的同时也会严重损伤正常组织，从而导致明显的全身毒性。此外，这些药物往往难以穿透肿瘤致密的间质，导致病灶部位的有效药物浓度不足。</p>
-
-                    <p><strong>目标:</strong> 构建一种智能“nanocarrier”作为药物运输工具，利用肿瘤微环境的特征实现精准“navigation”递送，确保药物只有在到达肿瘤部位后才释放，从而实现“enhanced efficacy and reduced toxicity”。</p>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p>化疗仍然是癌症治疗的重要手段，但多数化疗药物缺乏肿瘤选择性，在杀伤肿瘤细胞的同时也会影响正常组织，从而产生明显的全身毒性。因此，肿瘤靶向药物递送的主要目标，是提高药物在肿瘤部位的有效浓度，同时减少正常组织不必要的药物暴露。</p>
+                    <p>纳米载体可以改变药物在体内的分布和释放行为，并增加药物在肿瘤部位的蓄积。然而，肿瘤靶向递送仍受到体内清除以及肿瘤微环境高度异质性等因素的限制。这些屏障会限制纳米载体进入并分布于肿瘤组织。因此，理想的递送系统不仅需要提高药物在肿瘤部位的蓄积，还需要在到达肿瘤后实现有效而可控的药物释放。</p>
+                    <p>肿瘤微环境为这种响应性递送提供了生物学基础。基质金属蛋白酶（MMPs）是一类参与细胞外基质降解和组织重塑的蛋白水解酶，在多种恶性肿瘤中表达或活性升高，并参与肿瘤生长、侵袭和转移。更重要的是，MMPs能够识别并切割特定的多肽序列。因此，肿瘤组织中增强的蛋白水解活性可以被利用为一种内源性触发信号，用于控制纳米载体在肿瘤微环境中的响应和药物释放。</p>
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
-                    <p>我利用功能化纳米材料构建药物递送系统，并通过表面修饰技术实现了肿瘤的active targeting。载体成功跨越生理屏障，在血液循环中保持稳定，并在到达肿瘤微环境后受到特定刺激而触发解体。最终实验确认，药物能够在肿瘤组织内的目标位置成功释放，显著提高肿瘤部位的药物蓄积。在保持较强抗肿瘤活性的同时，也大幅降低了对主要脏器的毒副作用。</p>
+                    <p>基于肿瘤组织中升高的蛋白酶活性，我开发了一种<strong>蛋白酶响应型纳米载体药物递送系统</strong>。该系统利用肿瘤相关蛋白酶对特定响应性结构的识别和切割，使纳米载体在全身循环过程中保持相对稳定，而在蛋白酶活性较高的肿瘤区域改变其药物释放行为。这能够促进药物局部释放，并提高肿瘤部位的有效药物暴露。</p>
+                    <p>实验结果表明，该递送系统提高了药物在肿瘤组织中的释放和蓄积，同时保持了较强的抗肿瘤活性和良好的体内安全性。这些结果支持将肿瘤相关蛋白酶作为生物学触发信号，以实现更具选择性的药物递送。</p>
 
                     <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
-                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
+                    <p class="ai-image-note ai-image-note-en">该插图由生成式AI生成。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. 氨磺必利口腔崩解片开发</h3>
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
-                    <p><strong>临床困境:</strong> 氨磺必利是治疗精神分裂症的一线药物，但存在两个主要问题。1）它属于BCS Class II药物，水溶性差，导致生物利用度低。2）由于强烈苦味或吞咽困难，患者可能抗拒服药，例如将药物藏在颊部或吐出，从而严重影响治疗效果。</p>
-
-                    <p><strong>目标:</strong> 开发一种无需饮水即可在口腔内崩解的“Orally Disintegrating Tablet（ODT）”，通过剂型设计解决患者依从性差的根本原因。</p>
-
+<div style="margin-bottom: 3rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. 阿米舒必利口腔崩解片的开发</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p><strong>临床问题：</strong>阿米舒必利是治疗精神分裂症的一线药物，但面临两个主要问题。1）属于BCS II类难溶性药物，导致生物利用度较低。2）由于药物极苦或存在吞咽困难，患者可能抗拒服药，例如将药物藏在口腔内后吐出，从而严重影响治疗效果。</p>
+                    
+                    <p><strong>目标：</strong>开发一种无需用水、可在口腔内快速崩解的Orally Disintegrating Tablet（ODT），通过剂型设计解决患者服药依从性差的根本问题。</p>
+                    
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
-                    <p>我采用Solid Dispersion Technology解决溶解性瓶颈，并成功掩盖苦味。最终处方可在30秒内快速崩解，并具有良好的口感。这能够有效避免患者藏药，并填补该药物在ODT剂型方面的市场空白。</p>
-
+                    <p>我利用Solid Dispersion Technology克服了药物溶解性瓶颈，并成功掩盖了苦味。最终处方可在30秒内实现快速崩解，并具有良好的口感。这能够有效避免患者藏药，并填补该药物在ODT剂型方面的市场空缺。</p>
+                    
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
-                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
+                    <p class="ai-image-note ai-image-note-en">该插图由生成式AI生成。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
 
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. 纳米乳经皮药物递送系统开发</h3>
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景与挑战</h4>
-                    <p><strong>临床困境:</strong> 卡马西平（CBZ）是治疗癫痫和三叉神经痛的一线药物，但其口服制剂面临三个主要问题。1）它属于BCS Class II难溶性药物，导致吸收不稳定。2）存在明显的肝脏首过效应，显著降低生物利用度。3）长期口服过程中出现的胃肠道反应和吞咽困难会导致部分患者群体依从性较差。</p>
-
-                    <p><strong>目标:</strong> 构建一种无创的“Nanoemulsion Transdermal Delivery System”，通过纳米载体技术解决溶解性瓶颈，经皮肤途径绕过肝脏首过代谢，并在改善患者依从性的同时实现稳定的药物递送。</p>
-
+<div style="margin-bottom: 2rem;">
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. 纳米乳经皮药物递送系统的开发</h3>
+                    
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">研究背景</h4>
+                    <p><strong>临床问题：</strong>卡马西平（CBZ）是治疗癫痫和三叉神经痛的一线药物，但其口服制剂面临三个主要问题。1）属于BCS II类极难溶性药物，导致吸收不稳定。2）存在明显的肝脏首过效应，严重降低生物利用度。3）长期口服引起的胃肠道反应和吞咽困难会导致特定患者群体依从性较差。</p>
+                    
+                    <p><strong>目标：</strong>构建一种非侵入性的Nanoemulsion Transdermal Delivery System，通过纳米载体技术解决溶解性瓶颈，经皮肤途径绕过肝脏首过效应，并在提高患者依从性的同时实现平稳的药物递送。</p>
+                    
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">解决方案与结果</h4>
-                    <p>我制备了负载卡马西平的<strong>Nanoemulsion</strong>处方。利用纳米乳极小的液滴尺寸和独特的脂质亲和性，不仅显著提高了难溶性药物卡马西平的载药量，也有效克服了皮肤角质层屏障。In vitro和in vivo实验确认，该系统成功实现了药物经皮进入全身循环，有效绕过肝脏首过效应，并且与口服给药相比提供了更平稳的血浆药物浓度曲线，为需要长期治疗的患者提供了更好的替代方案。</p>
-
+                    <p>我制备了负载卡马西平的<strong>Nanoemulsion</strong>处方。利用纳米乳极小的液滴尺寸和脂质亲和性，不仅显著提高了难溶性药物卡马西平的载药量，也有效克服了皮肤角质层屏障。In vitro和in vivo实验确认，该系统成功实现了药物经皮进入全身循环，有效绕过肝脏首过效应，并且与口服给药相比提供了更平稳的血浆药物浓度曲线，为需要长期治疗的患者提供了更好的替代方案。</p>
+                    
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
-                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
+                    <p class="ai-image-note ai-image-note-en">该插图由生成式AI生成。</p>
                 </div>
                 `,
 
