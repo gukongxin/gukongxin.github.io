@@ -1174,6 +1174,203 @@
             margin: 0 0 2rem !important;
         }
 
+
+        /* Final polish: requested additions only */
+        .logo {
+            color: var(--highlight) !important;
+        }
+
+        .research-title-row {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.7rem 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        #research-view .research-title-row .research-preview-title {
+            margin-bottom: 0;
+        }
+
+        .research-status-line {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .research-status-current,
+        .research-status-manuscript {
+            font-family: var(--tech-font);
+            font-size: 0.72rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .research-status-current {
+            color: var(--highlight);
+        }
+
+        .research-status-manuscript {
+            color: var(--text-muted);
+        }
+
+        .research-subprojects {
+            display: grid;
+            gap: 0.38rem;
+            margin-top: 1rem;
+            color: var(--accent-gray);
+            font-family: var(--tech-font);
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
+        .research-back-link {
+            display: inline-block;
+            margin: 0 0 1.15rem;
+            color: var(--highlight);
+            font-family: var(--tech-font);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .research-back-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .view-scroll-hint {
+            position: fixed;
+            left: 50%;
+            bottom: 68px;
+            z-index: 110;
+            transform: translateX(-50%);
+            color: var(--highlight);
+            background: rgba(246, 247, 249, 0.96);
+            padding: 0.38rem 0.78rem;
+            font-family: var(--tech-font);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        .view-scroll-hint.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ai-image-note {
+            width: min(100%, 700px);
+            margin: 0 auto 2.8rem !important;
+            color: var(--text-muted);
+            font-family: var(--tech-font);
+            font-size: 0.72rem;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        #terminomics-view .research-detail-content img[src="figure/term_1.png"],
+        #pharmaceutics-view .research-detail-content img[src="figure/DDS.png"],
+        #pharmaceutics-view .research-detail-content img[src="figure/ODT.jpg"],
+        #pharmaceutics-view .research-detail-content img[src="figure/TDS.jpg"] {
+            margin-bottom: 0.45rem !important;
+        }
+
+        .ai-image-note-en {
+            color: #8A94A6 !important;
+            font-size: 0.64rem !important;
+            font-weight: 400 !important;
+        }
+
+
+        .research-subprojects-label {
+            margin-bottom: 0.18rem;
+            color: var(--text-muted);
+            font-family: var(--body-font);
+            font-size: 0.76rem;
+            font-weight: 600;
+        }
+
+
+        .research-image-caption {
+            width: min(100%, 700px);
+            margin: 0 auto 0.35rem;
+            color: var(--text-muted);
+            font-size: 0.68rem;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        .view::after {
+            content: "End of page";
+            display: block;
+            width: 100%;
+            margin: 4rem auto 1.5rem;
+            color: #98A2B3;
+            font-family: var(--tech-font);
+            font-size: 0.72rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+
+        .research-status-done {
+            float: right;
+            margin-left: 0.8rem;
+            white-space: nowrap;
+        }
+
+
+        #terminomics-view .research-detail-content > p,
+        #terminomics-view .research-detail-content > h3,
+        #terminomics-view .research-detail-content > h4,
+        #terminomics-view .research-detail-content > ul,
+        #terminomics-view .research-detail-content > ol {
+            max-width: 860px;
+        }
+
+        #terminomics-view .research-detail-content p {
+            text-align: left;
+        }
+
+
+        #terminomics-view .research-detail-content img[src="figure/Term Workflow.png"] {
+            height: auto !important;
+            max-height: none !important;
+            margin-bottom: 0.4rem !important;
+        }
+
+
+        .research-image-caption-en {
+            font-size: 0.73rem !important;
+            line-height: 1.4 !important;
+            margin-top: 0.18rem !important;
+            margin-bottom: 0.12rem !important;
+            text-align: center !important;
+        }
+
+        .ai-image-note-en {
+            font-size: 0.56rem !important;
+            line-height: 1.3 !important;
+            margin-top: 0.05rem !important;
+            margin-bottom: 0.85rem !important;
+            color: #A0A8B5 !important;
+            text-align: center !important;
+        }
+
+
+        #dia-view .research-detail-content img[src="figure/DDA_DIA.jpg"] {
+            height: auto !important;
+            max-height: none !important;
+            margin-bottom: 0.35rem !important;
+        }
+
     </style>
 </head>
 <body>
@@ -1209,7 +1406,7 @@
             <div class="home-profile-shell">
                 <div class="home-profile-copy">
                     <h1 class="home-profile-name">Kongxin Gu <span class="home-profile-name-cn">顾孔新</span></h1>
-                    <p class="home-profile-bio" data-t="home_bio">I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and investigating disease-associated proteolytic remodeling.</p>
+                    <p class="home-profile-bio" data-t="home_bio">I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and identifying biomarkers for colorectal cancer.</p>
                     <div class="home-profile-actions">
                         <a onclick="switchView('about')" class="home-profile-action" data-t="home_about_btn">About Me</a>
                         <a onclick="switchView('research')" class="home-profile-action" data-t="home_research_btn">Research</a>
@@ -1247,7 +1444,13 @@
                         <img src="figure/term_1.png" alt="Terminomics workflow">
                     </figure>
                     <div class="research-preview-primary-copy">
-                        <h2 class="research-preview-title research-preview-primary-title"><a onclick="switchView('terminomics')" data-t="research_ter_title">Terminomics</a></h2>
+                        <div class="research-title-row">
+                            <h2 class="research-preview-title research-preview-primary-title"><a onclick="switchView('terminomics')" data-t="research_ter_title">Terminomics / Positional Proteomics</a></h2>
+                            <div class="research-status-line">
+                                <span class="research-status-current" data-t="research_status_current">Current</span>
+                                <span class="research-status-manuscript" data-t="research_status_manuscript">Manuscript in Preparation</span>
+                            </div>
+                        </div>
                         <p class="research-preview-summary" data-t="research_ter_summary">The tumor microenvironment is characterized by dysregulated protease activity, where proteases cleave proteins and remodel the extracellular environment. These cleavage events generate new protein termini that record specific proteolytic activity and can serve as molecular fingerprints of disease-associated proteolysis. Terminomics captures these neo-termini to reveal proteolytic remodeling and identify potential disease biomarkers.</p>
                     </div>
                 </article>
@@ -1257,7 +1460,7 @@
                         <img src="figure/DIA.png" alt="DIA-MS">
                     </figure>
                     <div class="research-preview-dia-copy">
-                        <h2 class="research-preview-title"><a onclick="switchView('dia')" data-t="research_dia_title">DIA-MS</a></h2>
+                        <h2 class="research-preview-title"><a onclick="switchView('dia')" data-t="research_dia_title">Data-Independent Acquisition (DIA-MS)</a></h2>
                         <p class="research-preview-summary" data-t="research_dia_summary">Data-independent acquisition (DIA) systematically fragments precursor ions across predefined isolation windows, enabling comprehensive and reproducible proteome profiling.</p>
                     </div>
                 </article>
@@ -1276,18 +1479,27 @@
                     <div class="research-preview-foundation-copy">
                         <h2 class="research-preview-title"><a onclick="switchView('pharmaceutics')" data-t="research_pharm_title">Drug Delivery System</a></h2>
                         <p class="research-preview-summary" data-t="research_pharm_summary">Drug delivery research focuses on designing delivery systems to improve administration, control drug release, and enhance targeted delivery.</p>
+                        <div class="research-subprojects">
+                            <div class="research-subprojects-label">This research includes three projects</div>
+                            <span data-t="research_pharm_sub1">01&nbsp;&nbsp;Tumor Microenvironment-Responsive Nanocarrier Drug Delivery System</span>
+                            <span data-t="research_pharm_sub2">02&nbsp;&nbsp;Orally Disintegrating Tablet</span>
+                            <span data-t="research_pharm_sub3">03&nbsp;&nbsp;Nanoemulsion Transdermal Delivery System</span>
+                        </div>
                     </div>
                 </article>
             </div>
+            
         </section>
 
         <section id="dia-view" class="view">
-            <h2 class="section-title">RESEARCH: DIA</h2>
+            <a onclick="switchView('research')" class="research-back-link" data-t="back_research">← Back to Research</a>
+            <h2 class="section-title">RESEARCH: Data-Independent Acquisition</h2>
             <div class="pub-item rich-text"><div class="research-detail-content" data-t="dia_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
         </section>
 
         <section id="terminomics-view" class="view">
+            <a onclick="switchView('research')" class="research-back-link" data-t="back_research">← Back to Research</a>
             <h2 class="section-title">RESEARCH: Terminomics</h2>
             <div class="pub-item rich-text"><div class="research-detail-content" data-t="ter_content"></div></div>
             <a onclick="switchView('research')" class="btn-link" data-t="back_console">← Back to Console</a>
@@ -1300,6 +1512,7 @@
         </section>
 
         <section id="pharmaceutics-view" class="view">
+            <a onclick="switchView('research')" class="research-back-link" data-t="back_research">← Back to Research</a>
             <h2 class="section-title" data-t="pharm_page_title">Drug Delivery System</h2>
             <div class="pub-item rich-text">
                 
@@ -1374,6 +1587,7 @@
                 </div>
 
             </div>
+            
         </section>
 
       <section id="publications-view" class="view">
@@ -1523,6 +1737,8 @@
         </section>
     </main>
 
+    <div id="global-scroll-hint" class="view-scroll-hint" data-t="more_below">More below ↓</div>
+
     <footer class="site-footer">
         <nav class="site-footer-links" aria-label="Footer">
             <a href="mailto:gukongxin@outlook.com" title="gukongxin [at] outlook.com">Email</a>
@@ -1537,19 +1753,26 @@
                 nav_home: "HOME", nav_about: "ABOUT", nav_research: "RESEARCH", nav_pub: "PUBLICATIONS", nav_others: "OTHERS", nav_contact: "CONTACT", nav_personal: "PERSONAL",
                 news_job: "Started as a Research Fellow at Kumamoto University.",
                 news_defense: "Successfully defended Ph.D. dissertation at Kumamoto University.",
-                home_bio: "I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and investigating disease-associated proteolytic remodeling.",
+                home_bio: "I am a researcher working in mass spectrometry-based proteomics, with a particular interest in applying these approaches to biological and disease research. I received my Ph.D. from Kumamoto University, Japan, in 2026. My doctoral research centered on data-independent acquisition (DIA) and terminomics, with applications to mapping proteolytic landscapes and identifying biomarkers for colorectal cancer.",
                 home_about_btn: "About Me",
                 home_research_btn: "Research",
                 home_publications_btn: "Publications",
                 home_latest: "Latest",
-                research_ter_title: "Terminomics",
+                research_ter_title: "Terminomics / Positional Proteomics",
                 research_ter_summary: "The tumor microenvironment is characterized by dysregulated protease activity, where proteases cleave proteins and remodel the extracellular environment. These cleavage events generate new protein termini that record specific proteolytic activity and can serve as molecular fingerprints of disease-associated proteolysis. Terminomics captures these neo-termini to reveal proteolytic remodeling and identify potential disease biomarkers.",
-                research_dia_title: "DIA-MS",
+                research_dia_title: "Data-Independent Acquisition (DIA-MS)",
                 research_dia_summary: "Data-independent acquisition (DIA) systematically fragments precursor ions across predefined isolation windows, enabling comprehensive and reproducible proteome profiling.",
                 research_cancer_title: "Cancer",
                 research_cancer_summary: "Cancer research connects tumor-targeted drug delivery with current proteomic strategies for identifying biomarkers in complex biological samples for early detection and diagnosis.",
                 research_pharm_title: "Drug Delivery System",
                 research_pharm_summary: "Drug delivery research focuses on designing delivery systems to improve administration, control drug release, and enhance targeted delivery.",
+                research_status_current: "Current",
+                research_status_manuscript: "Manuscript in Preparation",
+                research_pharm_sub1: "01  Tumor Microenvironment-Responsive Nanocarrier Drug Delivery System",
+                research_pharm_sub2: "02  Orally Disintegrating Tablet",
+                research_pharm_sub3: "03  Nanoemulsion Transdermal Delivery System",
+                back_research: "← Back to Research",
+                more_below: "More below ↓",
                 
                 // --- 确保您的文字都在这里 ---
                 about_bio_content: `
@@ -1562,8 +1785,8 @@
                     <div class="about-research-interests">
                         <h3>RESEARCH INTERESTS</h3>
                         <div class="about-interest-item">
-                            <strong>1. Proteomics Technology</strong>
-                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS</p>
+                            <strong>1. Proteomics Technologies</strong>
+                            <p>Plasma Proteomics, MS-CETSA/TPP, Top-down Proteomics, LiP-MS, etc.</p>
                         </div>
                         <div class="about-interest-item">
                             <strong>2. Post-Translational Modifications (PTMs)</strong>
@@ -1659,84 +1882,70 @@ conf_list: `
                 back_console: "← Back to Console",
                 
                 ter_content: `
-                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">Tumor Biomarker Discovery Based on Terminomics</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background</h4>
-                    <p>The invasion and metastasis of tumors are accompanied by profound remodeling of the protease regulatory network within the tumor microenvironment (TME). In this pathological state, aberrantly activated proteases (e.g., MMPs, Cathepsins) not only degrade the extracellular matrix to breach tissue barriers but also perform extensive and abnormal <strong>"Aberrant Proteolysis"</strong> on the proteome. These specific proteolytic events expose novel N-terminal or C-terminal sequences (<strong>Neo-termini</strong>) that do not exist under normal physiological conditions.</p>
-                    <p>Unlike traditional biomarkers that merely reflect full-length protein abundance, these peptides bearing specific <strong>"proteolytic fingerprints"</strong> directly carry functional state information of the tumor. Furthermore, due to their lower molecular weight, these cleavage products easily penetrate tissue interstitial spaces and "leak" into the blood circulation. Therefore, capturing and identifying these neo-terminal peptides derived from tumor-specific cleavage provides a high-specificity, high-sensitivity novel strategy for liquid biopsy in cancer screening and monitoring.</p>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">Mapping the Plasma Proteolytic Landscape Associated with Colorectal Cancer Using Terminomics and Identifying Candidate Biomarkers</h3>
 
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background</h4>
+                    <p>Proteolysis is widespread in biological systems, where proteases cleave proteins at defined sites and this cleavage activity can change in disease. As an irreversible post-translational modification (PTM), every proteolytic event generates a new N-terminus and a new C-terminus. These newly formed termini retain information about the position of cleavage and can therefore be viewed as molecular traces of proteolytic activity.</p>
+                    <p>Proteolytic dysregulation is particularly prominent in cancer. Tumor development is accompanied by extensive remodeling of the tumor microenvironment, in which altered protease activity is an important feature. Matrix metalloproteinases (MMPs) are among the most prominent protease families involved in this process. They cleave and remodel the extracellular matrix and contribute to tumor invasion, angiogenesis, and interactions between tumor cells and their surrounding environment. During this continuous tissue remodeling, large numbers of protein fragments can be released and subsequently enter the circulation. These circulating proteolytic products may carry disease-related information from the tumor and its microenvironment, giving them translational potential for disease detection, stratification, and monitoring.</p>
+                    <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto 0.6rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <p class="research-image-caption research-image-caption-en">Elevated tumor-associated protease activity, including MMP activity, generates proteolytic fragments with potential as biomarkers.</p>
+                    <p class="ai-image-note ai-image-note-en">Illustration generated using generative AI.</p>
+
+                    <p>These proteolytic changes are difficult to capture directly with conventional proteomics. Conventional proteomics primarily measures proteins at the level of overall abundance, whereas proteolysis changes where a protein is cleaved. A protein may show little change in total abundance even when cleavage at a particular site changes markedly. Protein abundance measurements alone can therefore miss this site-specific proteolytic information.</p>
+                    <p>When a protein is cleaved at a specific site, new protein termini are formed on both sides of the cleavage. Selective analysis of these newly generated N- and C-termini makes it possible to infer the precise position of the cleavage event. This approach is known as terminomics, or positional proteomics, and focuses specifically on protein termini to study proteolytic processing. By revealing where proteins have been cleaved, terminomics provides a layer of proteolytic information that conventional protein abundance measurements cannot readily capture.</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Core Challenges</h4>
                     <ul style="list-style:none; padding-left:0;">
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            1. The "Trypsin" Problem:<br>
-                            Conventional proteomics must use trypsin to digest proteins into peptides for detection. However, trypsin digestion is artificial; it generates millions of "internal peptides" that do not originally exist in the body. These artificially generated peptides form huge background noise, causing the natural N-terminal/C-terminal signals originally generated by tumor-specific enzymatic cleavage to be diluted or even lost.
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>1. Limited Detectability of Terminal Peptides</strong><br>
+                            <p>Conventional proteomics commonly uses trypsin to digest proteins into peptides for mass spectrometric analysis. This digestion artificially generates a large number of internal peptides, creating a strong background that interferes with the detection of native N-terminal and C-terminal signals produced by endogenous proteolysis.</p>
+                            <p>At the same time, pathological proteolysis is often sub-stoichiometric. Even for a highly abundant protein, only a small fraction of molecules may be cleaved at a particular site. Terminal peptides therefore occur at low stoichiometry while competing with an abundant background of internal peptides, making proteolysis-derived terminal signals particularly difficult to detect with high sensitivity.</p>
                         </li>
-                     <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            2. Sub-stoichiometric Nature:
-                            Pathological proteolytic cleavage is often a "sub-stoichiometric" event. Even for high-abundance proteins, the molecules undergoing specific cleavage may only account for a small proportion of the total. These trace truncated forms are completely submerged in the background of uncleaved intact proteins, causing signals to be easily masked.
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>2. Limitations of Current Terminomics Methods</strong><br>
+                            <p>To detect low-abundance terminal peptides within complex peptide mixtures, terminomics methods generally rely on selective enrichment. Current methods, however, still have limited sensitivity and identification depth, often yielding relatively small numbers of identified protein termini and requiring complex experimental workflows.</p>
+                            <p>Nearly all established terminomics approaches focus on N-terminal analysis, while C-terminal analysis has received far less attention. C-terminal analysis is technically more difficult because the terminal carboxyl group has relatively low chemical reactivity and must be selectively targeted in the presence of many other carboxyl groups in proteins and peptides. Since every proteolytic cleavage generates both a new N-terminus and a new C-terminus, focusing predominantly on the N-terminal side leaves a substantial amount of complementary information from the same cleavage event unmeasured.</p>
+                            <img src="figure/Term Workflow.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.6rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="N- and C-terminomics workflows">
+                            <p class="research-image-caption research-image-caption-en">N- and C-terminomics workflows developed in our study.</p>
                         </li>
-                    <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
-                            3. Bioinformatic Limitation:
-                            Standard database search strategies usually assume peptides are "Fully Tryptic" and are optimized for such peptides. However, tumor-generated cleavage fragments are often "Semi-tryptic" or non-tryptic. Current mainstream Data-Independent Acquisition (DIA) analysis pipelines typically employ a "Peptide-centric" scoring strategy. Directly performing a semi-specific search in DIA mode would exponentially expand the search space, creating immense difficulties in data interpretation.
+                        <li style="margin-bottom:1.5rem; padding-left:0; border:none;">
+                            <strong>3. Bioinformatic Limitations</strong><br>
+                            <p>Standard database search strategies generally assume fully tryptic peptides, and existing analysis workflows are mainly optimized for this peptide space. Peptides generated by disease-associated proteolysis, however, are often semi-tryptic or non-tryptic. Current mainstream data-independent acquisition (DIA) analysis pipelines typically use peptide-centric scoring strategies. Direct semi-specific searching substantially expands the search space, making data interpretation more difficult by reducing the number of confident identifications and making reliable false discovery rate (FDR) control more challenging.</p>
                         </li>
                     </ul>
 
-                    <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
-
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution: Terminomics</h4>
-                    
-                    <p>Terminomics also called positional proteomics is a specialized branch of proteomics dedicated to the systematic study of the N-termini and C-termini of all proteins within a biological system (the "terminome").</p>
-                    <p>While traditional proteomics looks at the whole protein, terminomics focuses specifically on the "ends." These ends are crucial because they carry the history of a protein’s life:</p>
-                    <ul>
-                        <li>Protein Maturation: How a protein is processed after it is translated.</li>
-                        <li>Proteolysis: How enzymes (proteases) cut proteins to activate, deactivate, or degrade them.</li>
-                        <li>Post-Translational Modifications (PTMs): Modifications like acetylation or myristoylation that occur specifically at the ends to control protein stability and localization.</li>
-                    </ul>
-                    <p>If proteomics is a map of all the workers in a factory, Terminomics is the manual that shows exactly when they start, when they are fired, and how their roles change.</p>
-                    
-                    <p>The "Switch" Mechanism: Proteolysis (the cutting of proteins) is an irreversible biological switch. It controls processes like blood clotting, cell death (apoptosis), and immune responses. Terminomics allows us to see exactly where these "cuts" happen.</p>
-                    <p>Discovering "Neo-termini": When a protease cuts a protein, it creates a new N-terminus (neo-N-terminus). Identifying these helps researchers find the specific substrates of enzymes, which is vital for drug development.</p>
-                    <p>Disease Biomarkers: Many diseases, such as cancer and Alzheimer’s, involve abnormal protein cutting. Terminomics can identify specific "protein fragments" in blood or tissue that serve as early warning signs.</p>
-
-                    <div style="text-align: center; margin: 2rem 0;">
-    <img src="figure/Term_workflow.jpg" style="width:100%; max-width:800px; height:auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
-    
-    <p style="margin-top: 1rem; color: var(--text-muted); font-family: var(--tech-font); font-size: 0.9rem; font-style: italic;">
-        General workflow of terminomics
-    </p>
-</div>
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
 
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Ongoing Research</h4>
                     <ol style="padding-left:1.5rem; margin-bottom:2rem;">
-                        <li style="margin-bottom:0.5rem;">Establishing and optimizing high-sensitivity terminomics sample preparation methods.</li>
-                        <li style="margin-bottom:0.5rem;">Optimizing data retrieval strategies for semi-tryptic peptide identification.</li>
-                        <li style="margin-bottom:0.5rem;">Utilizing clinical sample cohorts for preliminary biomarker discovery.</li>
-                        <li style="margin-bottom:0.5rem;">Conducting subsequent validation studies on screened key candidate neo-termini biomarkers.</li>
+                        <li style="margin-bottom:0.5rem;">Establishing and optimizing high-sensitivity terminomics sample preparation methods. <span class="research-status-done">(Done)</span></li>
+                        <li style="margin-bottom:0.5rem;">Optimizing data retrieval strategies for semi-tryptic peptide identification. <span class="research-status-done">(Done)</span></li>
+                        <li style="margin-bottom:0.5rem;">Systematically mapped the plasma proteolytic landscape associated with colorectal cancer and performed biomarker discovery analysis. <span class="research-status-done">(Done)</span></li>
+                        <li style="margin-bottom:0.5rem;">Conducting subsequent validation studies on screened key candidate neo-termini biomarkers. <span class="research-status-done">(Done)</span></li>
+                        <li style="margin-bottom:0.5rem;">Manuscript in preparation.</li>
                     </ol>
 
                     
                 `,
 
                dia_content: `
-                    <p>My exploration of DIA research began during my systematic training in proteomics, where I gained solid experience in data acquisition and processing through high-throughput Multiplexed DIA projects. Building on this foundation, I optimized DIA methodologies: on the acquisition side, I worked on <a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">DIA Isolation Windows</a>; on the analysis side, I established and evaluated <a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR control methods for DIA data</a>.</p>
+                    <h3 style="color:var(--highlight); margin-bottom:1.5rem;">Data-independent acquisition</h3>
 
-                    <p>Beyond that, I have a huge passion for proteomics search software. I love playing with new tools—these are my weapons. Witnessing the step-by-step leaps in DIA performance driven by algorithm updates is fascinating to me, and I always enjoy the fun of digging deeper into this field.</p>
+                    <p>Data-dependent acquisition (DDA) has long been one of the most widely used acquisition strategies in mass spectrometry-based proteomics. In DDA, precursor ions are selected for fragmentation according to their MS1 signals. As a result, different precursors may be selected across repeated runs, while lower-abundance ions can be missed. To reduce the limitations in proteome coverage and reproducibility caused by this selective sampling, data-independent acquisition (DIA) uses a more systematic acquisition strategy. A predefined mass range is divided into consecutive isolation windows, and precursor ions within each window are sequentially fragmented. Compared with DDA, DIA enables more comprehensive and reproducible sampling of peptide signals and is particularly well suited to large-scale quantitative proteomics. With rapid advances in mass spectrometry instrumentation and DIA data analysis, DIA has become one of the major acquisition strategies in modern proteomics.</p>
 
-                    <h3 style="color:var(--highlight); margin: 2rem 0 1rem;">Ongoing Research</h3>
-                    <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            Comprehensive Benchmarking of Recent Data-independent Acquisition Tools for Library-Free Proteomics Analysis
-                        </li>
-                        <li style="margin-bottom:1rem; padding-left:1rem; border-left:3px solid var(--highlight);">
-                            Optimizing DIA for Post-Translational Modifications (PTMs)
-                        </li>
-                    </ul>
+                    <img src="figure/DDA_DIA.jpg" style="width:100%; max-width:800px; height:auto; display:block; margin: 1.8rem auto 0.55rem; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Comparison of DDA and DIA acquisition strategies">
+                    <p class="research-image-caption research-image-caption-en">Comparison of DDA and DIA acquisition strategies.</p>
+
+                    <p>DIA was where I truly entered the field of proteomics. My first proteomics project was based on <a href="https://www.nature.com/articles/s41587-022-01389-w" target="_blank" style="color:var(--highlight); text-decoration:underline;">plexDIA ↗</a> (Derks et al., Nat. Biotechnol., 2023), a multiplexed DIA strategy designed to increase proteomics throughput by analyzing multiple labeled samples within the same experiment. At the time, we were interested in further improving this strategy. Mass spectrometry, proteomics, and DIA data analysis were all almost entirely new to me, so learning the field while trying to develop a new method at the same time was a considerable challenge.</p>
+
+                    <p>As the project progressed, we realized that other groups were pursuing very similar ideas and had moved faster and more comprehensively, <a href="https://link.springer.com/article/10.15252/msb.202211503" target="_blank" style="color:var(--highlight); text-decoration:underline;">mDIA ↗</a>, eventually publishing related work before us (Thielert et al., Mol. Syst. Biol., 2023). The project therefore did not continue in the direction we had initially envisioned. For me, however, it was an extremely valuable experience. In a relatively short period, I gained systematic exposure to DIA acquisition, data processing, peptide identification, quantitative analysis, and method evaluation. This experience became the foundation for my subsequent work in DIA.</p>
+
+                    <p>I later turned this experience into two more focused DIA projects, one investigating how <a href="https://doi.org/10.1021/acs.jproteome.4c00149" target="_blank" style="color:var(--highlight); text-decoration:underline;">isolation windows ↗</a> affect DIA identification performance and the other evaluating false discovery rate (<a href="https://doi.org/10.1021/acs.jproteome.5c00036" target="_blank" style="color:var(--highlight); text-decoration:underline;">FDR ↗</a>) control in DIA data analysis. Beyond these projects, I particularly enjoy working with and comparing different proteomics search engines. I regularly use tools such as DIA-NN and FragPipe to explore more challenging search problems, including PTM analysis and peptide classes that are difficult to identify. When major software updates are released, I often benchmark the new versions to see what the updated algorithms or parameters actually change in practice. I also enjoy reanalyzing published proteomics datasets with different search strategies to explore whether useful information remains hidden in existing data. As I gained more experience in DIA methodology and data analysis, I also began receiving invitations to review DIA-related manuscripts, which has given me another way to stay closely connected with new methods and challenges emerging in the field.</p>
+
+                    <p>It has only been a few years since I first started working with DIA, yet the pace of its development has been remarkable. Mass spectrometry instrumentation, acquisition strategies, and search algorithms have all advanced rapidly during this period. In a sense, I have been learning DIA while watching the technology evolve around me. Proteomics is, in many ways, a number game. We are constantly trying to identify more peptides, more proteins, and more modification sites. I genuinely enjoy this process and like testing new acquisition strategies, software, and analytical approaches to see how much more information can be extracted from the data. For me, this continuous process of testing, comparing, and optimizing is one of the most enjoyable parts of proteomics. Ultimately, I hope these technical improvements can be translated into better data and allow us to answer the biological questions that truly matter more effectively.</p>
                 `,
 
-                bio_content: `
+bio_content: `
                     <h3 style="color:var(--highlight); margin-bottom:1.5rem;">My Background in Cancer Research</h3>
                     
                     <p>My involvement in cancer research started during my undergraduate years with a clinical internship at a cancer hospital. This experience gave me firsthand exposure to the clinical environment, allowing me to understand the actual conditions of patients, standard procedures like chemotherapy, and the side effects accompanying these treatments.</p>
@@ -1767,17 +1976,19 @@ conf_list: `
                 
                 master_desc: `
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. Development of Nanocarrier-Based Tumor-Targeted Drug Delivery System</h3>
-                    
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
-                    <p><strong>The Clinical Dilemma:</strong> Conventional chemotherapy drugs usually face the challenge of "wide distribution but poor specificity." After entering the body, they cannot distinguish between "friend and foe," severely damaging normal tissues (leading to severe systemic toxicity) while killing cancer cells. Moreover, they often struggle to penetrate the dense stroma of tumors, resulting in insufficient effective drug concentration at the lesion site.</p>
-                    
-                    <p><strong>The Goal:</strong> To construct an intelligent "nanocarrier" as a drug transport tool, utilizing the characteristics of the tumor microenvironment to achieve precise "navigation" delivery, ensuring that drugs are released only after arriving at the tumor site, thereby achieving "enhanced efficacy and reduced toxicity."</p>
-                    
+                    <h3 style="color:var(--accent-gray); border-left:4px solid #4fd1c5; padding-left:10px; margin-bottom:1rem;">01. Tumor Microenvironment-Responsive Nanocarrier Drug Delivery System</h3>
+
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background</h4>
+                    <p>Chemotherapy remains an important approach to cancer treatment, but most chemotherapeutic drugs lack tumor selectivity and can affect healthy tissues while killing cancer cells, leading to substantial systemic toxicity. Tumor-targeted drug delivery therefore aims to increase the effective drug concentration at tumor sites while reducing unnecessary exposure of normal tissues.</p>
+                    <p>Nanocarriers can alter the distribution and release behavior of drugs in the body and increase their accumulation at tumor sites. However, tumor-targeted delivery is still limited by factors such as clearance from the body and the highly heterogeneous nature of the tumor microenvironment. These barriers can restrict the entry and distribution of nanocarriers within tumor tissue. An ideal delivery system should therefore not only improve drug accumulation at the tumor site, but also enable effective and controlled drug release after reaching the tumor.</p>
+                    <p>The tumor microenvironment provides a biological basis for such responsive delivery. Matrix metalloproteinases (MMPs) are proteolytic enzymes involved in extracellular matrix degradation and tissue remodeling. Their expression or activity is elevated in many malignant tumors, where they contribute to tumor growth, invasion, and metastasis. Importantly, MMPs can recognize and cleave specific peptide sequences. This enhanced proteolytic activity in tumor tissue can therefore be exploited as an endogenous trigger to control nanocarrier responsiveness and drug release within the tumor microenvironment.</p>
+
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Solution & Outcome</h4>
-                    <p>I utilized functionalized nanomaterials to construct a drug delivery system and achieved active targeting of tumors through surface modification technology. The carrier successfully overcame physiological barriers, remained stable in the blood circulation, and triggered disintegration upon receiving specific stimuli after reaching the tumor microenvironment. Final experiments confirmed that the drug was successfully released at targeted locations within the tumor tissue, significantly increasing the accumulation of the drug at the tumor site. While maintaining potent anti-tumor activity, it greatly reduced toxic side effects on major organs.</p>
-                    
+                    <p>Based on the elevated protease activity in tumor tissue, I developed a <strong>protease-responsive nanocarrier-based drug delivery system</strong>. The system exploits the ability of tumor-associated proteases to recognize and cleave specific responsive structures, allowing the nanocarrier to remain relatively stable during systemic circulation while altering its drug-release behavior in protease-rich tumor regions. This promotes local drug release and increases effective drug exposure at the tumor site.</p>
+                    <p>Experimental results showed that the delivery system enhanced drug release and accumulation in tumor tissue while maintaining strong antitumor activity and a favorable in vivo safety profile. These findings support the use of tumor-associated proteases as biological triggers for more selective drug delivery.</p>
+
                     <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                    <p class="ai-image-note ai-image-note-en">Illustration generated using generative AI.</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -1785,7 +1996,7 @@ conf_list: `
 <div style="margin-bottom: 3rem;">
                     <h3 style="color:var(--accent-gray); border-left:4px solid var(--accent-gray); padding-left:10px; margin-bottom:1rem;">02. Development of Amisulpride Orally Disintegrating Tablets</h3>
                     
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background</h4>
                     <p><strong>The Clinical Dilemma:</strong> Amisulpride is a first-line treatment for schizophrenia, but it faces two major challenges: 1) It belongs to BCS Class II drugs (poorly water-soluble), resulting in low bioavailability; 2) Patients often resist medication ("cheek-it" or spit it out) due to extreme bitterness or swallowing difficulties, which seriously affects the therapeutic outcome.</p>
                     
                     <p><strong>The Goal:</strong> To develop an "Orally Disintegrating Tablet (ODT)" that melts in the mouth without the need for water, addressing the root causes of poor patient compliance through dosage form design.</p>
@@ -1794,6 +2005,7 @@ conf_list: `
                     <p>I utilized Solid Dispersion Technology to overcome the solubility bottleneck and successfully masked the bitter taste. The final formulation achieved extremely rapid disintegration within 30 seconds and offered a pleasant mouthfeel. This effectively prevents patients from hiding the medication and fills a gap in the market for this drug in an ODT dosage form.</p>
                     
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                    <p class="ai-image-note ai-image-note-en">Illustration generated using generative AI.</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -1801,7 +2013,7 @@ conf_list: `
 <div style="margin-bottom: 2rem;">
                     <h3 style="color:var(--accent-gray); border-left:4px solid #ed8936; padding-left:10px; margin-bottom:1rem;">03. Development of a Nanoemulsion Transdermal Delivery System</h3>
                     
-                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background & Challenge</h4>
+                    <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">Research Background</h4>
                     <p><strong>The Clinical Dilemma:</strong> Carbamazepine (CBZ) is a first-line drug for treating epilepsy and trigeminal neuralgia, but its oral preparations face three major problems: 1) It is a BCS Class II drug with extremely poor water solubility, leading to unstable absorption; 2) There is a significant hepatic first-pass effect, which seriously reduces bioavailability; 3) Gastrointestinal reactions and swallowing difficulties during long-term oral administration lead to poor compliance in specific patient groups.</p>
                     
                     <p><strong>The Goal:</strong> To construct a non-invasive "Nanoemulsion Transdermal Delivery System," aiming to solve the solubility bottleneck through nanocarrier technology, bypass hepatic first-pass metabolism via the skin route, and achieve steady drug delivery while improving patient compliance.</p>
@@ -1810,6 +2022,7 @@ conf_list: `
                     <p>I prepared a <strong>Nanoemulsion</strong> formulation loaded with Carbamazepine. Utilizing the ultra-small droplet size and unique lipid affinity of the nanoemulsion, it not only significantly increased the loading capacity of the poorly soluble drug Carbamazepine but also effectively overcame the stratum corneum barrier of the skin. In vitro and in vivo experiments confirmed that the system successfully achieved transdermal penetration of the drug into the systemic circulation, effectively circumvented the hepatic first-pass effect, and provided a smoother plasma concentration profile compared to oral administration, offering a better alternative for patients requiring long-term treatment.</p>
                     
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                    <p class="ai-image-note ai-image-note-en">Illustration generated using generative AI.</p>
                 </div>
                 
                 `,
@@ -1859,6 +2072,13 @@ conf_list: `
                 research_cancer_summary: "腫瘍標的型ドラッグデリバリーの経験と、複雑な生体試料から早期発見・診断用バイオマーカーを探索する現在のプロテオミクス研究を結び付けています。",
                 research_pharm_title: "ドラッグデリバリーシステム",
                 research_pharm_summary: "ドラッグデリバリー研究では、投与方法の改善、薬物放出の制御、標的送達の向上を目的として送達システムを設計します。",
+                research_status_current: "進行中",
+                research_status_manuscript: "原稿準備中",
+                research_pharm_sub1: "腫瘍標的型ドラッグデリバリーシステム",
+                research_pharm_sub2: "口腔内崩壊錠",
+                research_pharm_sub3: "ナノエマルション経皮ドラッグデリバリーシステム",
+                back_research: "← Researchに戻る",
+                more_below: "続きがあります ↓",
                 
                 // (后续其他翻译我们一步步往这里面加)
 
@@ -2025,6 +2245,7 @@ conf_list: `
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
                     <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">主要な課題</h4>
                     <ul style="list-style:none; padding-left:0;">
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
@@ -2092,6 +2313,7 @@ conf_list: `
                     <p>機能化ナノ材料を用いてドラッグデリバリーシステムを構築し、表面修飾技術によって腫瘍へのactive targetingを実現しました。キャリアは生理学的バリアを克服し、血液循環中で安定性を維持し、腫瘍微小環境に到達した後に特定の刺激を受けて崩壊しました。最終的な実験では、薬物が腫瘍組織内の標的位置で放出され、腫瘍部位への薬物蓄積が大きく増加したことを確認しました。強い抗腫瘍活性を維持しながら、主要臓器への毒性副作用を大幅に低減しました。</p>
 
                     <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -2108,6 +2330,7 @@ conf_list: `
                     <p>Solid Dispersion Technologyを用いて溶解性のボトルネックを克服し、苦味のマスキングにも成功しました。最終製剤は30秒以内という非常に速い崩壊と良好な口当たりを実現しました。これにより患者が薬を隠す行為を効果的に防ぎ、この薬剤におけるODT剤形の市場上の空白を埋めました。</p>
 
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -2124,6 +2347,7 @@ conf_list: `
                     <p>Carbamazepineを搭載した<strong>Nanoemulsion</strong>製剤を調製しました。ナノエマルションの非常に小さな液滴径と特徴的な脂質親和性を利用することで、難水溶性薬物Carbamazepineの搭載量を大きく増加させると同時に、皮膚の角質層バリアを効果的に克服しました。In vitroおよびin vivo実験により、本システムが薬物を経皮的に全身循環へ移行させ、肝初回通過効果を回避し、経口投与と比較してより平滑な血漿中濃度プロファイルを実現することを確認しました。長期治療を必要とする患者に対するより良い選択肢となる可能性があります。</p>
 
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                    <p class="ai-image-note">生成AI（ChatGPT）を使用して作成したイラストです。</p>
                 </div>
                 `,
 
@@ -2174,6 +2398,13 @@ conf_list: `
                 research_cancer_summary: "将早期肿瘤靶向递药研究与当前蛋白质组学策略相结合，从复杂生物样本中寻找用于癌症早期发现和诊断的生物标志物。",
                 research_pharm_title: "药物递送系统",
                 research_pharm_summary: "药物递送研究聚焦于设计递送系统，以改善给药方式、控制药物释放并增强靶向递送。",
+                research_status_current: "当前研究",
+                research_status_manuscript: "稿件准备中",
+                research_pharm_sub1: "肿瘤靶向药物递送系统",
+                research_pharm_sub2: "口腔崩解片",
+                research_pharm_sub3: "纳米乳经皮药物递送系统",
+                back_research: "← 返回 Research",
+                more_below: "下方还有内容 ↓",
                 
                 // 3. About Me 与 学历部分
                 about_bio_content: `
@@ -2332,6 +2563,7 @@ conf_list: `
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
                     <img src="figure/term_1.png" style="width:100%; max-width:800px; height:auto; display:block; margin: 2rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="Terminomics Workflow">
+                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
                     <h4 style="color:var(--highlight); font-weight:bold; margin-bottom:1rem;">核心挑战</h4>
                     <ul style="list-style:none; padding-left:0;">
                      <li style="margin-bottom:1.5rem; padding-left: 0; border: none;">
@@ -2398,6 +2630,7 @@ conf_list: `
                     <p>我利用功能化纳米材料构建药物递送系统，并通过表面修饰技术实现了肿瘤的active targeting。载体成功跨越生理屏障，在血液循环中保持稳定，并在到达肿瘤微环境后受到特定刺激而触发解体。最终实验确认，药物能够在肿瘤组织内的目标位置成功释放，显著提高肿瘤部位的药物蓄积。在保持较强抗肿瘤活性的同时，也大幅降低了对主要脏器的毒副作用。</p>
 
                     <img src="figure/DDS.png" style="width:100%; max-width:850px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.4);" alt="DDS Mechanism">
+                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -2414,6 +2647,7 @@ conf_list: `
                     <p>我采用Solid Dispersion Technology解决溶解性瓶颈，并成功掩盖苦味。最终处方可在30秒内快速崩解，并具有良好的口感。这能够有效避免患者藏药，并填补该药物在ODT剂型方面的市场空白。</p>
 
                     <img src="figure/ODT.jpg" style="width:100%; max-width:500px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="ODT Mechanism">
+                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
                 </div>
 
                     <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.1); margin: 3rem 0;">
@@ -2430,6 +2664,7 @@ conf_list: `
                     <p>我制备了负载卡马西平的<strong>Nanoemulsion</strong>处方。利用纳米乳极小的液滴尺寸和独特的脂质亲和性，不仅显著提高了难溶性药物卡马西平的载药量，也有效克服了皮肤角质层屏障。In vitro和in vivo实验确认，该系统成功实现了药物经皮进入全身循环，有效绕过肝脏首过效应，并且与口服给药相比提供了更平稳的血浆药物浓度曲线，为需要长期治疗的患者提供了更好的替代方案。</p>
 
                     <img src="figure/TDS.jpg" style="width:100%; max-width:600px; height:auto; display:block; margin: 1.5rem auto; border-radius:8px; border: 1px solid rgba(255,255,255,0.1);" alt="Nanoemulsion Transdermal System">
+                    <p class="ai-image-note">该插图由生成式 AI（ChatGPT）生成。</p>
                 </div>
                 `,
 
@@ -2624,6 +2859,42 @@ function checkPersonalAccess() {
         
         document.addEventListener('DOMContentLoaded', loadPaperMetrics);
     </script>
+
+    <script>
+        (function () {
+            const hint = document.getElementById('global-scroll-hint');
+            const aboutView = document.getElementById('about-view');
+            const researchView = document.getElementById('research-view');
+            if (!hint || !aboutView || !researchView) return;
+
+            function updateScrollHint() {
+                const activeView = aboutView.classList.contains('active')
+                    ? aboutView
+                    : researchView.classList.contains('active')
+                        ? researchView
+                        : null;
+
+                if (!activeView) {
+                    hint.classList.remove('is-visible');
+                    return;
+                }
+
+                const remaining = activeView.scrollHeight - activeView.scrollTop - activeView.clientHeight;
+                hint.classList.toggle('is-visible', remaining > 90);
+            }
+
+            aboutView.addEventListener('scroll', updateScrollHint, { passive: true });
+            researchView.addEventListener('scroll', updateScrollHint, { passive: true });
+            window.addEventListener('resize', updateScrollHint);
+
+            const observer = new MutationObserver(updateScrollHint);
+            observer.observe(aboutView, { attributes: true, attributeFilter: ['class'] });
+            observer.observe(researchView, { attributes: true, attributeFilter: ['class'] });
+
+            updateScrollHint();
+        })();
+    </script>
+
 </body>
 
 </html>
