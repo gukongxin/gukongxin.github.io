@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kongxin Gu (顾孔新)</title>
+    <title>Kongxin Gu (顾孔新) | Kyoto University | Plasma Proteomics</title>
+    <meta name="description" content="Kongxin Gu (顾孔新) is a Research Fellow at Kyoto University, Japan. His current research focuses on developing analytical methods for plasma proteomics.">
+    <link rel="canonical" href="https://gukongxin.github.io/">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://gukongxin.github.io/">
+    <meta property="og:title" content="Kongxin Gu (顾孔新) | Kyoto University | Plasma Proteomics">
+    <meta property="og:description" content="Kongxin Gu (顾孔新) is a Research Fellow at Kyoto University, Japan. His current research focuses on developing analytical methods for plasma proteomics.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://gukongxin.github.io/#profile","url":"https://gukongxin.github.io/","mainEntity":{"@type":"Person","@id":"https://gukongxin.github.io/#person","name":"Kongxin Gu","alternateName":"顾孔新","url":"https://gukongxin.github.io/","jobTitle":"Research Fellow","affiliation":{"@type":"CollegeOrUniversity","name":"Kyoto University"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Kumamoto University"},"knowsAbout":"Plasma proteomics and analytical method development","sameAs":["https://orcid.org/0009-0009-9685-2104","https://www.researchgate.net/profile/Kongxin-Gu","https://github.com/gukongxin"]}}</script>
     <script type="text/javascript" src="https://embed.altmetric.com/assets/embed.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -2537,9 +2544,29 @@ function checkPersonalAccess() {
             if (window.matchMedia('(max-width: 1100px)').matches) window.scrollTo(0, 0);
         }
 
+        const seoMeta = {
+            en: {
+                title: 'Kongxin Gu (顾孔新) | Kyoto University | Plasma Proteomics',
+                description: 'Kongxin Gu (顾孔新) is a Research Fellow at Kyoto University, Japan. His current research focuses on developing analytical methods for plasma proteomics.'
+            },
+            zh: {
+                title: '顾孔新（Kongxin Gu）| 京都大学 | 血浆蛋白质组学',
+                description: '顾孔新（Kongxin Gu），日本京都大学药学研究科 Research Fellow，目前主要从事血浆蛋白质组学分析方法开发。'
+            },
+            ja: {
+                title: 'Kongxin Gu（顾孔新）| 京都大学 | 血漿プロテオミクス',
+                description: 'Kongxin Gu（顾孔新）は京都大学大学院薬学研究科のResearch Fellowです。現在は血漿プロテオミクスの分析法開発に取り組んでいます。'
+            }
+        };
+
         function changeLang(lang) {
             if (!i18n[lang]) lang = 'en';
             // Keep the established document language and fallback font behavior.
+            document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+            document.title = seoMeta[lang].title;
+            document.querySelector('meta[name="description"]').content = seoMeta[lang].description;
+            document.querySelector('meta[property="og:title"]').content = seoMeta[lang].title;
+            document.querySelector('meta[property="og:description"]').content = seoMeta[lang].description;
 
             document.querySelectorAll('[data-t]').forEach(el => {
                 const key = el.getAttribute('data-t');
